@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#1e293b"/>
+  <rect x="150" y="85" width="100" height="80" rx="8" fill="#10b981" opacity="0.2"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="500" font-size="16" fill="#64748b">Captura del proyecto</text>
+  <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="400" font-size="12" fill="#475569">Reemplaza con imagen real</text>
+</svg>
