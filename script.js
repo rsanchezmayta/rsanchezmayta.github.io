@@ -158,10 +158,10 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
-  // Neural Network Background (canvas)
+  // Neural Network Background (canvas) - handles multiple canvases
   // ========================================
-  const initNeuralBackground = () => {
-    const canvas = document.getElementById('neural-bg');
+  const createNeuralBackground = (canvasId) => {
+    const canvas = document.getElementById(canvasId);
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
@@ -256,6 +256,11 @@
 
     resize();
     animate();
+  };
+
+  const initNeuralBackgrounds = () => {
+    createNeuralBackground('neural-bg');
+    createNeuralBackground('neural-bg-about');
   };
 
   // ========================================
@@ -555,7 +560,7 @@
   // Initialize all
   // ========================================
   const init = () => {
-    initNeuralBackground();
+    initNeuralBackgrounds();
     initSkillRadar();
   };
 

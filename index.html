@@ -87,74 +87,64 @@
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="avatar-scene" data-depth="0.3">
-          <!-- Neural network background canvas -->
-          <canvas id="neural-bg" class="neural-canvas"></canvas>
-          
-          <!-- Main avatar card -->
-          <div class="avatar-card">
-            <div class="avatar-ring-outer">
-              <div class="avatar-ring-middle">
-                <div class="avatar-ring-inner">
-                  <img src="icon.png" alt="Robinson Josué Sánchez Mayta" class="avatar-img" loading="eager">
+        <div class="visual-card" data-depth="0.3">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="code-window">
+              <div class="window-bar">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
                 </div>
               </div>
+              <pre class="code-preview"><code><span class="kw">import</span> <span class="lib">pandas</span> <span class="kw">as</span> <span class="lib">pd</span>
+<span class="kw">from</span> <span class="lib">sklearn</span> <span class="kw">import</span> <span class="fn">model_selection</span>
+
+<span class="comment"># Cargar dataset</span>
+<span class="var">df</span> <span class="op">=</span> <span class="lib">pd</span><span class="op">.</span><span class="fn">read_csv</span>(<span class="str">'data.csv'</span>)
+
+<span class="comment"># Feature engineering</span>
+<span class="var">X</span> <span class="op">=</span> <span class="var">df</span><span class="op">.</span><span class="fn">drop</span>(<span class="str">'target'</span>, <span class="kw">axis</span><span class="op">=</span><span class="num">1</span>)
+<span class="var">y</span> <span class="op">=</span> <span class="var">df</span><span class="op">[</span><span class="str">'target'</span><span class="op">]</span>
+
+<span class="comment"># Train model</span>
+<span class="var">model</span> <span class="op">=</span> <span class="lib">XGBoost</span>()
+<span class="var">model</span><span class="op">.</span><span class="fn">fit</span>(<span class="var">X</span>, <span class="var">y</span>)
+
+<span class="comment"># Predecir & evaluar</span>
+<span class="var">preds</span> <span class="op">=</span> <span class="var">model</span><span class="op">.</span><span class="fn">predict</span>(<span class="var">X_test</span>)</code></pre>
             </div>
-            
-            <!-- Orbital tech icons -->
-            <div class="orbital-ring" aria-hidden="true">
-              <div class="orbit-item" data-angle="0" data-icon="python">
-                <div class="orbit-tooltip">Python</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div class="metrics-grid">
+              <div class="metric">
+                <span class="metric-value" data-count="94">0</span>
+                <span class="metric-label">Accuracy %</span>
               </div>
-              <div class="orbit-item" data-angle="60" data-icon="pytorch">
-                <div class="orbit-tooltip">PyTorch</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <div class="metric">
+                <span class="metric-value" data-count="23">0</span>
+                <span class="metric-label">Proyectos</span>
               </div>
-              <div class="orbit-item" data-angle="120" data-icon="sql">
-                <div class="orbit-tooltip">SQL</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              <div class="metric">
+                <span class="metric-value" data-count="12">0</span>
+                <span class="metric-label">Tecnologías</span>
               </div>
-              <div class="orbit-item" data-angle="180" data-icon="docker">
-                <div class="orbit-tooltip">Docker</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <div class="metric">
+                <span class="metric-value" data-count="3">0</span>
+                <span class="metric-label">Años exp.</span>
               </div>
-              <div class="orbit-item" data-angle="240" data-icon="git">
-                <div class="orbit-tooltip">Git</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <div class="orbit-item" data-angle="300" data-icon="linux">
-                <div class="orbit-tooltip">Linux</div>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-            </div>
-            
-            <!-- Pulse rings -->
-            <div class="pulse-rings" aria-hidden="true">
-              <div class="pulse-ring"></div>
-              <div class="pulse-ring"></div>
-              <div class="pulse-ring"></div>
             </div>
           </div>
-          
-          <!-- Stats below avatar -->
-          <div class="hero-stats-grid">
-            <div class="stat-item">
-              <span class="stat-value" data-count="94">0</span>
-              <span class="stat-label">Model Accuracy</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" data-count="23">0</span>
-              <span class="stat-label">Proyectos</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" data-count="12">0</span>
-              <span class="stat-label">Tecnologías</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" data-count="3">0</span>
-              <span class="stat-label">Años exp.</span>
-            </div>
+        </div>
+        <div class="floating-elements" aria-hidden="true">
+          <div class="float-item" data-speed="0.5" style="--i: 0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.8" style="--i: 1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.3" style="--i: 2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.6" style="--i: 3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
         </div>
       </div>
@@ -214,6 +204,59 @@
             </div>
           </div>
           <div class="about-visual">
+            <!-- Avatar with neural network background -->
+            <div class="avatar-scene" data-depth="0.3" style="max-width: 380px; margin: 0 auto;">
+              <!-- Neural network background canvas -->
+              <canvas id="neural-bg-about" class="neural-canvas"></canvas>
+              
+              <!-- Main avatar card -->
+              <div class="avatar-card">
+                <div class="avatar-ring-outer">
+                  <div class="avatar-ring-middle">
+                    <div class="avatar-ring-inner">
+                      <img src="icon.png" alt="Robinson Josué Sánchez Mayta" class="avatar-img" loading="eager">
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Orbital tech icons -->
+                <div class="orbital-ring" aria-hidden="true">
+                  <div class="orbit-item" data-angle="0" data-icon="python">
+                    <div class="orbit-tooltip">Python</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="orbit-item" data-angle="60" data-icon="pytorch">
+                    <div class="orbit-tooltip">PyTorch</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="orbit-item" data-angle="120" data-icon="sql">
+                    <div class="orbit-tooltip">SQL</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                  </div>
+                  <div class="orbit-item" data-angle="180" data-icon="docker">
+                    <div class="orbit-tooltip">Docker</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="orbit-item" data-angle="240" data-icon="git">
+                    <div class="orbit-tooltip">Git</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="orbit-item" data-angle="300" data-icon="linux">
+                    <div class="orbit-tooltip">Linux</div>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                </div>
+                
+                <!-- Pulse rings -->
+                <div class="pulse-rings" aria-hidden="true">
+                  <div class="pulse-ring"></div>
+                  <div class="pulse-ring"></div>
+                  <div class="pulse-ring"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Skill Radar & Journey -->
             <div class="skill-radar-section">
               <div class="radar-container" aria-hidden="true">
                 <canvas id="skill-radar" class="radar-canvas"></canvas>
