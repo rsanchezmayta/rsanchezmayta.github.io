@@ -1,0 +1,17 @@
+{
+  "name": "Robinson J. Sánchez Mayta",
+  "short_name": "RJS",
+  "description": "Portfolio & CV - Ingeniería en Ciencia de Datos e IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f0d",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

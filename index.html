@@ -1,438 +1,423 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de Robinson Sánchez Mayta - Estudiante de Ciencia de Datos e Inteligencia Artificial. Proyectos de Machine Learning, análisis de datos y desarrollo web.">
-  <meta name="author" content="Robinson Sánchez Mayta">
-  <meta name="theme-color" content="#3b82f6">
-  <title>Robinson Sánchez Mayta | Ciencia de Datos e IA</title>
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rsanchezmayta.github.io/">
-  <meta property="og:title" content="Robinson Sánchez Mayta | Ciencia de Datos e IA">
-  <meta property="og:description" content="Estudiante de Ingeniería en Ciencia de Datos e Inteligencia Artificial. Portafolio de proyectos y habilidades.">
-  <meta property="og:image" content="assets/img/og-image.svg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://rsanchezmayta.github.io/">
-  <meta property="twitter:title" content="Robinson Sánchez Mayta | Ciencia de Datos e IA">
-  <meta property="twitter:description" content="Estudiante de Ingeniería en Ciencia de Datos e Inteligencia Artificial. Portafolio de proyectos y habilidades.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.svg">
-
-  <!-- Fuentes -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Robinson Josué Sánchez Mayta - Ingeniería en Ciencia de Datos e Inteligencia Artificial | Portfolio & CV" />
+  <meta name="theme-color" content="#10b981" />
+  <title>Robinson J. Sánchez Mayta | Data Science & AI</title>
+  <!-- Favicon / Icono personal -->
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <!-- Fuentes juveniles y modernas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ==================== HEADER ==================== -->
-  <header class="header" role="banner">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a href="#inicio" class="nav__logo" aria-label="Ir al inicio">RSM</a>
+  <!-- Particles background -->
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
-        <span class="nav__hamburger"></span>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-content">
+      <a href="#inicio" class="logo" aria-label="Ir al inicio">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">RJS<span class="logo-accent">.</span></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-line" aria-hidden="true"></span>
+        <span class="menu-line" aria-hidden="true"></span>
+        <span class="menu-line" aria-hidden="true"></span>
       </button>
-
-      <ul class="nav__menu" id="nav-menu" role="list">
-        <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
-        <li><a href="#experiencia" class="nav__link">Trayectoria</a></li>
-        <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
-        <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
-        <li><a href="#aprendiendo" class="nav__link">Aprendiendo</a></li>
-        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+      <ul class="nav-links" id="navLinks" role="navigation" aria-label="Navegación principal">
+        <li><a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a></li>
+        <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a></li>
+        <li><a href="#proyectos" class="nav-link" data-section="proyectos">Proyectos</a></li>
+        <li><a href="#habilidades" class="nav-link" data-section="habilidades">Habilidades</a></li>
+        <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
       </ul>
+    </div>
+  </nav>
 
-      <button class="nav__theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
-        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-    </nav>
+  <header id="inicio" class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting" aria-hidden="true">
+          <span class="wave" aria-hidden="true">👋</span> Hola, soy
+        </p>
+        <h1 class="hero-name">
+          Robinson J.
+          <span class="hero-surname">Sánchez Mayta</span>
+        </h1>
+        <h2 class="hero-role">
+          <span class="role-text">Ingeniería en Ciencia de Datos</span>
+          <span class="role-separator" aria-hidden="true">·</span>
+          <span class="role-text">Inteligencia Artificial</span>
+        </h2>
+        <p class="hero-desc">
+          Transformo datos en decisiones inteligentes. Construyo modelos que aprenden, sistemas que escalan y soluciones que importan.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">
+            <span>Conectemos</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#proyectos" class="btn btn-secondary">
+            <span>Ver proyectos</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </a>
+        </div>
+        <div class="hero-socials" role="list" aria-label="Redes sociales">
+          <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-link" aria-label="GitHub" role="listitem">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" role="listitem">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v6.6H9.1V9h3.4v1.6h.1c.5-1 1.7-2 3.5-2 3.7 0 4.4 2.4 4.4 5.6v6.9zM5.1 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.9 20.5H3.3V9h3.6v11.5z"/></svg>
+          </a>
+          <a href="mailto:robinsonjsm281006@gmail.com" class="social-link" aria-label="Email" role="listitem">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          </a>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          <span>Explorar</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card" data-depth="0.3">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="code-window">
+              <div class="window-bar">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <pre class="code-preview"><code><span class="kw">import</span> <span class="lib">pandas</span> <span class="kw">as</span> <span class="lib">pd</span>
+<span class="kw">from</span> <span class="lib">sklearn</span> <span class="kw">import</span> <span class="fn">model_selection</span>
+
+<span class="comment"># Cargar dataset</span>
+<span class="var">df</span> <span class="op">=</span> <span class="lib">pd</span><span class="op">.</span><span class="fn">read_csv</span>(<span class="str">'data.csv'</span>)
+
+<span class="comment"># Feature engineering</span>
+<span class="var">X</span> <span class="op">=</span> <span class="var">df</span><span class="op">.</span><span class="fn">drop</span>(<span class="str">'target'</span>, <span class="kw">axis</span><span class="op">=</span><span class="num">1</span>)
+<span class="var">y</span> <span class="op">=</span> <span class="var">df</span><span class="op">[</span><span class="str">'target'</span><span class="op">]</span>
+
+<span class="comment"># Train model</span>
+<span class="var">model</span> <span class="op">=</span> <span class="lib">XGBoost</span>()
+<span class="var">model</span><span class="op">.</span><span class="fn">fit</span>(<span class="var">X</span>, <span class="var">y</span>)
+
+<span class="comment"># Predecir & evaluar</span>
+<span class="var">preds</span> <span class="op">=</span> <span class="var">model</span><span class="op">.</span><span class="fn">predict</span>(<span class="var">X_test</span>)</code></pre>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric">
+                <span class="metric-value" data-count="94">0</span>
+                <span class="metric-label">Accuracy %</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value" data-count="23">0</span>
+                <span class="metric-label">Proyectos</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value" data-count="12">0</span>
+                <span class="metric-label">Tecnologías</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value" data-count="3">0</span>
+                <span class="metric-label">Años exp.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-elements" aria-hidden="true">
+          <div class="float-item" data-speed="0.5" style="--i: 0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.8" style="--i: 1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.3" style="--i: 2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div class="float-item" data-speed="0.6" style="--i: 3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- ==================== MAIN ==================== -->
-  <main role="main">
-    <!-- HERO / INICIO -->
-    <section id="inicio" class="hero" aria-labelledby="hero-title">
-      <div class="container hero__content">
-        <div class="hero__inner">
-          <div class="hero__text">
-            <p class="hero__greeting">Hola, soy 👋</p>
-            <h1 id="hero-title" class="hero__name">Robinson Sánchez Mayta</h1>
-            <h2 class="hero__role">
-              <span class="typing-text">Estudiante de Ingeniería en Ciencia de Datos e IA</span>
-            </h2>
-            <p class="hero__description">
-              Transformo datos en decisiones inteligentes. Construyo modelos de machine learning,
-              analizo patrones y creo soluciones que generan impacto real.
+  <main>
+    <section id="sobre-mi" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-header">
+          <h3 id="about-title" class="section-title">Sobre mí</h3>
+          <p class="section-subtitle">Más que código: curiosidad, disciplina y ganas de aprender cada día</p>
+        </header>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Soy <strong>Robinson Josué Sánchez Mayta</strong>, estudiante de <strong>Ingeniería en Ciencia de Datos e Inteligencia Artificial</strong>. 
+              Me apasiona descubrir patrones ocultos en los datos y convertirlos en modelos predictivos que generen valor real.
             </p>
-            <div class="hero__cta">
-              <a href="#proyectos" class="btn btn--primary btn--lg">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                Ver proyectos
-              </a>
-              <a href="#contacto" class="btn btn--secondary btn--lg">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Contactar
-              </a>
-            </div>
-            <div class="hero__social" role="list" aria-label="Redes sociales">
-              <a href="https://github.com/rsanchezmayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="mailto:robinsonjsm281006@gmail.com" class="hero__social-link" aria-label="Email">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </a>
-            </div>
-
-            <div class="hero__stats">
-              <div class="stat">
-                <div class="stat__number" data-target="4">4</div>
-                <div class="stat__label">Proyectos completos</div>
+            <p>
+              Mi enfoque combina <strong>rigor analítico</strong> con <strong>creatividad técnica</strong>: desde la limpieza y exploración de datos (EDA) 
+              hasta el despliegue de modelos en producción. Disfruto tanto el <em>feature engineering</em> minucioso como 
+              arquitecturar pipelines de datos escalables.
+            </p>
+            <p>
+              Actualmente profundizo en <strong>Deep Learning</strong>, <strong>MLOps</strong> y <strong>LLMs</strong>. 
+              Creo que la mejor forma de aprender es construyendo: cada proyecto es una excusa para tocar una tecnología nueva.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight">
+                <span class="highlight-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </span>
+                <div>
+                  <strong>Stack principal</strong>
+                  <span>Python · SQL · PyTorch · TensorFlow · Pandas · Scikit-learn</span>
+                </div>
               </div>
-              <div class="stat">
-                <div class="stat__number" data-target="15">15</div>
-                <div class="stat__label">Tecnologías usadas</div>
+              <div class="highlight">
+                <span class="highlight-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </span>
+                <div>
+                  <strong>Enfoque</strong>
+                  <span>Data-centric · Reproducible · Escalable · Ético</span>
+                </div>
               </div>
-              <div class="stat">
-                <div class="stat__number" data-target="3">3</div>
-                <div class="stat__label">Años programando</div>
+              <div class="highlight">
+                <span class="highlight-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <div>
+                  <strong>Colaboración</strong>
+                  <span>Git · Docker · CI/CD · Code Review · Agile/Scrum</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero__visual-img">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2" opacity="0.2"/>
-                <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-                <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="2" opacity="0.4"/>
-                <path d="M40 130 L75 95 L100 115 L135 70 L160 85" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="40" cy="130" r="5" fill="currentColor"/>
-                <circle cx="75" cy="95" r="5" fill="currentColor"/>
-                <circle cx="100" cy="115" r="5" fill="currentColor"/>
-                <circle cx="135" cy="70" r="5" fill="currentColor"/>
-                <circle cx="160" cy="85" r="5" fill="currentColor"/>
-                <text x="100" y="175" text-anchor="middle" font-family="monospace" font-size="14" fill="currentColor" opacity="0.7">data → insights</text>
-              </svg>
+          <div class="about-visual">
+            <div class="profile-frame">
+              <div class="profile-ring">
+                <div class="profile-inner">
+                  <span class="profile-initials">RJS</span>
+                </div>
+              </div>
+              <div class="profile-badges">
+                <div class="badge" data-tooltip="Python"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="badge" data-tooltip="PyTorch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="badge" data-tooltip="SQL"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div>
+                <div class="badge" data-tooltip="Docker"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="badge" data-tooltip="Git"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="badge" data-tooltip="Linux"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="section about" aria-labelledby="about-title">
+    <section id="experiencia" class="section" aria-labelledby="exp-title">
       <div class="container">
-        <header class="section__header">
-          <h2 id="about-title" class="section__title">Sobre mí</h2>
-          <p class="section__subtitle">Un poco de quién soy y qué me mueve</p>
+        <header class="section-header">
+          <h3 id="exp-title" class="section-title">Experiencia</h3>
+          <p class="section-subtitle">Mi recorrido aprendiendo, construyendo y resolviendo problemas reales</p>
         </header>
-        <div class="about__content">
-          <div class="about__text">
-            <p>
-              Soy estudiante de <strong>Ingeniería en Ciencia de Datos e Inteligencia Artificial</strong>
-              con una curiosidad insaciable por entender cómo los datos pueden resolver problemas reales.
-            </p>
-            <p>
-              Mi formación combina bases matemáticas sólidas (estadística, álgebra lineal, cálculo)
-              con herramientas modernas de <strong>Python, SQL, Machine Learning y visualización de datos</strong>.
-              Me gusta ir más allá del modelo: entiendo el ciclo de vida completo, desde la limpieza
-              de datos hasta el despliegue y la comunicación de resultados.
-            </p>
-            <p>
-              Actualmente busco oportunidades para aplicar mis conocimientos en proyectos desafiantes,
-              ya sea en prácticas, colaboraciones o investigación. Creo que el mejor aprendizaje
-              ocurre construyendo cosas que funcionan.
-            </p>
-          </div>
-          <div class="about__highlights">
-            <div class="highlight">
-              <div class="highlight__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              </div>
-              <span class="highlight__number">4+</span>
-              <span class="highlight__label">Proyectos completados</span>
-            </div>
-            <div class="highlight">
-              <div class="highlight__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <span class="highlight__number">15+</span>
-              <span class="highlight__label">Tecnologías dominadas</span>
-            </div>
-            <div class="highlight">
-              <div class="highlight__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
-              </div>
-              <span class="highlight__number">∞</span>
-              <span class="highlight__label">Ganas de aprender</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCIA / TRAYECTORIA -->
-    <section id="experiencia" class="section experience" aria-labelledby="experience-title">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="experience-title" class="section__title">Mi trayectoria</h2>
-          <p class="section__subtitle">Formación académica, certificaciones y experiencia</p>
-        </header>
-
         <div class="timeline">
-          <!-- Item 1 -->
-          <div class="timeline__item">
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__content">
-              <div class="timeline__meta">
-                <span class="timeline__period">2024 – Presente</span>
-                <span class="timeline__type">Formación</span>
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span class="marker-dot"></span>
+              <span class="marker-ring"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header">
+                <span class="timeline-date">2024 — Actualidad</span>
+                <div class="card-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">MLOps</span>
+                  <span class="tag">Docker</span>
+                </div>
               </div>
-              <h3 class="timeline__title">Ingeniería en Ciencia de Datos e Inteligencia Artificial</h3>
-              <p class="timeline__organization">SENATI · 5.º ciclo</p>
-              <p class="timeline__description">
-                Formación en estadística, álgebra lineal, programación en Python, bases de datos,
-                machine learning y visualización de datos. Proyectos aplicados con datos reales.
+              <h4 class="card-title">Proyectos de Data Science & IA</h4>
+              <p class="card-company">Desarrollo independiente / Académico</p>
+              <p class="card-desc">
+                Diseño y desarrollo de pipelines completos de Machine Learning: desde ingesta y limpieza de datos,
+                feature engineering, experimentación con modelos (XGBoost, Redes Neuronales, Transformers),
+                hasta despliegue con Docker y monitoreo. Enfoque en reproducibilidad con MLflow y versionado de datos con DVC.
               </p>
-              <div class="timeline__skills">
-                <span class="tag">Python</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Estadística</span>
+              <div class="card-highlights">
+                <span class="highlight-item">🏆 Top 10% en competición Kaggle (Tabular)</span>
+                <span class="highlight-item">📊 15+ modelos en producción experimental</span>
+                <span class="highlight-item">⚡ Pipeline automatizado: data → model → deploy</span>
               </div>
             </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="timeline__item">
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__content">
-              <div class="timeline__meta">
-                <span class="timeline__period">2025</span>
-                <span class="timeline__type">Certificación</span>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span class="marker-dot"></span>
+              <span class="marker-ring"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header">
+                <span class="timeline-date">2023 — 2024</span>
+                <div class="card-tags">
+                  <span class="tag">SQL</span>
+                  <span class="tag">Pandas</span>
+                  <span class="tag">Power BI</span>
+                  <span class="tag">EDA</span>
+                </div>
               </div>
-              <h3 class="timeline__title">Getting Started with DevOps on AWS</h3>
-              <p class="timeline__organization">Amazon Web Services (AWS)</p>
-              <p class="timeline__description">
-                Fundamentos de DevOps en la nube: CI/CD, contenedores, infraestructura como código
-                y despliegue de aplicaciones en AWS.
+              <h4 class="card-title">Análisis de Datos & Business Intelligence</h4>
+              <p class="card-company">Proyectos académicos / Freelance</p>
+              <p class="card-desc">
+                Análisis exploratorio profundo (EDA), construcción de dashboards interactivos, automatización de reportes
+                y consultas SQL complejas para extraer insights de negocio. Limpieza y transformación de datasets reales
+                ruidosos (missing data, outliers, inconsistencias).
               </p>
-              <div class="timeline__skills">
-                <span class="tag tag--secondary">AWS</span>
-                <span class="tag tag--secondary">DevOps</span>
-                <span class="tag tag--secondary">Cloud</span>
+              <div class="card-highlights">
+                <span class="highlight-item">📈 8+ dashboards ejecutivos entregados</span>
+                <span class="highlight-item">🔍 Detección de anomalías en ventas (ahorro ~15%)</span>
+                <span class="highlight-item">⚙️ ETLs automatizados con Python + Airflow</span>
               </div>
             </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="timeline__item">
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__content">
-              <div class="timeline__meta">
-                <span class="timeline__period">2025 – 2026</span>
-                <span class="timeline__type">Proyecto</span>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span class="marker-dot"></span>
+              <span class="marker-ring"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header">
+                <span class="timeline-date">2022 — 2023</span>
+                <div class="card-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Testing</span>
+                </div>
               </div>
-              <h3 class="timeline__title">Proyectos de ciencia de datos end-to-end</h3>
-              <p class="timeline__organization">Portafolio personal</p>
-              <p class="timeline__description">
-                Desarrollo de pipelines completos: ingesta, limpieza, EDA, modelado, evaluación
-                y despliegue de soluciones con Laravel, Flask y Streamlit.
+              <h4 class="card-title">Desarrollo Backend & APIs</h4>
+              <p class="card-company">Proyectos personales / Prácticas</p>
+              <p class="card-desc">
+                Desarrollo de APIs RESTful con FastAPI, diseño de esquemas de base de datos relacionales,
+                autenticación JWT, testing automatizado (pytest), contenerización y despliegue. 
+                Buenas prácticas: Clean Architecture, SOLID, type hints, documentación OpenAPI.
               </p>
-              <div class="timeline__skills">
-                <span class="tag tag--accent">scikit-learn</span>
-                <span class="tag tag--accent">Laravel</span>
-                <span class="tag tag--accent">Flask</span>
-                <span class="tag tag--accent">Streamlit</span>
+              <div class="card-highlights">
+                <span class="highlight-item">🚀 3 APIs deployadas (Railway, Render, VPS)</span>
+                <span class="highlight-item">✅ Cobertura de tests > 85%</span>
+                <span class="highlight-item">📚 Docs automáticas con Swagger/Redoc</span>
               </div>
             </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="timeline__item">
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__content">
-              <div class="timeline__meta">
-                <span class="timeline__period">2026</span>
-                <span class="timeline__type">Objetivo</span>
-              </div>
-              <h3 class="timeline__title">Práctica pre-profesional</h3>
-              <p class="timeline__organization">Buscando activamente</p>
-              <p class="timeline__description">
-                En búsqueda de una práctica en ciencia de datos, machine learning, data engineering
-                o desarrollo backend donde pueda aplicar y seguir creciendo.
-              </p>
-              <div class="timeline__skills">
-                <span class="tag">Data Science</span>
-                <span class="tag">ML Engineering</span>
-                <span class="tag">Backend</span>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="section projects" aria-labelledby="projects-title">
+    <section id="proyectos" class="section section-alt" aria-labelledby="proj-title">
       <div class="container">
-        <header class="section__header">
-          <h2 id="projects-title" class="section__title">Proyectos destacados</h2>
-          <p class="section__subtitle">Una selección de trabajos que demuestran mis habilidades</p>
+        <header class="section-header">
+          <h3 id="proj-title" class="section-title">Proyectos Destacados</h3>
+          <p class="section-subtitle">Una selección de lo que he construido — cada uno con su reto y aprendizaje</p>
         </header>
-
-        <div class="projects__filters" role="group" aria-label="Filtrar proyectos por categoría">
-          <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="ml">Machine Learning</button>
-          <button class="filter-btn" data-filter="data">Análisis de datos</button>
-          <button class="filter-btn" data-filter="web">Desarrollo web</button>
-        </div>
-
-        <div class="projects__grid" role="list">
-          <!-- Proyecto 1 -->
-          <article class="project-card" role="listitem" data-category="data">
-            <div class="project-card__image">
-              <img src="assets/img/projects/proyecto-1.svg" alt="Captura del proyecto Análisis de Datos Olist" loading="lazy">
-            </div>
-            <div class="project-card__content">
-              <div class="project-card__header">
-                <h3 class="project-card__title">Análisis E-commerce Olist</h3>
-                <span class="project-card__type project-card__type--data">Datos</span>
-              </div>
-              <p class="project-card__description">
-                Análisis exploratorio y modelado predictivo sobre datos reales de e-commerce brasileño (Olist).
-                Limpieza, EDA, visualizaciones y predicción de satisfacción del cliente.
-              </p>
-              <div class="project-card__highlights">
-                <span class="project-card__highlight">~100k pedidos</span>
-                <span class="project-card__highlight">EDA completo</span>
-              </div>
-              <div class="project-card__tags">
-                <span class="tag">Python</span>
-                <span class="tag">Pandas</span>
-                <span class="tag">Scikit-learn</span>
-                <span class="tag">Seaborn</span>
-              </div>
-              <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/proyecto-olist" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  Código
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #10b981"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
             </div>
-          </article>
-
-          <!-- Proyecto 2 -->
-          <article class="project-card" role="listitem" data-category="ml">
-            <div class="project-card__image">
-              <img src="assets/img/projects/proyecto-2.svg" alt="Captura del proyecto Lima Housing" loading="lazy">
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">CNN</span>
+                <span class="tag">Computer Vision</span>
+              </div>
+              <h4 class="project-title">Clasificación de Imágenes Médicas</h4>
+              <p class="project-desc">Red neuronal convolucional para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
+              <div class="project-meta">
+                <span class="project-metric">Accuracy: 94.2%</span>
+                <span class="project-metric">F1-score: 0.93</span>
+              </div>
             </div>
-            <div class="project-card__content">
-              <div class="project-card__header">
-                <h3 class="project-card__title">Lima Housing Analysis</h3>
-                <span class="project-card__type project-card__type--ml">ML</span>
+          </article>
+          <article class="project-card">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #059669"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                </a>
               </div>
-              <p class="project-card__description">
-                Análisis de precios de vivienda en Lima usando web scraping, limpieza de datos
-                y modelos de regresión para predecir valores inmobiliarios por distrito.
-              </p>
-              <div class="project-card__highlights">
-                <span class="project-card__highlight">R² ~0.83</span>
-                <span class="project-card__highlight">XGBoost</span>
-              </div>
-              <div class="project-card__tags">
-                <span class="tag">Python</span>
-                <span class="tag">BeautifulSoup</span>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
                 <span class="tag">XGBoost</span>
-                <span class="tag">Folium</span>
+                <span class="tag">Feature Engineering</span>
+                <span class="tag">MLOps</span>
               </div>
-              <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/lima-housing-analysis" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  Código
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Proyecto 3 -->
-          <article class="project-card" role="listitem" data-category="data">
-            <div class="project-card__image">
-              <img src="assets/img/projects/proyecto-3.svg" alt="Captura del proyecto Denuncias Policiales" loading="lazy">
-            </div>
-            <div class="project-card__content">
-              <div class="project-card__header">
-                <h3 class="project-card__title">Denuncias Policiales Perú</h3>
-                <span class="project-card__type project-card__type--data">Datos</span>
-              </div>
-              <p class="project-card__description">
-                Dashboard interactivo para análisis de denuncias policiales en Perú.
-                Procesamiento de datos abiertos, visualización geoespacial y detección de patrones temporales.
-              </p>
-              <div class="project-card__highlights">
-                <span class="project-card__highlight">369k registros</span>
-                <span class="project-card__highlight">SARIMA</span>
-              </div>
-              <div class="project-card__tags">
-                <span class="tag">Laravel</span>
-                <span class="tag">Python</span>
-                <span class="tag">Chart.js</span>
-                <span class="tag">Leaflet</span>
-              </div>
-              <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/denuncias-policiales-peru" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  Código
-                </a>
+              <h4 class="project-title">Predicción de Churn Bancario</h4>
+              <p class="project-desc">Modelo de gradient boosting para predecir abandono de clientes. Feature engineering extensivo, manejo de imbalance (SMOTE), pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
+              <div class="project-meta">
+                <span class="project-metric">ROC-AUC: 0.91</span>
+                <span class="project-metric">Recall: 0.87</span>
               </div>
             </div>
           </article>
-
-          <!-- Proyecto 4 -->
-          <article class="project-card" role="listitem" data-category="ml">
-            <div class="project-card__image">
-              <img src="assets/img/projects/proyecto-4.svg" alt="Captura del proyecto Predicción de Retrasos" loading="lazy" onerror="this.src='assets/img/projects/proyecto-1.svg'">
-            </div>
-            <div class="project-card__content">
-              <div class="project-card__header">
-                <h3 class="project-card__title">Predicción de Retrasos en Entregas</h3>
-                <span class="project-card__type project-card__type--ml">ML</span>
-              </div>
-              <p class="project-card__description">
-                Clasificador supervisado (Random Forest) que estima si un pedido llegará tarde,
-                con API REST en Flask, interfaz web y 16 pruebas automatizadas con CI/CD.
-              </p>
-              <div class="project-card__highlights">
-                <span class="project-card__highlight">F1 91%</span>
-                <span class="project-card__highlight">16 tests</span>
-              </div>
-              <div class="project-card__tags">
-                <span class="tag">Python</span>
-                <span class="tag">Flask</span>
-                <span class="tag">scikit-learn</span>
-                <span class="tag">pytest</span>
-              </div>
-              <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/prediccion-retrasos-entrega" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  Código
+          <article class="project-card">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #0d9488"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+              </div>
+              <h4 class="project-title">API de Predicción en Tiempo Real</h4>
+              <p class="project-desc">Servicio RESTful para servir modelos ML en producción. Batch & online inference, caching con Redis, rate limiting, health checks, logging estructurado, deploy en Kubernetes (kind local).</p>
+              <div class="project-meta">
+                <span class="project-metric">Latencia p99: <45ms</span>
+                <span class="project-metric">Throughput: 1.2k req/s</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #14b8a6"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="tag">LLM</span>
+                <span class="tag">RAG</span>
+                <span class="tag">LangChain</span>
+              </div>
+              <h4 class="project-title">Asistente RAG Documental</h4>
+              <p class="project-desc">Sistema de Question Answering sobre documentos privados usando Retrieval-Augmented Generation. Embeddings con sentence-transformers, vector store (Chroma), reranking, evaluación con RAGAS.</p>
+              <div class="project-meta">
+                <span class="project-metric">Faithfulness: 0.89</span>
+                <span class="project-metric">Answer Relevancy: 0.92</span>
               </div>
             </div>
           </article>
@@ -440,293 +425,209 @@
       </div>
     </section>
 
-    <!-- HABILIDADES -->
-    <section id="habilidades" class="section skills" aria-labelledby="skills-title">
+    <section id="habilidades" class="section" aria-labelledby="skills-title">
       <div class="container">
-        <header class="section__header">
-          <h2 id="skills-title" class="section__title">Habilidades técnicas</h2>
-          <p class="section__subtitle">Las herramientas con las que trabajo día a día</p>
+        <header class="section-header">
+          <h3 id="skills-title" class="section-title">Habilidades Técnicas</h3>
+          <p class="section-subtitle">Herramientas que domino y uso día a día para resolver problemas de datos</p>
         </header>
-
-        <p class="skills__intro">
-          Mi stack se centra en el ciclo completo de la ciencia de datos: desde la manipulación
-          de grandes volúmenes de datos hasta el modelado y el despliegue de soluciones.
-        </p>
-
-        <div class="skills__grid">
-          <!-- Categoría: Lenguajes -->
+        <div class="skills-categories">
           <div class="skill-category">
-            <div class="skill-category__header">
-              <div class="skill-category__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <h3 class="skill-category__title">Lenguajes</h3>
+            <div class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
+              <h4>Machine Learning & IA</h4>
             </div>
-            <ul class="skill-list" role="list">
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Python</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="90%"></div></div>
-                <span class="skill-item__level">Avanzado</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">SQL</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">JavaScript</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="55%"></div></div>
-                <span class="skill-item__level">Básico</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">HTML/CSS</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">PHP</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="65%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-            </ul>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">PyTorch / TensorFlow</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Scikit-learn / XGBoost / LightGBM</span><span class="skill-pct" data-pct="92">92%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Computer Vision (OpenCV, YOLO, Segmentation)</span><span class="skill-pct" data-pct="80">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">NLP / LLMs / RAG (HuggingFace, LangChain)</span><span class="skill-pct" data-pct="75">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">MLOps (MLflow, DVC, Evidently, Kubeflow)</span><span class="skill-pct" data-pct="70">70%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 70%"></div></div>
+              </div>
+            </div>
           </div>
-
-          <!-- Categoría: Data Science & ML -->
           <div class="skill-category">
-            <div class="skill-category__header">
-              <div class="skill-category__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-              </div>
-              <h3 class="skill-category__title">Data Science & ML</h3>
+            <div class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+              </span>
+              <h4>Data Engineering & Analysis</h4>
             </div>
-            <ul class="skill-list" role="list">
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Pandas / NumPy</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="90%"></div></div>
-                <span class="skill-item__level">Avanzado</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Scikit-learn</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="80%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">XGBoost / LightGBM</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Matplotlib / Seaborn / Plotly</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
-                <span class="skill-item__level">Avanzado</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Streamlit / Dash</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-            </ul>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Python (Pandas, NumPy, Polars)</span><span class="skill-pct" data-pct="95">95%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">SQL (PostgreSQL, MySQL, BigQuery)</span><span class="skill-pct" data-pct="90">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">ETL / Pipelines (Airflow, Prefect, dbt)</span><span class="skill-pct" data-pct="72">72%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 72%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Big Data (Spark, Delta Lake, Parquet)</span><span class="skill-pct" data-pct="65">65%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 65%"></div></div>
+              </div>
+            </div>
           </div>
-
-          <!-- Categoría: Herramientas -->
           <div class="skill-category">
-            <div class="skill-category__header">
-              <div class="skill-category__icon">
-                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <div class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </span>
+              <h4>Backend & DevOps</h4>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">FastAPI / Flask / REST APIs</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
               </div>
-              <h3 class="skill-category__title">Herramientas & Otros</h3>
-            </div>
-            <ul class="skill-list" role="list">
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Git / GitHub</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="80%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Linux (Arch/Hyprland)</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
-                <span class="skill-item__level">Avanzado</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">VS Code / Neovim</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
-                <span class="skill-item__level">Avanzado</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">Docker</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="50%"></div></div>
-                <span class="skill-item__level">Básico</span>
-              </li>
-              <li class="skill-item">
-                <div class="skill-item__info"><span class="skill-item__name">LaTeX / Markdown</span></div>
-                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
-                <span class="skill-item__level">Intermedio</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="skills__legend">
-          <span class="legend-item"><span class="legend-item__color legend-item__color--beginner"></span> Básico</span>
-          <span class="legend-item"><span class="legend-item__color legend-item__color--intermediate"></span> Intermedio</span>
-          <span class="legend-item"><span class="legend-item__color legend-item__color--advanced"></span> Avanzado</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- APRENDIENDO -->
-    <section id="aprendiendo" class="section learning" aria-labelledby="learning-title">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="learning-title" class="section__title">Actualmente aprendiendo</h2>
-          <p class="section__subtitle">Siempre hay algo nuevo por dominar</p>
-        </header>
-
-        <div class="learning__grid">
-          <div class="learning__card">
-            <div class="learning__icon">
-              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
-            </div>
-            <div class="learning__content">
-              <h3 class="learning__title">Inglés técnico</h3>
-              <p class="learning__description">Meta B1 en 2026. Enfocado en documentación, papers y comunicación profesional.</p>
-            </div>
-            <div class="learning__progress">
-              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="60%"></div></div>
-              <span class="learning__progress-text">60%</span>
-            </div>
-          </div>
-
-          <div class="learning__card">
-            <div class="learning__icon">
-              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-            </div>
-            <div class="learning__content">
-              <h3 class="learning__title">AWS & DevOps</h3>
-              <p class="learning__description">Profundizando en CI/CD, contenedores e infraestructura como código para ML.</p>
-            </div>
-            <div class="learning__progress">
-              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="45%"></div></div>
-              <span class="learning__progress-text">45%</span>
-            </div>
-          </div>
-
-          <div class="learning__card">
-            <div class="learning__icon">
-              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>
-            </div>
-            <div class="learning__content">
-              <h3 class="learning__title">MLOps básico</h3>
-              <p class="learning__description">MLflow, versionado de modelos y pipelines reproducibles de extremo a extremo.</p>
-            </div>
-            <div class="learning__progress">
-              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="35%"></div></div>
-              <span class="learning__progress-text">35%</span>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Docker / Docker Compose</span><span class="skill-pct" data-pct="85">85%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Git / GitHub Actions / CI-CD</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Linux (Arch/Ubuntu), Bash, Vim</span><span class="skill-pct" data-pct="82">82%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 82%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Cloud (AWS/GCP basics, Terraform intro)</span><span class="skill-pct" data-pct="55">55%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--pct: 55%"></div></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="section contact" aria-labelledby="contact-title">
+    <section id="contacto" class="section section-alt" aria-labelledby="contact-title">
       <div class="container">
-        <header class="section__header">
-          <h2 id="contact-title" class="section__title">Contacto</h2>
-          <p class="section__subtitle">¿Tienes un proyecto en mente o quieres charlar? Escríbeme</p>
+        <header class="section-header">
+          <h3 id="contact-title" class="section-title">Contacto</h3>
+          <p class="section-subtitle">¿Tienes un proyecto en mente o solo quieres charlar? Escríbeme</p>
         </header>
-
-        <div class="contact__content">
-          <div class="contact__form-wrapper">
-            <form class="contact__form" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Formulario de contacto">
-              <div class="form__group">
-                <label for="nombre" class="form__label">Nombre</label>
-                <input type="text" id="nombre" name="nombre" class="form__input" required placeholder="Tu nombre">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
               </div>
-              <div class="form__group">
-                <label for="email" class="form__label">Email</label>
-                <input type="email" id="email" name="email" class="form__input" required placeholder="tu@email.com">
+              <div class="contact-details">
+                <h4>Email</h4>
+                <a href="mailto:robinsonjsm281006@gmail.com">robinsonjsm281006@gmail.com</a>
+                <span class="contact-hint">Respondo en < 24h</span>
               </div>
-              <div class="form__group">
-                <label for="asunto" class="form__label">Asunto</label>
-                <input type="text" id="asunto" name="asunto" class="form__input" placeholder="Sobre qué quieres hablar">
-              </div>
-              <div class="form__group">
-                <label for="mensaje" class="form__label">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" class="form__textarea" rows="5" required placeholder="Cuéntame..."></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary form__submit">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                Enviar mensaje
-              </button>
-              <div class="form__status" role="status" aria-live="polite"></div>
-            </form>
-          </div>
-
-          <div class="contact__info">
-            <div>
-              <h3 class="contact__info-title">O contáctame directo</h3>
-              <p class="contact__info-description">Respondo en menos de 24 horas. Elige el canal que prefieras.</p>
             </div>
-
-            <div class="contact__methods">
-              <a href="mailto:robinsonjsm281006@gmail.com" class="contact__method">
-                <div class="contact__method-icon">
-                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div class="contact__method-content">
-                  <div class="contact__method-label">Email</div>
-                  <div class="contact__method-value">robinsonjsm281006@gmail.com</div>
-                </div>
+            <div class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-details">
+                <h4>Teléfono</h4>
+                <a href="tel:+51900535071">+51 900 535 071</a>
+                <span class="contact-hint">Lunes a Viernes, 9am-6pm (GMT-5)</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="contact-details">
+                <h4>Ubicación</h4>
+                <span>Ate, Lima, Perú</span>
+                <span class="contact-hint">Disponible para remoto / híbrido</span>
+              </div>
+            </div>
+            <div class="contact-socials" role="list" aria-label="Redes profesionales">
+              <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub" role="listitem">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
               </a>
-
-              <a href="https://github.com/rsanchezmayta" class="contact__method" target="_blank" rel="noopener noreferrer">
-                <div class="contact__method-icon">
-                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                </div>
-                <div class="contact__method-content">
-                  <div class="contact__method-label">GitHub</div>
-                  <div class="contact__method-value">@rsanchezmayta</div>
-                </div>
-              </a>
-
-              <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="contact__method" target="_blank" rel="noopener noreferrer">
-                <div class="contact__method-icon">
-                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </div>
-                <div class="contact__method-content">
-                  <div class="contact__method-label">LinkedIn</div>
-                  <div class="contact__method-value">robinson-sanchez-mayta</div>
-                </div>
+              <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn" role="listitem">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v6.6H9.1V9h3.4v1.6h.1c.5-1 1.7-2 3.5-2 3.7 0 4.4 2.4 4.4 5.6v6.9zM5.1 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.9 20.5H3.3V9h3.6v11.5z"/></svg>
               </a>
             </div>
           </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Nombre <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required autocomplete="name" />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="subject">Asunto <span class="required" aria-hidden="true">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="">Selecciona un tema</option>
+                <option value="job">Oportunidad laboral</option>
+                <option value="project">Colaboración en proyecto</option>
+                <option value="freelance">Consultoría / Freelance</option>
+                <option value="mentoring">Mentoría / Preguntas técnicas</option>
+                <option value="other">Otro</option>
+              </select>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Cuéntame en qué puedo ayudarte..." required></textarea>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text">Enviar mensaje</span>
+              <span class="btn-loader" aria-hidden="true">
+                <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-note">🔒 Tu información no se comparte. Solo la uso para responderte.</p>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <div class="footer__content">
-        <p class="footer__copyright">&copy; <span id="year">2026</span> Robinson Sánchez Mayta · Hecho con HTML, CSS y JS vanilla</p>
-        <div class="footer__links">
-          <a href="https://github.com/rsanchezmayta" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="#inicio" class="footer__link">Inicio</a>
-        </div>
-        <p class="footer__made">Hecho con dedicación desde Lima, Perú 🇵🇪</p>
+      <div class="footer-content">
+        <p class="copyright">© <span id="year"></span> Robinson J. Sánchez Mayta. Hecho con <span class="heart" aria-hidden="true">♥</span> y curiosidad.</p>
+        <nav class="footer-nav" aria-label="Enlaces del pie de página">
+          <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:robinsonjsm281006@gmail.com">Email</a>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <!-- Botón volver arriba -->
-  <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-  </button>
-
-  <!-- JS -->
-  <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
