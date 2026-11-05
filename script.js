@@ -464,7 +464,7 @@
       { type: 'command', text: 'cat ~/.config/data_scientist/profile.json' },
       { type: 'output', html: `
         <div class="terminal-character">
-          <div class="character-avatar">🧠</div>
+          <div class="character-avatar pixel-avatar" id="pixel-avatar"></div>
           <div class="character-speech">¡Hola! Soy tu asistente de DS. Amo Python, ML, SQL y dashboards 📊</div>
         </div>
         <div class="terminal-line">
@@ -507,6 +507,32 @@
       for (let i = 0; i < lines.length; i++) {
         await typeLine(lines[i], i);
       }
+      // Draw pixel avatar after sequence completes
+      setTimeout(drawPixelAvatar, 100);
+    };
+
+    // Pixel art avatar drawing
+    const drawPixelAvatar = () => {
+      const avatarEl = document.getElementById('pixel-avatar');
+      if (!avatarEl) return;
+      
+      const pixelArt = [
+        "      ██████      ",
+        "    ██████████    ",
+        "   ████████████   ",
+        "  ██████████████  ",
+        "  ██████████████  ",
+        "  ██░░██████░░██  ",
+        "  ██░░██████░░██  ",
+        "  ██████████████  ",
+        "  ██████████████  ",
+        "  ██████████████  ",
+        "   ████████████   ",
+        "    ██████████    ",
+        "      ██████      "
+      ];
+      
+      avatarEl.innerHTML = pixelArt.map(row => `<div class="pixel-row">${row}</div>`).join('');
     };
 
     // Start when terminal is in view

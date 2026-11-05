@@ -1448,7 +1448,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .nav-link:hover, .nav-link.active { background: rgba(16, 185, 129, 0.1); }
   .menu-btn { display: flex; }
   .floating-elements { display: none; }
-  .metrics-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .footer-content { flex-direction: column; text-align: center; }
 }
@@ -1612,6 +1611,127 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   51%, 100% { opacity: 0; }
 }
 
+/* ========================================
+   PIXEL AVATAR (Terminal)
+   ======================================== */
+.pixel-avatar {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  line-height: 1.1;
+  color: #10b981;
+  white-space: pre;
+  display: inline-block;
+  animation: pixel-bounce 2s ease-in-out infinite;
+}
+.pixel-row { display: block; }
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
+}
+
+/* ========================================
+   ABOUT PILLARS (Stack, Enfoque, Colaboración)
+   ======================================== */
+.about-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: all var(--dur-base) var(--ease-gentle);
+  position: relative;
+  overflow: hidden;
+}
+.pillar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.pillar:hover {
+  border-color: var(--accent);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+}
+.pillar:hover::before { transform: scaleY(1); }
+.pillar-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-lg);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent);
+  transition: all var(--dur-base) var(--ease-spring);
+}
+.pillar:hover .pillar-icon {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.1) rotate(4deg);
+}
+.pillar-icon svg { width: 22px; height: 22px; }
+.pillar-content strong { display: block; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.pillar-content span { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ========================================
+   ABOUT BOTTOM CONTAINER
+   ======================================== */
+.about-bottom {
+  margin-top: var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.about-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+.bottom-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+.bottom-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+}
+.bottom-text strong { color: var(--accent); }
+.bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+.btn-sm {
+  padding: var(--space-2) var(--space-5);
+  font-size: 0.85rem;
+}
+.btn-sm .icon { width: 1rem; height: 1rem; }
+
 @media (max-width: 480px) {
   :root { --space-lg: 1rem; }
   .hero-name { font-size: 2.25rem; }
@@ -1624,6 +1744,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .timeline-marker { left: -1.5rem; }
   .marker-dot { width: 12px; height: 12px; }
   .contact-form { padding: var(--space-lg); }
+  .pillar { padding: var(--space-md); }
+  .pillar-icon { width: 36px; height: 36px; }
+  .pillar-content strong { font-size: 0.85rem; }
+  .pillar-content span { font-size: 0.75rem; }
+  .about-bottom { padding: var(--space-lg); }
+  .bottom-title { font-size: 1rem; }
+  .bottom-text { font-size: 0.85rem; }
 }
 
 /* ========================================
@@ -1641,7 +1768,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    REDUCED MOTION
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
-  .wave, .avatar-ring-outer, .orbit-item, .pulse-ring, .marker-ring, .card-glow, .hero-scroll, .scroll-bounce, .scroll-arrow, .pulse-dot, .heart-beat, .spin, .ring-rotate, .float-move, .badge-float, .marker-pulse {
+  .wave, .avatar-ring-outer, .orbit-item, .pulse-ring, .marker-ring, .card-glow, .hero-scroll, .scroll-bounce, .scroll-arrow, .pulse-dot, .heart-beat, .spin, .ring-rotate, .float-move, .badge-float, .marker-pulse, .pixel-avatar {
     animation: none !important;
   }
   .reveal { opacity: 1; transform: none; transition: none; }
