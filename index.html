@@ -90,28 +90,22 @@
         <div class="visual-card" data-depth="0.3">
           <div class="card-glow"></div>
           <div class="card-content">
-            <div class="code-window">
-              <div class="window-bar">
-                <div class="window-dots">
-                  <span></span><span></span><span></span>
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot close"></span>
+                  <span class="dot minimize"></span>
+                  <span class="dot maximize"></span>
+                </div>
+                <div class="terminal-title">data_science_lab.sh</div>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-output" id="terminal-output"></div>
+                <div class="terminal-input-line">
+                  <span class="prompt">robinson@data-lab:~$</span>
+                  <span class="cursor" aria-hidden="true"></span>
                 </div>
               </div>
-              <pre class="code-preview"><code><span class="kw">import</span> <span class="lib">pandas</span> <span class="kw">as</span> <span class="lib">pd</span>
-<span class="kw">from</span> <span class="lib">sklearn</span> <span class="kw">import</span> <span class="fn">model_selection</span>
-
-<span class="comment"># Cargar dataset</span>
-<span class="var">df</span> <span class="op">=</span> <span class="lib">pd</span><span class="op">.</span><span class="fn">read_csv</span>(<span class="str">'data.csv'</span>)
-
-<span class="comment"># Feature engineering</span>
-<span class="var">X</span> <span class="op">=</span> <span class="var">df</span><span class="op">.</span><span class="fn">drop</span>(<span class="str">'target'</span>, <span class="kw">axis</span><span class="op">=</span><span class="num">1</span>)
-<span class="var">y</span> <span class="op">=</span> <span class="var">df</span><span class="op">[</span><span class="str">'target'</span><span class="op">]</span>
-
-<span class="comment"># Train model</span>
-<span class="var">model</span> <span class="op">=</span> <span class="lib">XGBoost</span>()
-<span class="var">model</span><span class="op">.</span><span class="fn">fit</span>(<span class="var">X</span>, <span class="var">y</span>)
-
-<span class="comment"># Predecir & evaluar</span>
-<span class="var">preds</span> <span class="op">=</span> <span class="var">model</span><span class="op">.</span><span class="fn">predict</span>(<span class="var">X_test</span>)</code></pre>
             </div>
             <div class="metrics-grid">
               <div class="metric">
@@ -252,66 +246,6 @@
                   <div class="pulse-ring"></div>
                   <div class="pulse-ring"></div>
                   <div class="pulse-ring"></div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Skill Radar & Journey -->
-            <div class="skill-radar-section">
-              <div class="radar-container" aria-hidden="true">
-                <canvas id="skill-radar" class="radar-canvas"></canvas>
-                <div class="radar-labels">
-                  <div class="radar-label" data-vertex="0">Python & ML</div>
-                  <div class="radar-label" data-vertex="1">Data Engineering</div>
-                  <div class="radar-label" data-vertex="2">MLOps & Deploy</div>
-                  <div class="radar-label" data-vertex="3">Deep Learning</div>
-                  <div class="radar-label" data-vertex="4">Data Viz & Storytelling</div>
-                  <div class="radar-label" data-vertex="5">Colaboración & Git</div>
-                </div>
-              </div>
-              <div class="radar-legend">
-                <div class="legend-item">
-                  <span class="legend-color" style="background: var(--gradient-primary)"></span>
-                  <span>Nivel actual</span>
-                </div>
-                <div class="legend-item">
-                  <span class="legend-color" style="background: var(--gradient-warm)"></span>
-                  <span>En aprendizaje</span>
-                </div>
-              </div>
-              
-              <!-- Journey timeline mini -->
-              <div class="journey-mini">
-                <h4 class="journey-title">Mi ruta de aprendizaje</h4>
-                <div class="journey-path">
-                  <div class="journey-step">
-                    <div class="step-dot"></div>
-                    <div class="step-content">
-                      <span class="step-year">2022</span>
-                      <span class="step-desc">Primeros pasos en Python & Data</span>
-                    </div>
-                  </div>
-                  <div class="journey-step">
-                    <div class="step-dot"></div>
-                    <div class="step-content">
-                      <span class="step-year">2023</span>
-                      <span class="step-desc">ML clásico, SQL, primeros proyectos</span>
-                    </div>
-                  </div>
-                  <div class="journey-step">
-                    <div class="step-dot"></div>
-                    <div class="step-content">
-                      <span class="step-year">2024</span>
-                      <span class="step-desc">Deep Learning, MLOps, pipelines</span>
-                    </div>
-                  </div>
-                  <div class="journey-step">
-                    <div class="step-dot active"></div>
-                    <div class="step-content">
-                      <span class="step-year">2025</span>
-                      <span class="step-desc">LLMs, RAG, arquitectura de sistemas</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -726,4 +660,4 @@
 
   <script src="script.js"></script>
 </body>
-</html> 
+</html>

@@ -445,8 +445,85 @@
   };
 
   // ========================================
-  // Contact Form Handling
+  // Terminal Animation (Hero)
   // ========================================
+  const initTerminal = () => {
+    const outputEl = document.getElementById('terminal-output');
+    if (!outputEl) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const lines = [
+      { type: 'comment', text: '# Iniciando laboratorio de ciencia de datos...' },
+      { type: 'command', text: 'python3 -c "import torch; print(f'PyTorch {torch.__version__} ✓')"' },
+      { type: 'command', text: 'python3 -c "import sklearn; print(f'scikit-learn {sklearn.__version__} ✓')"' },
+      { type: 'command', text: 'python3 -c "import pandas; print(f'pandas {pandas.__version__} ✓')"' },
+      { type: 'command', text: 'python3 -c "import xgboost; print(f'XGBoost {xgboost.__version__} ✓')"' },
+      { type: 'command', text: 'python3 -c "import sqlalchemy; print(f'SQLAlchemy {sqlalchemy.__version__} ✓')"' },
+      { type: 'comment', text: '# Entorno listo. Cargando perfil...' },
+      { type: 'command', text: 'cat ~/.config/data_scientist/profile.json' },
+      { type: 'output', html: `
+        <div class="terminal-character">
+          <div class="character-avatar">🧠</div>
+          <div class="character-speech">¡Hola! Soy tu asistente de DS. Amo Python, ML, SQL y dashboards 📊</div>
+        </div>
+        <div class="terminal-line">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">MLOps</span>
+        </div>
+      ` }
+    ];
+
+    const typeLine = (line, index) => {
+      return new Promise(resolve => {
+        const lineEl = document.createElement('div');
+        lineEl.className = 'terminal-line';
+        
+        if (line.type === 'comment') {
+          lineEl.innerHTML = `<span class="comment">${line.text}</span>`;
+        } else if (line.type === 'command') {
+          lineEl.innerHTML = `<span class="prompt">robinson@data-lab:~$</span> <span class="command">${line.text}</span>`;
+        } else if (line.type === 'output') {
+          lineEl.innerHTML = line.html;
+        }
+        
+        outputEl.appendChild(lineEl);
+        
+        // Scroll to bottom
+        outputEl.scrollTop = outputEl.scrollHeight;
+        
+        const delay = prefersReducedMotion ? 0 : (line.type === 'output' ? 800 : 300);
+        setTimeout(resolve, delay);
+      });
+    };
+
+    const runSequence = async () => {
+      for (let i = 0; i < lines.length; i++) {
+        await typeLine(lines[i], i);
+      }
+    };
+
+    // Start when terminal is in view
+    const terminalObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runSequence();
+          terminalObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
+
+    const terminalWindow = document.querySelector('.terminal-window');
+    if (terminalWindow) {
+      terminalObserver.observe(terminalWindow);
+    }
+  };
   const validateField = (field) => {
     const errorEl = field.parentElement.querySelector('.form-error');
     if (!errorEl) return true;
@@ -561,6 +638,7 @@
   // ========================================
   const init = () => {
     initNeuralBackgrounds();
+    initTerminal();
     initSkillRadar();
   };
 
