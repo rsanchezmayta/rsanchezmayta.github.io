@@ -158,74 +158,93 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
-  // Particles background (canvas)
+  // Neural Network Background (canvas)
   // ========================================
-  const initParticles = () => {
-    const canvas = document.getElementById('particles');
+  const initNeuralBackground = () => {
+    const canvas = document.getElementById('neural-bg');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     let width = 0, height = 0, dpr = 1;
-    let particles = [];
+    let nodes = [];
     let animationId = null;
     let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const resize = () => {
-      width = canvas.clientWidth;
-      height = canvas.clientHeight;
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
       dpr = window.devicePixelRatio || 1;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
+      initNodes();
     };
 
-    class Particle {
+    class Node {
       constructor() {
-        this.reset(true);
-      }
-      reset(initializing = false) {
         this.x = Math.random() * width;
-        this.y = initializing ? Math.random() * height : height + 20;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedY = -(Math.random() * 0.4 + 0.15);
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.4 + 0.1;
-        this.color = Math.random() > 0.6 ? '#10b981' : '#34d399';
-        this.life = 0;
-        this.maxLife = Math.random() * 100 + 150;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = Math.random() * 2 + 1;
+        this.color = Math.random() > 0.7 ? '#10b981' : '#34d399';
+        this.opacity = Math.random() * 0.4 + 0.15;
       }
       update() {
-        this.y += this.speedY;
-        this.x += this.speedX;
-        this.life++;
-        if (this.y < -20 || this.life > this.maxLife) this.reset();
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
       }
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity * (1 - this.life / this.maxLife);
+        ctx.globalAlpha = this.opacity;
         ctx.fill();
         ctx.globalAlpha = 1;
       }
     }
 
-    const init = () => {
-      resize();
-      const count = Math.min(Math.floor((width * height) / 12000), 80);
-      particles = Array.from({ length: count }, () => new Particle());
+    const initNodes = () => {
+      const count = Math.min(Math.floor((width * height) / 8000), 60);
+      nodes = Array.from({ length: count }, () => new Node());
+    };
+
+    const drawConnections = () => {
+      const maxDist = 140;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < maxDist) {
+            const opacity = (1 - dist / maxDist) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = '#10b981';
+            ctx.globalAlpha = opacity;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+          }
+        }
+      }
     };
 
     const animate = () => {
       if (prefersReducedMotion) return;
       ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => { p.update(); p.draw(); });
+      drawConnections();
+      nodes.forEach(n => { n.update(); n.draw(); });
       animationId = requestAnimationFrame(animate);
     };
 
     const handleResize = () => {
       cancelAnimationFrame(animationId);
-      init();
+      resize();
       animate();
     };
 
@@ -235,16 +254,190 @@
       if (!prefersReducedMotion) animate();
     });
 
-    init();
+    resize();
     animate();
   };
 
-  // Initialize particles after DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initParticles);
-  } else {
-    initParticles();
-  }
+  // ========================================
+  // Skill Radar Chart
+  // ========================================
+  const initSkillRadar = () => {
+    const canvas = document.getElementById('skill-radar');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let dpr = window.devicePixelRatio || 1;
+    let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Skill data: [current level (0-1), learning level (0-1)]
+    const skills = [
+      { label: 'Python & ML', current: 0.9, learning: 0.1 },
+      { label: 'Data Engineering', current: 0.75, learning: 0.2 },
+      { label: 'MLOps & Deploy', current: 0.65, learning: 0.25 },
+      { label: 'Deep Learning', current: 0.7, learning: 0.3 },
+      { label: 'Data Viz & Story', current: 0.8, learning: 0.15 },
+      { label: 'Colaboración & Git', current: 0.85, learning: 0.1 }
+    ];
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx.scale(dpr, dpr);
+    };
+
+    const drawRadar = (progress = 1) => {
+      const cx = canvas.width / 2 / dpr;
+      const cy = canvas.height / 2 / dpr;
+      const radius = Math.min(cx, cy) - 20;
+      const vertices = skills.length;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Grid lines
+      const levels = 5;
+      for (let level = 1; level <= levels; level++) {
+        const r = (radius / levels) * level;
+        ctx.beginPath();
+        for (let i = 0; i < vertices; i++) {
+          const angle = (Math.PI * 2 * i) / vertices - Math.PI / 2;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.08)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Axis lines
+      for (let i = 0; i < vertices; i++) {
+        const angle = (Math.PI * 2 * i) / vertices - Math.PI / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.12)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Current skill area
+      ctx.beginPath();
+      for (let i = 0; i < vertices; i++) {
+        const angle = (Math.PI * 2 * i) / vertices - Math.PI / 2;
+        const value = skills[i].current * progress;
+        const r = radius * value;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+
+      const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      gradient.addColorStop(0, 'rgba(16, 185, 129, 0.25)');
+      gradient.addColorStop(1, 'rgba(16, 185, 129, 0.02)');
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Learning area (secondary)
+      ctx.beginPath();
+      for (let i = 0; i < vertices; i++) {
+        const angle = (Math.PI * 2 * i) / vertices - Math.PI / 2;
+        const value = (skills[i].current + skills[i].learning) * progress * 0.6;
+        const r = radius * value;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+
+      const gradient2 = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      gradient2.addColorStop(0, 'rgba(245, 158, 11, 0.12)');
+      gradient2.addColorStop(1, 'rgba(245, 158, 11, 0)');
+      ctx.fillStyle = gradient2;
+      ctx.fill();
+
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Center dot
+      ctx.beginPath();
+      ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#10b981';
+      ctx.fill();
+
+      // Vertex dots
+      for (let i = 0; i < vertices; i++) {
+        const angle = (Math.PI * 2 * i) / vertices - Math.PI / 2;
+        const value = skills[i].current * progress;
+        const r = radius * value;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#10b981';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#0a0f0d';
+        ctx.fill();
+      }
+    };
+
+    // Animate radar on scroll into view
+    const radarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (prefersReducedMotion) {
+            drawRadar(1);
+          } else {
+            let progress = 0;
+            const duration = 1200;
+            const start = performance.now();
+            const animate = (now) => {
+              progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              drawRadar(eased);
+              if (progress < 1) requestAnimationFrame(animate);
+            };
+            requestAnimationFrame(animate);
+          }
+          radarObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
+
+    radarObserver.observe(canvas);
+
+    const handleResize = () => {
+      resize();
+      drawRadar(1);
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e => {
+      prefersReducedMotion = e.matches;
+    });
+
+    resize();
+    drawRadar(0);
+  };
 
   // ========================================
   // Contact Form Handling
@@ -345,31 +538,6 @@
   });
 
   // ========================================
-  // Parallax subtle effect on hero visual
-  // ========================================
-  const heroVisual = document.querySelector('.hero-visual');
-  if (heroVisual && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let ticking = false;
-    const handleParallax = () => {
-      const scrollY = window.scrollY;
-      const hero = document.getElementById('inicio');
-      if (!hero) return;
-      const heroHeight = hero.offsetHeight;
-      if (scrollY < heroHeight) {
-        const progress = scrollY / heroHeight;
-        heroVisual.style.transform = `translateY(${progress * 40}px)`;
-      }
-      ticking = false;
-    };
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(handleParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
-  // ========================================
   // Keyboard navigation for project cards
   // ========================================
   document.querySelectorAll('.project-card').forEach(card => {
@@ -384,17 +552,17 @@
   });
 
   // ========================================
-  // Initialize tooltips for badges
+  // Initialize all
   // ========================================
-  // Handled via CSS :hover::after
+  const init = () => {
+    initNeuralBackground();
+    initSkillRadar();
+  };
 
-  // ========================================
-  // Performance: lazy load non-critical
-  // ========================================
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      // Any non-critical init here
-    });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 
   console.log('%c🚀 Robinson J. Sánchez Mayta — CV loaded', 'color: #10b981; font-size: 1.2rem; font-weight: 600;');
