@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de Robinson Sánchez Mayta - Estudiante de Ciencia de Datos e Inteligencia Artificial">
+  <meta name="description" content="Portafolio de Robinson Sánchez Mayta - Estudiante de Ciencia de Datos e Inteligencia Artificial. Proyectos de Machine Learning, análisis de datos y desarrollo web.">
   <meta name="author" content="Robinson Sánchez Mayta">
+  <meta name="theme-color" content="#3b82f6">
   <title>Robinson Sánchez Mayta | Ciencia de Datos e IA</title>
 
   <!-- Open Graph / Facebook -->
@@ -24,6 +25,11 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.svg">
 
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
@@ -41,10 +47,17 @@
 
       <ul class="nav__menu" id="nav-menu" role="list">
         <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="#experiencia" class="nav__link">Trayectoria</a></li>
         <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
         <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
+        <li><a href="#aprendiendo" class="nav__link">Aprendiendo</a></li>
         <li><a href="#contacto" class="nav__link">Contacto</a></li>
       </ul>
+
+      <button class="nav__theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </nav>
   </header>
 
@@ -53,28 +66,70 @@
     <!-- HERO / INICIO -->
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <div class="container hero__content">
-        <div class="hero__text">
-          <p class="hero__greeting">Hola, soy</p>
-          <h1 id="hero-title" class="hero__name">Robinson Sánchez Mayta</h1>
-          <h2 class="hero__role">Estudiante de Ingeniería en Ciencia de Datos e Inteligencia Artificial</h2>
-          <p class="hero__description">
-            Apasionado por transformar datos en decisiones inteligentes.
-            Construyo modelos, analizo patrones y creo soluciones con impacto real.
-          </p>
-          <div class="hero__cta">
-            <a href="#proyectos" class="btn btn--primary">Ver mis proyectos</a>
-            <a href="#contacto" class="btn btn--secondary">Contactar</a>
+        <div class="hero__inner">
+          <div class="hero__text">
+            <p class="hero__greeting">Hola, soy 👋</p>
+            <h1 id="hero-title" class="hero__name">Robinson Sánchez Mayta</h1>
+            <h2 class="hero__role">
+              <span class="typing-text">Estudiante de Ingeniería en Ciencia de Datos e IA</span>
+            </h2>
+            <p class="hero__description">
+              Transformo datos en decisiones inteligentes. Construyo modelos de machine learning,
+              analizo patrones y creo soluciones que generan impacto real.
+            </p>
+            <div class="hero__cta">
+              <a href="#proyectos" class="btn btn--primary btn--lg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                Ver proyectos
+              </a>
+              <a href="#contacto" class="btn btn--secondary btn--lg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contactar
+              </a>
+            </div>
+            <div class="hero__social" role="list" aria-label="Redes sociales">
+              <a href="https://github.com/rsanchezmayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="mailto:robinsonjsm281006@gmail.com" class="hero__social-link" aria-label="Email">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+
+            <div class="hero__stats">
+              <div class="stat">
+                <div class="stat__number" data-target="4">4</div>
+                <div class="stat__label">Proyectos completos</div>
+              </div>
+              <div class="stat">
+                <div class="stat__number" data-target="15">15</div>
+                <div class="stat__label">Tecnologías usadas</div>
+              </div>
+              <div class="stat">
+                <div class="stat__number" data-target="3">3</div>
+                <div class="stat__label">Años programando</div>
+              </div>
+            </div>
           </div>
-          <div class="hero__social" role="list" aria-label="Redes sociales">
-            <a href="https://github.com/rsanchezmayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="mailto:robinsonjsm281006@gmail.com" class="hero__social-link" aria-label="Email">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
+
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__visual-img">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+                <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                <path d="M40 130 L75 95 L100 115 L135 70 L160 85" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="40" cy="130" r="5" fill="currentColor"/>
+                <circle cx="75" cy="95" r="5" fill="currentColor"/>
+                <circle cx="100" cy="115" r="5" fill="currentColor"/>
+                <circle cx="135" cy="70" r="5" fill="currentColor"/>
+                <circle cx="160" cy="85" r="5" fill="currentColor"/>
+                <text x="100" y="175" text-anchor="middle" font-family="monospace" font-size="14" fill="currentColor" opacity="0.7">data → insights</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -85,6 +140,7 @@
       <div class="container">
         <header class="section__header">
           <h2 id="about-title" class="section__title">Sobre mí</h2>
+          <p class="section__subtitle">Un poco de quién soy y qué me mueve</p>
         </header>
         <div class="about__content">
           <div class="about__text">
@@ -106,16 +162,127 @@
           </div>
           <div class="about__highlights">
             <div class="highlight">
-              <span class="highlight__number">3+</span>
+              <div class="highlight__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span class="highlight__number">4+</span>
               <span class="highlight__label">Proyectos completados</span>
             </div>
             <div class="highlight">
-              <span class="highlight__number">5+</span>
+              <div class="highlight__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <span class="highlight__number">15+</span>
               <span class="highlight__label">Tecnologías dominadas</span>
             </div>
             <div class="highlight">
+              <div class="highlight__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+              </div>
               <span class="highlight__number">∞</span>
               <span class="highlight__label">Ganas de aprender</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA / TRAYECTORIA -->
+    <section id="experiencia" class="section experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="experience-title" class="section__title">Mi trayectoria</h2>
+          <p class="section__subtitle">Formación académica, certificaciones y experiencia</p>
+        </header>
+
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__meta">
+                <span class="timeline__period">2024 – Presente</span>
+                <span class="timeline__type">Formación</span>
+              </div>
+              <h3 class="timeline__title">Ingeniería en Ciencia de Datos e Inteligencia Artificial</h3>
+              <p class="timeline__organization">SENATI · 5.º ciclo</p>
+              <p class="timeline__description">
+                Formación en estadística, álgebra lineal, programación en Python, bases de datos,
+                machine learning y visualización de datos. Proyectos aplicados con datos reales.
+              </p>
+              <div class="timeline__skills">
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Estadística</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__meta">
+                <span class="timeline__period">2025</span>
+                <span class="timeline__type">Certificación</span>
+              </div>
+              <h3 class="timeline__title">Getting Started with DevOps on AWS</h3>
+              <p class="timeline__organization">Amazon Web Services (AWS)</p>
+              <p class="timeline__description">
+                Fundamentos de DevOps en la nube: CI/CD, contenedores, infraestructura como código
+                y despliegue de aplicaciones en AWS.
+              </p>
+              <div class="timeline__skills">
+                <span class="tag tag--secondary">AWS</span>
+                <span class="tag tag--secondary">DevOps</span>
+                <span class="tag tag--secondary">Cloud</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__meta">
+                <span class="timeline__period">2025 – 2026</span>
+                <span class="timeline__type">Proyecto</span>
+              </div>
+              <h3 class="timeline__title">Proyectos de ciencia de datos end-to-end</h3>
+              <p class="timeline__organization">Portafolio personal</p>
+              <p class="timeline__description">
+                Desarrollo de pipelines completos: ingesta, limpieza, EDA, modelado, evaluación
+                y despliegue de soluciones con Laravel, Flask y Streamlit.
+              </p>
+              <div class="timeline__skills">
+                <span class="tag tag--accent">scikit-learn</span>
+                <span class="tag tag--accent">Laravel</span>
+                <span class="tag tag--accent">Flask</span>
+                <span class="tag tag--accent">Streamlit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__meta">
+                <span class="timeline__period">2026</span>
+                <span class="timeline__type">Objetivo</span>
+              </div>
+              <h3 class="timeline__title">Práctica pre-profesional</h3>
+              <p class="timeline__organization">Buscando activamente</p>
+              <p class="timeline__description">
+                En búsqueda de una práctica en ciencia de datos, machine learning, data engineering
+                o desarrollo backend donde pueda aplicar y seguir creciendo.
+              </p>
+              <div class="timeline__skills">
+                <span class="tag">Data Science</span>
+                <span class="tag">ML Engineering</span>
+                <span class="tag">Backend</span>
+              </div>
             </div>
           </div>
         </div>
@@ -130,18 +297,32 @@
           <p class="section__subtitle">Una selección de trabajos que demuestran mis habilidades</p>
         </header>
 
+        <div class="projects__filters" role="group" aria-label="Filtrar proyectos por categoría">
+          <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="ml">Machine Learning</button>
+          <button class="filter-btn" data-filter="data">Análisis de datos</button>
+          <button class="filter-btn" data-filter="web">Desarrollo web</button>
+        </div>
+
         <div class="projects__grid" role="list">
           <!-- Proyecto 1 -->
-          <article class="project-card" role="listitem">
+          <article class="project-card" role="listitem" data-category="data">
             <div class="project-card__image">
               <img src="assets/img/projects/proyecto-1.svg" alt="Captura del proyecto Análisis de Datos Olist" loading="lazy">
             </div>
             <div class="project-card__content">
-              <h3 class="project-card__title">Análisis E-commerce Olist</h3>
+              <div class="project-card__header">
+                <h3 class="project-card__title">Análisis E-commerce Olist</h3>
+                <span class="project-card__type project-card__type--data">Datos</span>
+              </div>
               <p class="project-card__description">
                 Análisis exploratorio y modelado predictivo sobre datos reales de e-commerce brasileño (Olist).
                 Limpieza, EDA, visualizaciones y predicción de satisfacción del cliente.
               </p>
+              <div class="project-card__highlights">
+                <span class="project-card__highlight">~100k pedidos</span>
+                <span class="project-card__highlight">EDA completo</span>
+              </div>
               <div class="project-card__tags">
                 <span class="tag">Python</span>
                 <span class="tag">Pandas</span>
@@ -149,29 +330,32 @@
                 <span class="tag">Seaborn</span>
               </div>
               <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/proyecto-olist" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/rsanchezmayta/proyecto-olist" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                   Código
-                </a>
-                <a href="#" class="project-card__link" aria-label="Demo no disponible">
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M1 20.5V6.5a2.5 2.5 0 0 1 2.5-2.5h15a2.5 2.5 0 0 1 2.5 2.5v14"/><polyline points="17 20 23 20 23 14"/></svg>
-                  Demo
                 </a>
               </div>
             </div>
           </article>
 
           <!-- Proyecto 2 -->
-          <article class="project-card" role="listitem">
+          <article class="project-card" role="listitem" data-category="ml">
             <div class="project-card__image">
               <img src="assets/img/projects/proyecto-2.svg" alt="Captura del proyecto Lima Housing" loading="lazy">
             </div>
             <div class="project-card__content">
-              <h3 class="project-card__title">Lima Housing Analysis</h3>
+              <div class="project-card__header">
+                <h3 class="project-card__title">Lima Housing Analysis</h3>
+                <span class="project-card__type project-card__type--ml">ML</span>
+              </div>
               <p class="project-card__description">
                 Análisis de precios de vivienda en Lima usando web scraping, limpieza de datos
                 y modelos de regresión para predecir valores inmobiliarios por distrito.
               </p>
+              <div class="project-card__highlights">
+                <span class="project-card__highlight">R² ~0.83</span>
+                <span class="project-card__highlight">XGBoost</span>
+              </div>
               <div class="project-card__tags">
                 <span class="tag">Python</span>
                 <span class="tag">BeautifulSoup</span>
@@ -179,43 +363,75 @@
                 <span class="tag">Folium</span>
               </div>
               <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/lima-housing-analysis" class="project-card__link" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.467 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/rsanchezmayta/lima-housing-analysis" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                   Código
-                </a>
-                <a href="#" class="project-card__link" aria-label="Demo no disponible">
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M1 20.5V6.5a2.5 2.5 0 0 1 2.5-2.5h15a2.5 2.5 0 0 1 2.5 2.5v14"/><polyline points="17 20 23 20 23 14"/></svg>
-                  Demo
                 </a>
               </div>
             </div>
           </article>
 
           <!-- Proyecto 3 -->
-          <article class="project-card" role="listitem">
+          <article class="project-card" role="listitem" data-category="data">
             <div class="project-card__image">
               <img src="assets/img/projects/proyecto-3.svg" alt="Captura del proyecto Denuncias Policiales" loading="lazy">
             </div>
             <div class="project-card__content">
-              <h3 class="project-card__title">Denuncias Policiales Perú</h3>
+              <div class="project-card__header">
+                <h3 class="project-card__title">Denuncias Policiales Perú</h3>
+                <span class="project-card__type project-card__type--data">Datos</span>
+              </div>
               <p class="project-card__description">
                 Dashboard interactivo para análisis de denuncias policiales en Perú.
                 Procesamiento de datos abiertos, visualización geoespacial y detección de patrones temporales.
               </p>
+              <div class="project-card__highlights">
+                <span class="project-card__highlight">369k registros</span>
+                <span class="project-card__highlight">SARIMA</span>
+              </div>
               <div class="project-card__tags">
+                <span class="tag">Laravel</span>
                 <span class="tag">Python</span>
-                <span class="tag">Streamlit</span>
-                <span class="tag">Plotly</span>
-                <span class="tag">GeoPandas</span>
+                <span class="tag">Chart.js</span>
+                <span class="tag">Leaflet</span>
               </div>
               <div class="project-card__links">
-                <a href="https://github.com/rsanchezmayta/denuncias-policiales-peru" class="project-card__link" target="_blank" rel="noopener noreferrer">
-                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.467 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/rsanchezmayta/denuncias-policiales-peru" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                   Código
                 </a>
-                <a href="#" class="project-card__link" aria-label="Demo no disponible">
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M1 20.5V6.5a2.5 2.5 0 0 1 2.5-2.5h15a2.5 2.5 0 0 1 2.5 2.5v14"/><polyline points="17 20 23 20 23 14"/></svg>
-                  Demo
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 4 -->
+          <article class="project-card" role="listitem" data-category="ml">
+            <div class="project-card__image">
+              <img src="assets/img/projects/proyecto-4.svg" alt="Captura del proyecto Predicción de Retrasos" loading="lazy" onerror="this.src='assets/img/projects/proyecto-1.svg'">
+            </div>
+            <div class="project-card__content">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Predicción de Retrasos en Entregas</h3>
+                <span class="project-card__type project-card__type--ml">ML</span>
+              </div>
+              <p class="project-card__description">
+                Clasificador supervisado (Random Forest) que estima si un pedido llegará tarde,
+                con API REST en Flask, interfaz web y 16 pruebas automatizadas con CI/CD.
+              </p>
+              <div class="project-card__highlights">
+                <span class="project-card__highlight">F1 91%</span>
+                <span class="project-card__highlight">16 tests</span>
+              </div>
+              <div class="project-card__tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">scikit-learn</span>
+                <span class="tag">pytest</span>
+              </div>
+              <div class="project-card__links">
+                <a href="https://github.com/rsanchezmayta/prediccion-retrasos-entrega" class="project-card__link project-card__link--primary" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Código
                 </a>
               </div>
             </div>
@@ -229,43 +445,184 @@
       <div class="container">
         <header class="section__header">
           <h2 id="skills-title" class="section__title">Habilidades técnicas</h2>
+          <p class="section__subtitle">Las herramientas con las que trabajo día a día</p>
         </header>
+
+        <p class="skills__intro">
+          Mi stack se centra en el ciclo completo de la ciencia de datos: desde la manipulación
+          de grandes volúmenes de datos hasta el modelado y el despliegue de soluciones.
+        </p>
 
         <div class="skills__grid">
           <!-- Categoría: Lenguajes -->
           <div class="skill-category">
-            <h3 class="skill-category__title">Lenguajes</h3>
+            <div class="skill-category__header">
+              <div class="skill-category__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3 class="skill-category__title">Lenguajes</h3>
+            </div>
             <ul class="skill-list" role="list">
-              <li class="skill-item"><span class="skill-item__name">Python</span><span class="skill-item__level">Avanzado</span></li>
-              <li class="skill-item"><span class="skill-item__name">SQL</span><span class="skill-item__level">Intermedio</span></li>
-              <li class="skill-item"><span class="skill-item__name">JavaScript</span><span class="skill-item__level">Básico</span></li>
-              <li class="skill-item"><span class="skill-item__name">HTML/CSS</span><span class="skill-item__level">Intermedio</span></li>
-              <li class="skill-item"><span class="skill-item__name">R</span><span class="skill-item__level">Básico</span></li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Python</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="90%"></div></div>
+                <span class="skill-item__level">Avanzado</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">SQL</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">JavaScript</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="55%"></div></div>
+                <span class="skill-item__level">Básico</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">HTML/CSS</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">PHP</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="65%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
             </ul>
           </div>
 
           <!-- Categoría: Data Science & ML -->
           <div class="skill-category">
-            <h3 class="skill-category__title">Data Science & ML</h3>
+            <div class="skill-category__header">
+              <div class="skill-category__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              </div>
+              <h3 class="skill-category__title">Data Science & ML</h3>
+            </div>
             <ul class="skill-list" role="list">
-              <li class="skill-item"><span class="skill-item__name">Pandas / NumPy</span><span class="skill-item__level">Avanzado</span></li>
-              <li class="skill-item"><span class="skill-item__name">Scikit-learn</span><span class="skill-item__level">Intermedio</span></li>
-              <li class="skill-item"><span class="skill-item__name">XGBoost / LightGBM</span><span class="skill-item__level">Intermedio</span></li>
-              <li class="skill-item"><span class="skill-item__name">Matplotlib / Seaborn / Plotly</span><span class="skill-item__level">Avanzado</span></li>
-              <li class="skill-item"><span class="skill-item__name">Streamlit / Dash</span><span class="skill-item__level">Intermedio</span></li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Pandas / NumPy</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="90%"></div></div>
+                <span class="skill-item__level">Avanzado</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Scikit-learn</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="80%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">XGBoost / LightGBM</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Matplotlib / Seaborn / Plotly</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
+                <span class="skill-item__level">Avanzado</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Streamlit / Dash</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
             </ul>
           </div>
 
           <!-- Categoría: Herramientas -->
           <div class="skill-category">
-            <h3 class="skill-category__title">Herramientas & Otros</h3>
+            <div class="skill-category__header">
+              <div class="skill-category__icon">
+                <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3 class="skill-category__title">Herramientas & Otros</h3>
+            </div>
             <ul class="skill-list" role="list">
-              <li class="skill-item"><span class="skill-item__name">Git / GitHub</span><span class="skill-item__level">Intermedio</span></li>
-              <li class="skill-item"><span class="skill-item__name">Linux (Arch/Hyprland)</span><span class="skill-item__level">Avanzado</span></li>
-              <li class="skill-item"><span class="skill-item__name">VS Code / Neovim</span><span class="skill-item__level">Avanzado</span></li>
-              <li class="skill-item"><span class="skill-item__name">Docker</span><span class="skill-item__level">Básico</span></li>
-              <li class="skill-item"><span class="skill-item__name">LaTeX / Markdown</span><span class="skill-item__level">Intermedio</span></li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Git / GitHub</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="80%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Linux (Arch/Hyprland)</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
+                <span class="skill-item__level">Avanzado</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">VS Code / Neovim</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="85%"></div></div>
+                <span class="skill-item__level">Avanzado</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">Docker</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="50%"></div></div>
+                <span class="skill-item__level">Básico</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-item__info"><span class="skill-item__name">LaTeX / Markdown</span></div>
+                <div class="skill-item__progress"><div class="skill-item__bar" data-width="75%"></div></div>
+                <span class="skill-item__level">Intermedio</span>
+              </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="skills__legend">
+          <span class="legend-item"><span class="legend-item__color legend-item__color--beginner"></span> Básico</span>
+          <span class="legend-item"><span class="legend-item__color legend-item__color--intermediate"></span> Intermedio</span>
+          <span class="legend-item"><span class="legend-item__color legend-item__color--advanced"></span> Avanzado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- APRENDIENDO -->
+    <section id="aprendiendo" class="section learning" aria-labelledby="learning-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="learning-title" class="section__title">Actualmente aprendiendo</h2>
+          <p class="section__subtitle">Siempre hay algo nuevo por dominar</p>
+        </header>
+
+        <div class="learning__grid">
+          <div class="learning__card">
+            <div class="learning__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+            </div>
+            <div class="learning__content">
+              <h3 class="learning__title">Inglés técnico</h3>
+              <p class="learning__description">Meta B1 en 2026. Enfocado en documentación, papers y comunicación profesional.</p>
+            </div>
+            <div class="learning__progress">
+              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="60%"></div></div>
+              <span class="learning__progress-text">60%</span>
+            </div>
+          </div>
+
+          <div class="learning__card">
+            <div class="learning__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <div class="learning__content">
+              <h3 class="learning__title">AWS & DevOps</h3>
+              <p class="learning__description">Profundizando en CI/CD, contenedores e infraestructura como código para ML.</p>
+            </div>
+            <div class="learning__progress">
+              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="45%"></div></div>
+              <span class="learning__progress-text">45%</span>
+            </div>
+          </div>
+
+          <div class="learning__card">
+            <div class="learning__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>
+            </div>
+            <div class="learning__content">
+              <h3 class="learning__title">MLOps básico</h3>
+              <p class="learning__description">MLflow, versionado de modelos y pipelines reproducibles de extremo a extremo.</p>
+            </div>
+            <div class="learning__progress">
+              <div class="learning__progress-bar"><div class="learning__progress-fill" data-width="35%"></div></div>
+              <span class="learning__progress-text">35%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -280,42 +637,69 @@
         </header>
 
         <div class="contact__content">
-          <form class="contact__form" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Formulario de contacto">
-            <div class="form__group">
-              <label for="nombre" class="form__label">Nombre</label>
-              <input type="text" id="nombre" name="nombre" class="form__input" required placeholder="Tu nombre">
-            </div>
-            <div class="form__group">
-              <label for="email" class="form__label">Email</label>
-              <input type="email" id="email" name="email" class="form__input" required placeholder="tu@email.com">
-            </div>
-            <div class="form__group">
-              <label for="asunto" class="form__label">Asunto</label>
-              <input type="text" id="asunto" name="asunto" class="form__input" placeholder="Sobre qué quieres hablar">
-            </div>
-            <div class="form__group">
-              <label for="mensaje" class="form__label">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" class="form__textarea" rows="5" required placeholder="Cuéntame..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary form__submit">Enviar mensaje</button>
-          </form>
+          <div class="contact__form-wrapper">
+            <form class="contact__form" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Formulario de contacto">
+              <div class="form__group">
+                <label for="nombre" class="form__label">Nombre</label>
+                <input type="text" id="nombre" name="nombre" class="form__input" required placeholder="Tu nombre">
+              </div>
+              <div class="form__group">
+                <label for="email" class="form__label">Email</label>
+                <input type="email" id="email" name="email" class="form__input" required placeholder="tu@email.com">
+              </div>
+              <div class="form__group">
+                <label for="asunto" class="form__label">Asunto</label>
+                <input type="text" id="asunto" name="asunto" class="form__input" placeholder="Sobre qué quieres hablar">
+              </div>
+              <div class="form__group">
+                <label for="mensaje" class="form__label">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" class="form__textarea" rows="5" required placeholder="Cuéntame..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary form__submit">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Enviar mensaje
+              </button>
+              <div class="form__status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
 
           <div class="contact__info">
-            <h3 class="contact__info-title">O escríbeme directo</h3>
-            <ul class="contact__list" role="list">
-              <li class="contact__item">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <a href="mailto:robinsonjsm281006@gmail.com" class="contact__link">robinsonjsm281006@gmail.com</a>
-              </li>
-              <li class="contact__item">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.467 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                <a href="https://github.com/rsanchezmayta" class="contact__link" target="_blank" rel="noopener noreferrer">github.com/rsanchezmayta</a>
-              </li>
-              <li class="contact__item">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="contact__link" target="_blank" rel="noopener noreferrer">linkedin.com/in/robinson-sanchez-mayta</a>
-              </li>
-            </ul>
+            <div>
+              <h3 class="contact__info-title">O contáctame directo</h3>
+              <p class="contact__info-description">Respondo en menos de 24 horas. Elige el canal que prefieras.</p>
+            </div>
+
+            <div class="contact__methods">
+              <a href="mailto:robinsonjsm281006@gmail.com" class="contact__method">
+                <div class="contact__method-icon">
+                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact__method-content">
+                  <div class="contact__method-label">Email</div>
+                  <div class="contact__method-value">robinsonjsm281006@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/rsanchezmayta" class="contact__method" target="_blank" rel="noopener noreferrer">
+                <div class="contact__method-icon">
+                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div class="contact__method-content">
+                  <div class="contact__method-label">GitHub</div>
+                  <div class="contact__method-value">@rsanchezmayta</div>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="contact__method" target="_blank" rel="noopener noreferrer">
+                <div class="contact__method-icon">
+                  <svg class="icon icon--lg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div class="contact__method-content">
+                  <div class="contact__method-label">LinkedIn</div>
+                  <div class="contact__method-value">robinson-sanchez-mayta</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -325,10 +709,22 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <p class="footer__copyright">&copy; 2025 Robinson Sánchez Mayta. Construido con HTML, CSS y JavaScript vanilla.</p>
-      <p class="footer__made">Hecho con dedicación desde Lima, Perú 🇵🇪</p>
+      <div class="footer__content">
+        <p class="footer__copyright">&copy; <span id="year">2026</span> Robinson Sánchez Mayta · Hecho con HTML, CSS y JS vanilla</p>
+        <div class="footer__links">
+          <a href="https://github.com/rsanchezmayta" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/robinson-sanchez-mayta" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#inicio" class="footer__link">Inicio</a>
+        </div>
+        <p class="footer__made">Hecho con dedicación desde Lima, Perú 🇵🇪</p>
+      </div>
     </div>
   </footer>
+
+  <!-- Botón volver arriba -->
+  <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
 
   <!-- JS -->
   <script src="assets/js/main.js"></script>

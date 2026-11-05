@@ -14,12 +14,19 @@
 
 - **One-page responsive** — Funciona en móvil, tablet y desktop
 - **Mobile-first** — CSS escrito para móvil primero, mejora progresiva
-- **Accesible** — HTML semántico, ARIA labels, focus visible, contraste AA
-- **Modo oscuro automático** — Respeta `prefers-color-scheme`
-- **Animaciones suaves** — IntersectionObserver para scroll reveal
+- **Accesible** — HTML semántico, ARIA labels, focus visible, `prefers-reduced-motion`
+- **Modo oscuro/claro** — Automático según el sistema + toggle manual persistente (`localStorage`)
+- **Hero interactivo** — Efecto de escritura, gráfico SVG animado y contadores animados
+- **Timeline de trayectoria** — Formación, certificaciones, proyectos y objetivos
+- **Filtros de proyectos** — Por categoría (ML, datos, web) con transiciones suaves
+- **Habilidades visuales** — Barras de progreso animadas y leyenda de niveles
+- **Sección "Aprendiendo"** — Progreso de las tecnologías en curso
+- **Animaciones suaves** — IntersectionObserver para scroll reveal escalonado
 - **Menú hamburguesa** — Totalmente accesible (teclado + Escape + click fuera)
+- **Botón "volver arriba"** y header con sombra al hacer scroll
+- **Formulario de contacto** — Formspree con fallback a `mailto:` si no está configurado
 - **SEO ready** — Meta tags, Open Graph, Twitter Cards, sitemap-ready
-- **Design tokens** — Colores, espaciado, tipografía en `variables.css` (single source of truth)
+- **Design tokens** — Colores, espaciado, tipografía, sombras y animaciones en `variables.css`
 - **GitHub Pages** — Deploy automático en push a `main`
 
 ---
@@ -159,7 +166,7 @@ git push -u origin main
 | Fase | Qué | Aprendizaje |
 |------|-----|-------------|
 | **1** | ✅ One-page estático + GitHub Pages | HTML semántico, CSS moderno, Git |
-| **2** | 🌙 Toggle modo oscuro manual | `localStorage`, `data-theme`, CSS custom props |
+| **2** | ✅ Toggle modo oscuro manual | `localStorage`, `data-theme`, CSS custom props |
 | **3** | 📊 Datos de proyectos en `projects.js` | Separación datos/UI, `template` elements |
 | **4** | 📝 Blog técnico con Markdown | Migrar a **Astro** (componentes, MDX, build optimizado) |
 | **5** | 🔍 Analytics privacy-friendly | Plausible / Umami / GoatCounter |
