@@ -599,23 +599,23 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
   z-index: 1;
 }
 
-.tech-item svg {
-  width: 80px;
-  height: 80px;
-  color: var(--color-primary);
-  transition: transform var(--dur-slow) var(--ease-spring), color var(--dur-base) var(--ease-gentle);
+.tech-icon-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
   filter: drop-shadow(0 0 24px var(--color-primary-glow));
+  transition: transform var(--dur-slow) var(--ease-spring), filter var(--dur-base) var(--ease-gentle);
 }
-.tech-item.active svg {
+.tech-item.active .tech-icon-img {
   animation: tech-pulse 4s ease-in-out infinite;
 }
 @keyframes tech-pulse {
   0%, 100% { filter: drop-shadow(0 0 24px var(--color-primary-glow)); transform: scale(1); }
   50% { filter: drop-shadow(0 0 40px var(--color-primary-glow-strong)); transform: scale(1.05); }
 }
-.tech-item:hover svg {
+.tech-item:hover .tech-icon-img {
   transform: scale(1.15) rotate(6deg);
-  color: var(--color-primary-light);
+  filter: drop-shadow(0 0 32px var(--color-primary-glow-strong));
 }
 
 .tech-label {
