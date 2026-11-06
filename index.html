@@ -4,91 +4,110 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Robinson Josué Sánchez Mayta - Ingeniería en Ciencia de Datos e Inteligencia Artificial | Portfolio & CV" />
-  <meta name="theme-color" content="#10b981" />
-  <title>Robinson J. Sánchez Mayta | Data Science & AI</title>
+  <meta name="theme-color" content="#0d9488" />
+  <title>Robinson J. Sánchez Mayta | Data Science & AI Portfolio</title>
   <link rel="icon" type="image/png" href="icon.png" />
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="navbar" id="navbar" role="banner">
     <div class="container nav-content">
-      <a href="#inicio" class="logo" aria-label="Ir al inicio">
-        <span class="logo-dot" aria-hidden="true"></span>
+      <a href="#inicio" class="logo" aria-label="Ir al inicio - Robinson J. Sánchez Mayta">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 16L14 22L24 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <span class="logo-text">RJS<span class="logo-accent">.</span></span>
       </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-line" aria-hidden="true"></span>
         <span class="menu-line" aria-hidden="true"></span>
         <span class="menu-line" aria-hidden="true"></span>
       </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a></li>
-        <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre mí</a></li>
-        <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a></li>
-        <li><a href="#proyectos" class="nav-link" data-section="proyectos">Proyectos</a></li>
-        <li><a href="#habilidades" class="nav-link" data-section="habilidades">Habilidades</a></li>
-        <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
-      </ul>
+      <nav id="navLinks" class="nav-links" role="navigation" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre mí</a></li>
+          <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a></li>
+          <li><a href="#proyectos" class="nav-link" data-section="proyectos">Proyectos</a></li>
+          <li><a href="#habilidades" class="nav-link" data-section="habilidades">Habilidades</a></li>
+          <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <header id="inicio" class="hero" role="banner">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <p class="hero-greeting" aria-hidden="true">
-          <span class="wave" aria-hidden="true">👋</span> Hola, soy
-        </p>
-        <h1 class="hero-name">
-          Robinson J.
-          <span class="hero-surname">Sánchez Mayta</span>
-        </h1>
-        <h2 class="hero-role">
-          <span class="role-text">Ingeniería en Ciencia de Datos</span>
-          <span class="role-separator" aria-hidden="true">·</span>
-          <span class="role-text">Inteligencia Artificial</span>
-        </h2>
-        <p class="hero-desc">
-          Transformo datos en decisiones inteligentes. Construyo modelos que aprenden, sistemas que escalan y soluciones que importan.
-        </p>
-        <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">
-            <span>Conectemos</span>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#proyectos" class="btn btn-secondary">
-            <span>Ver proyectos</span>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </a>
-        </div>
-        <div class="hero-socials" role="list" aria-label="Redes sociales">
-          <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-link" aria-label="GitHub" role="listitem">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" role="listitem">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v6.6H9.1V9h3.4v1.6h.1c.5-1 1.7-2 3.5-2 3.7 0 4.4 2.4 4.4 5.6v6.9zM5.1 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.9 20.5H3.3V9h3.6v11.5z"/></svg>
-          </a>
-          <a href="mailto:robinsonjsm281006@gmail.com" class="social-link" aria-label="Email" role="listitem">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="code-showcase">
-          <div class="code-window">
-            <div class="code-header">
-              <div class="code-dots">
-                <span class="dot close"></span>
-                <span class="dot minimize"></span>
-                <span class="dot maximize"></span>
-              </div>
-              <span class="code-title">pipeline.py</span>
+  <main id="main-content">
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-badge" aria-hidden="true">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Ingeniería en Ciencia de Datos e IA
+          </p>
+          <h1 id="hero-title" class="hero-name">
+            Robinson J.
+            <span class="hero-surname">Sánchez Mayta</span>
+          </h1>
+          <h2 class="hero-role">
+            <span class="role-text">Data Scientist</span>
+            <span class="role-separator" aria-hidden="true">·</span>
+            <span class="role-text">ML Engineer</span>
+            <span class="role-separator" aria-hidden="true">·</span>
+            <span class="role-text">Backend Developer</span>
+          </h2>
+          <p class="hero-desc">
+            Transformo datos en decisiones inteligentes. Construyo pipelines de ML reproducibles, APIs escalables y sistemas que escalan.
+          </p>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary">
+              <span>Ver proyectos</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </a>
+            <a href="#contacto" class="btn btn-secondary">
+              <span>Contactar</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+          <div class="hero-metrics" role="list" aria-label="Métricas destacadas">
+            <div class="metric" role="listitem">
+              <span class="metric-value" data-count="15">0</span>
+              <span class="metric-label">Modelos en producción</span>
             </div>
-            <pre class="code-content"><code><span class="kw">from</span> <span class="mod">sklearn.pipeline</span> <span class="kw">import</span> <span class="fn">Pipeline</span>
+            <div class="metric" role="listitem">
+              <span class="metric-value" data-count="94">0</span>
+              <span class="metric-label">% Accuracy promedio</span>
+            </div>
+            <div class="metric" role="listitem">
+              <span class="metric-value" data-count="45">0</span>
+              <span class="metric-label">ms latencia p99</span>
+            </div>
+            <div class="metric" role="listitem">
+              <span class="metric-value" data-count="1200">0</span>
+              <span class="metric-label">req/s throughput</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <figure class="code-showcase">
+            <figcaption class="visually-hidden">Ejemplo de pipeline de ML en producción</figcaption>
+            <div class="code-window">
+              <div class="code-header">
+                <div class="code-dots" aria-hidden="true">
+                  <span class="dot close"></span>
+                  <span class="dot minimize"></span>
+                  <span class="dot maximize"></span>
+                </div>
+                <span class="code-title">pipeline.py</span>
+              </div>
+              <pre class="code-content"><code><span class="kw">from</span> <span class="mod">sklearn.pipeline</span> <span class="kw">import</span> <span class="fn">Pipeline</span>
 <span class="kw">from</span> <span class="mod">xgboost</span> <span class="kw">import</span> <span class="fn">XGBClassifier</span>
 <span class="kw">from</span> <span class="mod">mlflow</span> <span class="kw">import</span> <span class="fn">start_run</span>, <span class="fn">log_model</span>
 
@@ -104,89 +123,70 @@
 <span class="com"># 3. Deploy</span>
 <span class="fn">docker</span> <span class="kw">build</span> <span class="op">-t</span> churn-api .
 <span class="fn">kubectl</span> <span class="kw">apply</span> <span class="op">-f</span> <span class="va">k8s</span>/</code></pre>
-          </div>
-          <div class="code-metrics">
-            <div class="metric">
-              <span class="metric-value" data-count="15">0</span>
-              <span class="metric-label">Modelos en producción</span>
             </div>
-            <div class="metric">
-              <span class="metric-value" data-count="94">0</span>
-              <span class="metric-label">Accuracy promedio</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value" data-count="45">0</span>
-              <span class="metric-label">ms latencia p99</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value" data-count="1200">0</span>
-              <span class="metric-label">req/s throughput</span>
-            </div>
-          </div>
+          </figure>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main id="main-content">
     <section id="sobre-mi" class="section" aria-labelledby="about-title">
       <div class="container">
         <header class="section-header">
           <h3 id="about-title" class="section-title">Sobre mí</h3>
-          <p class="section-subtitle">Más que código: curiosidad, disciplina y ganas de aprender cada día</p>
+          <p class="section-subtitle">Curiosidad, disciplina y ganas de aprender cada día</p>
         </header>
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Soy <strong>Robinson Josué Sánchez Mayta</strong>, estudiante de <strong>Ingeniería en Ciencia de Datos e Inteligencia Artificial</strong>. 
-              Me apasiona descubrir patrones ocultos en los datos y convertirlos en modelos predictivos que generen valor real.
+              Soy <strong>Robinson Josué Sánchez Mayta</strong>, estudiante de <strong>Ingeniería en Ciencia de Datos e Inteligencia Artificial</strong> en SENATI (5º ciclo).
+              Me apasiona descubrir patrones en los datos y convertirlos en modelos predictivos que generen valor real.
             </p>
             <p>
-              Mi enfoque combina <strong>rigor analítico</strong> con <strong>creatividad técnica</strong>: desde la limpieza y exploración de datos (EDA) 
-              hasta el despliegue de modelos en producción. Disfruto tanto el <em>feature engineering</em> minucioso como 
-              arquitecturar pipelines de datos escalables.
+              Mi enfoque combina <strong>rigor analítico</strong> con <strong>creatividad técnica</strong>: desde EDA y feature engineering
+              hasta despliegue de modelos en producción con Docker y Kubernetes. Disfruto tanto el <em>feature engineering</em> minucioso
+              como arquitecturar pipelines de datos escalables.
             </p>
             <p>
-              Actualmente profundizo en <strong>Deep Learning</strong>, <strong>MLOps</strong> y <strong>LLMs</strong>. 
-              Creo que la mejor forma de aprender es construyendo: cada proyecto es una excusa para tocar una tecnología nueva.
+              Actualmente profundizo en <strong>Deep Learning</strong>, <strong>MLOps</strong> y <strong>LLMs/RAG</strong>.
+              Busco práctica pre-profesional en Data Science, ML, Data Engineering o Backend.
             </p>
-            
+
             <div class="about-pillars">
-              <div class="pillar">
-                <div class="pillar-icon">
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
                 <div class="pillar-content">
                   <strong>Stack principal</strong>
                   <span>Python · SQL · PyTorch · TensorFlow · Pandas · Scikit-learn · XGBoost · Docker</span>
                 </div>
-              </div>
-              <div class="pillar">
-                <div class="pillar-icon">
+              </article>
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                 </div>
                 <div class="pillar-content">
                   <strong>Enfoque</strong>
                   <span>Data-centric · Reproducible · Escalable · Ético · Clean Code · Testing</span>
                 </div>
-              </div>
-              <div class="pillar">
-                <div class="pillar-icon">
+              </article>
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <div class="pillar-content">
                   <strong>Colaboración</strong>
                   <span>Git · Docker · CI/CD · Code Review · Agile/Scrum · Pair Programming · Mentoring</span>
                 </div>
-              </div>
+              </article>
             </div>
-            
+
             <div class="about-bottom">
               <h4 class="bottom-title">¿Qué sigue?</h4>
               <p class="bottom-text">
-                Actualmente construyendo proyectos con <strong>LLMs y RAG</strong>, explorando <strong>MLOps avanzado</strong> 
-                y profundizando en <strong>arquitectura de sistemas distribuidos</strong>. 
-                Busco oportunidades para aplicar esto en un equipo que valore la excelencia técnica y el aprendizaje continuo.
+                Construyendo proyectos con <strong>LLMs y RAG</strong>, explorando <strong>MLOps avanzado</strong>
+                y <strong>arquitectura de sistemas distribuidos</strong>.
+                Busco oportunidades en un equipo que valore la excelencia técnica.
               </p>
               <div class="bottom-links">
                 <a href="#proyectos" class="btn btn-primary btn-sm">
@@ -217,27 +217,27 @@
               <span class="marker-ring"></span>
             </div>
             <div class="timeline-card">
-              <div class="card-header">
-                <span class="timeline-date">2024 — Actualidad</span>
+              <header class="card-header">
+                <time class="timeline-date" datetime="2024">2024 — Actualidad</time>
                 <div class="card-tags">
                   <span class="tag">Python</span>
                   <span class="tag">PyTorch</span>
                   <span class="tag">MLOps</span>
                   <span class="tag">Docker</span>
                 </div>
-              </div>
+              </header>
               <h4 class="card-title">Proyectos de Data Science & IA</h4>
               <p class="card-company">Desarrollo independiente / Académico</p>
               <p class="card-desc">
-                Diseño y desarrollo de pipelines completos de Machine Learning: desde ingesta y limpieza de datos,
-                feature engineering, experimentación con modelos (XGBoost, Redes Neuronales, Transformers),
-                hasta despliegue con Docker y monitoreo. Enfoque en reproducibilidad con MLflow y versionado de datos con DVC.
+                Diseño y desarrollo de pipelines completos de ML: ingesta, limpieza, feature engineering,
+                experimentación (XGBoost, Redes Neuronales, Transformers), despliegue con Docker y monitoreo.
+                Reproducibilidad con MLflow y versionado con DVC.
               </p>
-              <div class="card-highlights">
-                <span class="highlight-item">🏆 Top 10% en competición Kaggle (Tabular)</span>
-                <span class="highlight-item">📊 15+ modelos en producción experimental</span>
-                <span class="highlight-item">⚡ Pipeline automatizado: data → model → deploy</span>
-              </div>
+              <ul class="card-highlights">
+                <li>🏆 Top 10% en competición Kaggle (Tabular)</li>
+                <li>📊 15+ modelos en producción experimental</li>
+                <li>⚡ Pipeline automatizado: data → model → deploy</li>
+              </ul>
             </div>
           </article>
           <article class="timeline-item">
@@ -246,27 +246,26 @@
               <span class="marker-ring"></span>
             </div>
             <div class="timeline-card">
-              <div class="card-header">
-                <span class="timeline-date">2023 — 2024</span>
+              <header class="card-header">
+                <time class="timeline-date" datetime="2023-2024">2023 — 2024</time>
                 <div class="card-tags">
                   <span class="tag">SQL</span>
                   <span class="tag">Pandas</span>
                   <span class="tag">Power BI</span>
                   <span class="tag">EDA</span>
                 </div>
-              </div>
+              </header>
               <h4 class="card-title">Análisis de Datos & Business Intelligence</h4>
               <p class="card-company">Proyectos académicos / Freelance</p>
               <p class="card-desc">
-                Análisis exploratorio profundo (EDA), construcción de dashboards interactivos, automatización de reportes
-                y consultas SQL complejas para extraer insights de negocio. Limpieza y transformación de datasets reales
-                ruidosos (missing data, outliers, inconsistencias).
+                EDA profundo, dashboards interactivos, automatización de reportes, consultas SQL complejas.
+                Limpieza y transformación de datasets ruidosos (missing data, outliers, inconsistencias).
               </p>
-              <div class="card-highlights">
-                <span class="highlight-item">📈 8+ dashboards ejecutivos entregados</span>
-                <span class="highlight-item">🔍 Detección de anomalías en ventas (ahorro ~15%)</span>
-                <span class="highlight-item">⚙️ ETLs automatizados con Python + Airflow</span>
-              </div>
+              <ul class="card-highlights">
+                <li>📈 8+ dashboards ejecutivos entregados</li>
+                <li>🔍 Detección de anomalías en ventas (ahorro ~15%)</li>
+                <li>⚙️ ETLs automatizados con Python + Airflow</li>
+              </ul>
             </div>
           </article>
           <article class="timeline-item">
@@ -275,27 +274,26 @@
               <span class="marker-ring"></span>
             </div>
             <div class="timeline-card">
-              <div class="card-header">
-                <span class="timeline-date">2022 — 2023</span>
+              <header class="card-header">
+                <time class="timeline-date" datetime="2022-2023">2022 — 2023</time>
                 <div class="card-tags">
                   <span class="tag">Python</span>
                   <span class="tag">FastAPI</span>
                   <span class="tag">PostgreSQL</span>
                   <span class="tag">Testing</span>
                 </div>
-              </div>
+              </header>
               <h4 class="card-title">Desarrollo Backend & APIs</h4>
               <p class="card-company">Proyectos personales / Prácticas</p>
               <p class="card-desc">
-                Desarrollo de APIs RESTful con FastAPI, diseño de esquemas de base de datos relacionales,
-                autenticación JWT, testing automatizado (pytest), contenerización y despliegue. 
-                Buenas prácticas: Clean Architecture, SOLID, type hints, documentación OpenAPI.
+                APIs RESTful con FastAPI, diseño de BD relacionales, auth JWT, testing (pytest),
+                contenerización y despliegue. Clean Architecture, SOLID, type hints, docs OpenAPI.
               </p>
-              <div class="card-highlights">
-                <span class="highlight-item">🚀 3 APIs deployadas (Railway, Render, VPS)</span>
-                <span class="highlight-item">✅ Cobertura de tests > 85%</span>
-                <span class="highlight-item">📚 Docs automáticas con Swagger/Redoc</span>
-              </div>
+              <ul class="card-highlights">
+                <li>🚀 3 APIs deployadas (Railway, Render, VPS)</li>
+                <li>✅ Cobertura de tests > 85%</li>
+                <li>📚 Docs automáticas con Swagger/Redoc</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -308,7 +306,7 @@
           <h3 id="proj-title" class="section-title">Proyectos Destacados</h3>
           <p class="section-subtitle">Una selección de lo que he construido — cada uno con su reto y aprendizaje</p>
         </header>
-        
+
         <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
           <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
           <button class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
@@ -321,9 +319,9 @@
         <div class="projects-grid" id="projectsGrid" role="list">
           <article class="project-card" data-category="ml" role="listitem">
             <div class="project-image" aria-hidden="true">
-              <div class="project-gradient" style="--color: #10b981"></div>
+              <div class="project-gradient" style="--color: #0d9488"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -335,7 +333,7 @@
                 <span class="tag">Computer Vision</span>
               </div>
               <h4 class="project-title">Clasificación de Imágenes Médicas</h4>
-              <p class="project-desc">Red neuronal convolucional para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
+              <p class="project-desc">CNN para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
               <div class="project-meta">
                 <span class="project-metric">Accuracy: 94.2%</span>
                 <span class="project-metric">F1-score: 0.93</span>
@@ -346,7 +344,7 @@
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #059669"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -358,7 +356,7 @@
                 <span class="tag">MLOps</span>
               </div>
               <h4 class="project-title">Predicción de Churn Bancario</h4>
-              <p class="project-desc">Modelo de gradient boosting para predecir abandono de clientes. Feature engineering extensivo, manejo de imbalance (SMOTE), pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
+              <p class="project-desc">Gradient boosting para predecir abandono de clientes. Feature engineering extensivo, SMOTE, pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
               <div class="project-meta">
                 <span class="project-metric">ROC-AUC: 0.91</span>
                 <span class="project-metric">Recall: 0.87</span>
@@ -367,9 +365,9 @@
           </article>
           <article class="project-card" data-category="mlops backend" role="listitem">
             <div class="project-image" aria-hidden="true">
-              <div class="project-gradient" style="--color: #0d9488"></div>
+              <div class="project-gradient" style="--color: #14b8a6"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -381,7 +379,7 @@
                 <span class="tag">Docker</span>
               </div>
               <h4 class="project-title">API de Predicción en Tiempo Real</h4>
-              <p class="project-desc">Servicio RESTful para servir modelos ML en producción. Batch & online inference, caching con Redis, rate limiting, health checks, logging estructurado, deploy en Kubernetes (kind local).</p>
+              <p class="project-desc">Servicio RESTful para servir modelos ML. Batch & online inference, Redis caching, rate limiting, health checks, logging estructurado, deploy en Kubernetes.</p>
               <div class="project-meta">
                 <span class="project-metric">Latencia p99: <45ms</span>
                 <span class="project-metric">Throughput: 1.2k req/s</span>
@@ -390,9 +388,9 @@
           </article>
           <article class="project-card" data-category="llm" role="listitem">
             <div class="project-image" aria-hidden="true">
-              <div class="project-gradient" style="--color: #14b8a6"></div>
+              <div class="project-gradient" style="--color: #0d9488"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -404,7 +402,7 @@
                 <span class="tag">LangChain</span>
               </div>
               <h4 class="project-title">Asistente RAG Documental</h4>
-              <p class="project-desc">Sistema de Question Answering sobre documentos privados usando Retrieval-Augmented Generation. Embeddings con sentence-transformers, vector store (Chroma), reranking, evaluación con RAGAS.</p>
+              <p class="project-desc">QA sobre documentos privados con RAG. Embeddings sentence-transformers, Chroma vector store, reranking, evaluación con RAGAS.</p>
               <div class="project-meta">
                 <span class="project-metric">Faithfulness: 0.89</span>
                 <span class="project-metric">Answer Relevancy: 0.92</span>
@@ -415,7 +413,7 @@
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #059669"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -427,7 +425,7 @@
                 <span class="tag">PostgreSQL</span>
               </div>
               <h4 class="project-title">Pipeline ETL Inmobiliario</h4>
-              <p class="project-desc">Pipeline de datos end-to-end para análisis inmobiliario en Lima. Extracción de múltiples fuentes, transformación con Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
+              <p class="project-desc">Pipeline end-to-end para análisis inmobiliario en Lima. Extracción multi-fuente, transformación Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
               <div class="project-meta">
                 <span class="project-metric">15+ fuentes</span>
                 <span class="project-metric">Automatizado 100%</span>
@@ -436,9 +434,9 @@
           </article>
           <article class="project-card" data-category="backend" role="listitem">
             <div class="project-image" aria-hidden="true">
-              <div class="project-gradient" style="--color: #0d9488"></div>
+              <div class="project-gradient" style="--color: #14b8a6"></div>
               <div class="project-overlay">
-                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                <a href="https://github.com/rsanchezmayta/denuncias-policiales-peru" target="_blank" rel="noopener" class="project-link" aria-label="Ver código en GitHub">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
                 </a>
               </div>
@@ -450,7 +448,7 @@
                 <span class="tag">MySQL</span>
               </div>
               <h4 class="project-title">Denuncias Policiales Perú</h4>
-              <p class="project-desc">Dashboard analítico + ML sobre 369k denuncias SIDPOL-MININTER. API REST, mapa coroplético, autenticación propia, clustering K-means, forecasting SARIMA.</p>
+              <p class="project-desc">Dashboard analítico + ML sobre 369k denuncias SIDPOL-MININTER. API REST, mapa coroplético, auth propia, clustering K-means, forecasting SARIMA.</p>
               <div class="project-meta">
                 <span class="project-metric">369k registros</span>
                 <span class="project-metric">Laravel 13 / PHP 8.3</span>
@@ -468,13 +466,13 @@
           <p class="section-subtitle">Herramientas que domino y uso día a día para resolver problemas de datos</p>
         </header>
         <div class="skills-categories">
-          <div class="skill-category">
-            <div class="category-header">
+          <article class="skill-category">
+            <header class="category-header">
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </span>
               <h4>Machine Learning & IA</h4>
-            </div>
+            </header>
             <div class="skill-bars">
               <div class="skill-item">
                 <div class="skill-info"><span class="skill-name">PyTorch / TensorFlow</span><span class="skill-pct">88%</span></div>
@@ -497,14 +495,14 @@
                 <div class="skill-track"><div class="skill-fill" style="--pct: 70%"></div></div>
               </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <div class="category-header">
+          </article>
+          <article class="skill-category">
+            <header class="category-header">
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
               </span>
               <h4>Data Engineering & Analysis</h4>
-            </div>
+            </header>
             <div class="skill-bars">
               <div class="skill-item">
                 <div class="skill-info"><span class="skill-name">Python (Pandas, NumPy, Polars)</span><span class="skill-pct">95%</span></div>
@@ -527,14 +525,14 @@
                 <div class="skill-track"><div class="skill-fill" style="--pct: 65%"></div></div>
               </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <div class="category-header">
+          </article>
+          <article class="skill-category">
+            <header class="category-header">
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
               </span>
               <h4>Backend & DevOps</h4>
-            </div>
+            </header>
             <div class="skill-bars">
               <div class="skill-item">
                 <div class="skill-info"><span class="skill-name">FastAPI / Flask / REST APIs</span><span class="skill-pct">88%</span></div>
@@ -557,7 +555,7 @@
                 <div class="skill-track"><div class="skill-fill" style="--pct: 55%"></div></div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -570,7 +568,7 @@
         </header>
         <div class="contact-grid">
           <div class="contact-info">
-            <div class="contact-card">
+            <article class="contact-card">
               <div class="contact-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
               </div>
@@ -579,8 +577,8 @@
                 <a href="mailto:robinsonjsm281006@gmail.com">robinsonjsm281006@gmail.com</a>
                 <span class="contact-hint">Respondo en < 24h</span>
               </div>
-            </div>
-            <div class="contact-card">
+            </article>
+            <article class="contact-card">
               <div class="contact-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
@@ -589,8 +587,8 @@
                 <a href="tel:+51900535071">+51 900 535 071</a>
                 <span class="contact-hint">Lunes a Viernes, 9am-6pm (GMT-5)</span>
               </div>
-            </div>
-            <div class="contact-card">
+            </article>
+            <article class="contact-card">
               <div class="contact-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </div>
@@ -599,15 +597,15 @@
                 <span>Ate, Lima, Perú</span>
                 <span class="contact-hint">Disponible para remoto / híbrido</span>
               </div>
-            </div>
-            <div class="contact-socials" role="list" aria-label="Redes profesionales">
-              <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub" role="listitem">
+            </article>
+            <nav class="contact-socials" aria-label="Redes profesionales">
+              <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
               </a>
-              <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn" role="listitem">
+              <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v6.6H9.1V9h3.4v1.6h.1c.5-1 1.7-2 3.5-2 3.7 0 4.4 2.4 4.4 5.6v6.9zM5.1 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.9 20.5H3.3V9h3.6v11.5z"/></svg>
               </a>
-            </div>
+            </nav>
           </div>
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-group">

@@ -1,7 +1,7 @@
 /**
  * Robinson J. Sánchez Mayta — CV/Portfolio
  * Main JavaScript: interactions, animations, form handling, project filtering
- * Clean, modular, accessible
+ * Principles: Accessible, performant, respects reduced-motion
  */
 
 (() => {
@@ -15,7 +15,6 @@
   const navLinks = document.getElementById('navLinks');
   const navLinkElements = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], header[id]');
-  const reveals = document.querySelectorAll('.reveal');
   const counters = document.querySelectorAll('[data-count]');
   const skillFills = document.querySelectorAll('.skill-fill');
   const contactForm = document.getElementById('contactForm');
@@ -26,17 +25,27 @@
   const projectCards = document.querySelectorAll('.project-card');
 
   // ========================================
+  // Reduced Motion Preference
+  // ========================================
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ========================================
   // Year in footer
   // ========================================
   yearEl.textContent = new Date().getFullYear();
 
   // ========================================
-  // Mobile Menu
+  // Mobile Menu - Accessible
   // ========================================
   menuBtn.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Focus management
+    if (isOpen) {
+      const firstLink = navLinks.querySelector('.nav-link');
+      if (firstLink) firstLink.focus();
+    }
   });
 
   navLinkElements.forEach(link => {
@@ -44,10 +53,11 @@
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      menuBtn.focus(); // Return focus to menu button
     });
   });
 
-  // Close menu on escape
+  // Close menu on Escape
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && navLinks.classList.contains('open')) {
       navLinks.classList.remove('open');
@@ -58,11 +68,10 @@
   });
 
   // ========================================
-  // Navbar scroll effect
+  // Navbar Scroll Effect
   // ========================================
-  const navbarThreshold = 50;
   const handleNavbarScroll = () => {
-    if (window.scrollY > navbarThreshold) {
+    if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
@@ -71,13 +80,8 @@
   window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 
   // ========================================
-  // Active nav link on scroll
+  // Active Nav Link on Scroll
   // ========================================
-  const sectionObserverOptions = {
-    rootMargin: '-40% 0px -55% 0px',
-    threshold: 0
-  };
-
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -87,17 +91,16 @@
         });
       }
     });
-  }, sectionObserverOptions);
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
   sections.forEach(section => sectionObserver.observe(section));
 
   // ========================================
-  // Reveal animations (IntersectionObserver)
+  // Reveal Animations - Staggered
   // ========================================
-  const revealObserverOptions = {
-    rootMargin: '0px 0px -10% 0px',
-    threshold: 0.1
-  };
+  const revealElements = document.querySelectorAll(
+    '.section, .hero, .about-pillars > *, .about-bottom, .timeline-item, .project-card, .skill-category, .contact-card, .contact-form'
+  );
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -106,16 +109,21 @@
         observer.unobserve(entry.target);
       }
     });
-  }, revealObserverOptions);
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 
-  reveals.forEach(el => revealObserver.observe(el));
+  revealElements.forEach((el, i) => {
+    el.classList.add('reveal');
+    // Stagger delay - max 300ms
+    el.style.transitionDelay = `${Math.min(i * 40, 300)}ms`;
+    revealObserver.observe(el);
+  });
 
   // ========================================
-  // Animated counters
+  // Animated Counters
   // ========================================
   const animateCounter = (el) => {
     const target = parseInt(el.dataset.count, 10);
-    const duration = 1600;
+    const duration = prefersReducedMotion ? 0 : 1600;
     const startTime = performance.now();
     const easing = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
 
@@ -125,7 +133,11 @@
       el.textContent = Math.round(target * eased);
       if (progress < 1) requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    if (prefersReducedMotion) {
+      el.textContent = target;
+    } else {
+      requestAnimationFrame(tick);
+    }
   };
 
   const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -140,14 +152,19 @@
   counters.forEach(el => counterObserver.observe(el));
 
   // ========================================
-  // Skill bars animation
+  // Skill Bars Animation
   // ========================================
   const skillObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const fill = entry.target;
-        const pct = fill.style.getPropertyValue('--pct') || fill.dataset.level + '%';
-        fill.style.width = pct;
+        const pct = fill.style.getPropertyValue('--pct') || '0%';
+        if (!prefersReducedMotion) {
+          fill.style.width = pct;
+        } else {
+          fill.style.width = pct;
+          fill.style.transition = 'none';
+        }
         observer.unobserve(fill);
       }
     });
@@ -156,39 +173,44 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
-  // Project Filtering (like openhero.art)
+  // Project Filtering - Accessible
   // ========================================
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      
-      // Update active button
+
+      // Update active button with ARIA
       filterBtns.forEach(b => {
-        b.classList.toggle('active', b === btn);
-        b.setAttribute('aria-pressed', b === btn);
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', isActive);
       });
 
-      // Filter cards
-      projectCards.forEach(card => {
+      // Filter cards with animation
+      projectCards.forEach((card, index) => {
         const categories = card.dataset.category.split(' ');
         const show = filter === 'all' || categories.includes(filter);
-        
+
         if (show) {
           card.classList.remove('hidden');
-          // Trigger reflow for animation
-          card.offsetHeight;
-          card.style.animation = 'none';
-          card.offsetHeight; // force reflow
-          card.style.animation = '';
+          // Staggered reveal
+          if (!prefersReducedMotion) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.offsetHeight; // Force reflow
+            card.style.transition = `opacity 0.4s var(--ease-out) ${index * 30}ms, transform 0.4s var(--ease-out) ${index * 30}ms`;
+            requestAnimationFrame(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            });
+          }
         } else {
           card.classList.add('hidden');
         }
       });
     });
-  });
 
-  // Keyboard support for filter buttons
-  filterBtns.forEach(btn => {
+    // Keyboard support
     btn.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -221,6 +243,8 @@
     formStatus.textContent = message;
     formStatus.classList.toggle('error', isError);
     formStatus.style.opacity = '1';
+    // Move focus to status for screen readers
+    formStatus.focus();
   };
 
   const clearFormStatus = () => {
@@ -229,7 +253,7 @@
     formStatus.style.opacity = '0';
   };
 
-  // Real-time validation
+  // Real-time validation on blur
   contactForm.querySelectorAll('input, select, textarea').forEach(field => {
     field.addEventListener('blur', () => validateField(field));
     field.addEventListener('input', () => {
@@ -266,7 +290,6 @@
       // Simulate API call - replace with real endpoint
       await new Promise(resolve => setTimeout(resolve, 1200));
 
-      // Success
       showFormStatus(`¡Gracias, ${data.name}! Tu mensaje ha sido enviado. Te responderé pronto.`);
       contactForm.reset();
     } catch (err) {
@@ -278,7 +301,7 @@
   });
 
   // ========================================
-  // Smooth scroll for anchor links
+  // Smooth Scroll for Anchor Links
   // ========================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
@@ -289,20 +312,24 @@
         e.preventDefault();
         const offset = 72; // navbar height
         const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
-        target.focus({ preventScroll: true });
+        window.scrollTo({ top: targetPos, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        // Focus target for accessibility
+        setTimeout(() => target.focus({ preventScroll: true }), prefersReducedMotion ? 0 : 500);
       }
     });
   });
 
   // ========================================
-  // Keyboard navigation for project cards
+  // Keyboard Navigation for Project Cards
   // ========================================
   projectCards.forEach(card => {
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         const link = card.querySelector('.project-link');
-        if (link) link.click();
+        if (link) {
+          e.preventDefault();
+          link.click();
+        }
       }
     });
     card.setAttribute('tabindex', '0');
@@ -310,23 +337,17 @@
   });
 
   // ========================================
-  // Initialize
+  // Initialize Reveal for Sections
   // ========================================
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add reveal class to sections for animation
-      document.querySelectorAll('section, header').forEach((el, i) => {
-        el.classList.add('reveal');
-        if (i > 0) el.style.transitionDelay = `${Math.min(i * 60, 300)}ms`;
-      });
-    });
-  } else {
-    document.querySelectorAll('section, header').forEach((el, i) => {
+  // Add reveal classes to main sections
+  document.querySelectorAll('section, header.hero').forEach((el, i) => {
+    if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
-      if (i > 0) el.style.transitionDelay = `${Math.min(i * 60, 300)}ms`;
-    });
-  }
+      el.style.transitionDelay = `${Math.min(i * 60, 300)}ms`;
+      revealObserver.observe(el);
+    }
+  });
 
-  console.log('%c🚀 Robinson J. Sánchez Mayta — CV loaded', 'color: #10b981; font-size: 1.2rem; font-weight: 600;');
-  console.log('%c💚 Built with curiosity and green', 'color: #34d399; font-size: 0.9rem;');
+  console.log('%c🚀 Robinson J. Sánchez Mayta — Portfolio loaded', 'color: #0d9488; font-size: 1.2rem; font-weight: 600;');
+  console.log('%c💚 Built with Minimalism & Swiss Style principles', 'color: #14b8a6; font-size: 0.9rem;');
 })();
