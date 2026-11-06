@@ -173,39 +173,51 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
-  // Tech Carousel (inside terminal)
+  // Tech Carousel (inside terminal) - 16 items, 2s each
   // ========================================
   const initTechCarousel = () => {
     const carousel = document.getElementById('techCarousel');
     if (!carousel) return;
 
-    const sets = carousel.querySelectorAll('.tech-set');
-    const pages = carousel.querySelectorAll('.tech-page');
-    if (sets.length === 0) return;
+    const items = carousel.querySelectorAll('.tech-item');
+    const pagination = carousel.querySelector('.tech-pagination');
+    if (items.length === 0) return;
 
-    let currentSet = 0;
+    // Generate pagination dots dynamically
+    items.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'tech-page' + (i === 0 ? ' active' : '');
+      btn.dataset.index = i;
+      btn.setAttribute('aria-label', `Tecnología ${i + 1} de ${items.length}`);
+      btn.setAttribute('aria-selected', i === 0);
+      pagination.appendChild(btn);
+    });
+    pagination.hidden = false;
+
+    const pages = pagination.querySelectorAll('.tech-page');
+    let currentIndex = 0;
     let carouselInterval = null;
-    let isHovered = false;
 
-    const showSet = (index) => {
-      sets.forEach((set, i) => {
-        set.classList.toggle('active', i === index);
+    const showItem = (index) => {
+      items.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+        item.hidden = i !== index;
       });
       pages.forEach((page, i) => {
         page.classList.toggle('active', i === index);
         page.setAttribute('aria-selected', i === index);
       });
-      currentSet = index;
+      currentIndex = index;
     };
 
-    const nextSet = () => {
-      const next = (currentSet + 1) % sets.length;
-      showSet(next);
+    const nextItem = () => {
+      const next = (currentIndex + 1) % items.length;
+      showItem(next);
     };
 
     const startCarousel = () => {
       if (prefersReducedMotion) return;
-      carouselInterval = setInterval(nextSet, 3000);
+      carouselInterval = setInterval(nextItem, 2000); // 2 seconds per tech
     };
 
     const stopCarousel = () => {
@@ -218,9 +230,9 @@
     // Pagination click handlers
     pages.forEach((page, i) => {
       page.addEventListener('click', () => {
-        showSet(i);
+        showItem(i);
         stopCarousel();
-        startCarousel(); // Restart timer
+        startCarousel();
       });
       page.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -232,12 +244,10 @@
 
     // Pause on hover
     carousel.addEventListener('mouseenter', () => {
-      isHovered = true;
       stopCarousel();
     });
 
     carousel.addEventListener('mouseleave', () => {
-      isHovered = false;
       startCarousel();
     });
 
@@ -251,7 +261,7 @@
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          showSet(0);
+          showItem(0);
           startCarousel();
           heroObserver.unobserve(entry.target);
         }
@@ -265,13 +275,13 @@
     carousel.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
         e.preventDefault();
-        nextSet();
+        nextItem();
         stopCarousel();
         startCarousel();
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        const prev = (currentSet - 1 + sets.length) % sets.length;
-        showSet(prev);
+        const prev = (currentIndex - 1 + items.length) % items.length;
+        showItem(prev);
         stopCarousel();
         startCarousel();
       }
