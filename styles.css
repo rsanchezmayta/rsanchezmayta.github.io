@@ -1008,14 +1008,34 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
   position: relative;
   height: 160px;
   overflow: hidden;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-icon {
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px var(--color-primary-glow));
+  opacity: 0.85;
+  transition: transform var(--dur-slow) var(--ease-out), opacity var(--dur-base) var(--ease-gentle), filter var(--dur-base) var(--ease-gentle);
+}
+.project-card:hover .project-icon {
+  transform: scale(1.08);
+  opacity: 1;
+  filter: drop-shadow(0 0 32px var(--color-primary-glow-strong));
 }
 .project-gradient {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, var(--color) 0%, color-mix(in srgb, var(--color) 60%, transparent) 100%);
-  opacity: 0.12;
+  opacity: 0.08;
   transition: opacity var(--dur-base) var(--ease-gentle);
+  pointer-events: none;
 }
-.project-card:hover .project-gradient { opacity: 0.2; }
+.project-card:hover .project-gradient { opacity: 0.15; }
 .project-overlay {
   position: absolute; inset: 0;
   display: flex; align-items: flex-end; justify-content: flex-end;

@@ -1,14 +1,20 @@
 {
-  "name": "Robinson J. Sánchez Mayta",
-  "short_name": "RJS",
-  "description": "Portfolio & CV - Ingeniería en Ciencia de Datos e IA",
+  "name": "Robinson J. Sánchez Mayta | Data Science & AI",
+  "short_name": "RJS Portfolio",
+  "description": "Data Scientist · ML Engineer · Backend Developer Portfolio",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0f0d",
-  "theme_color": "#10b981",
+  "theme_color": "#0d9488",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
