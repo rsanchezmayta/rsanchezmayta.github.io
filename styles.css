@@ -329,12 +329,29 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-16);
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
   align-items: center;
   width: 100%;
   position: relative;
   z-index: var(--z-base);
+}
+.hero-visual {
+  order: -1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.hero-text {
+  text-align: center;
+}
+.hero-desc {
+  margin-inline: auto;
+}
+.hero-actions, .hero-socials {
+  justify-content: center;
+}
+.hero-metrics {
+  justify-content: center;
 }
 
 .hero-badge {
@@ -1262,11 +1279,10 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
 }
 
 @media (max-width: 1024px) {
-  .hero-content { grid-template-columns: 1fr; gap: var(--space-12); text-align: center; }
   .hero-text { max-width: 600px; margin: 0 auto; }
   .hero-desc { margin-inline: auto; }
   .hero-actions, .hero-metrics { justify-content: center; }
-  .hero-visual { order: -1; max-width: 500px; margin: 0 auto; }
+  .hero-visual { max-width: 500px; margin: 0 auto; }
   .about-grid { gap: var(--space-8); }
   .skills-categories { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .contact-grid { gap: var(--space-8); }
