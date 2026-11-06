@@ -217,7 +217,7 @@
 
     const startCarousel = () => {
       if (prefersReducedMotion) return;
-      carouselInterval = setInterval(nextItem, 1500); // 1.5 seconds per tech
+      carouselInterval = setInterval(nextItem, 1100); // 1.1s per tech - faster but smooth
     };
 
     const stopCarousel = () => {
