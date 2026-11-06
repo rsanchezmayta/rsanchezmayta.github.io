@@ -6,21 +6,16 @@
   <meta name="description" content="Robinson Josué Sánchez Mayta - Ingeniería en Ciencia de Datos e Inteligencia Artificial | Portfolio & CV" />
   <meta name="theme-color" content="#10b981" />
   <title>Robinson J. Sánchez Mayta | Data Science & AI</title>
-  <!-- Favicon / Icono personal -->
   <link rel="icon" type="image/png" href="icon.png" />
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="manifest" href="manifest.json" />
-  <!-- Fuentes juveniles y modernas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Particles background -->
-  <canvas id="particles" aria-hidden="true"></canvas>
-
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="container nav-content">
       <a href="#inicio" class="logo" aria-label="Ir al inicio">
         <span class="logo-dot" aria-hidden="true"></span>
@@ -31,7 +26,7 @@
         <span class="menu-line" aria-hidden="true"></span>
         <span class="menu-line" aria-hidden="true"></span>
       </button>
-      <ul class="nav-links" id="navLinks" role="navigation" aria-label="Navegación principal">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a></li>
         <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre mí</a></li>
         <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a></li>
@@ -42,7 +37,7 @@
     </div>
   </nav>
 
-  <header id="inicio" class="hero">
+  <header id="inicio" class="hero" role="banner">
     <div class="container hero-content">
       <div class="hero-text">
         <p class="hero-greeting" aria-hidden="true">
@@ -81,53 +76,59 @@
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
           </a>
         </div>
-        <div class="hero-scroll" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          <span>Explorar</span>
-        </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="visual-card" data-depth="0.3">
-          <div class="card-glow"></div>
-          <div class="card-content">
-            <div class="terminal-window">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot close"></span>
-                  <span class="dot minimize"></span>
-                  <span class="dot maximize"></span>
-                </div>
-                <div class="terminal-title">data_science_lab.sh</div>
+        <div class="code-showcase">
+          <div class="code-window">
+            <div class="code-header">
+              <div class="code-dots">
+                <span class="dot close"></span>
+                <span class="dot minimize"></span>
+                <span class="dot maximize"></span>
               </div>
-              <div class="terminal-body">
-                <div class="terminal-output" id="terminal-output"></div>
-                <div class="terminal-input-line">
-                  <span class="prompt">robinson@data-lab:~$</span>
-                  <span class="cursor" aria-hidden="true"></span>
-                </div>
-              </div>
+              <span class="code-title">pipeline.py</span>
             </div>
+            <pre class="code-content"><code><span class="kw">from</span> <span class="mod">sklearn.pipeline</span> <span class="kw">import</span> <span class="fn">Pipeline</span>
+<span class="kw">from</span> <span class="mod">xgboost</span> <span class="kw">import</span> <span class="fn">XGBClassifier</span>
+<span class="kw">from</span> <span class="mod">mlflow</span> <span class="kw">import</span> <span class="fn">start_run</span>, <span class="fn">log_model</span>
+
+<span class="com"># 1. Feature Engineering</span>
+<span class="fn">features</span> = <span class="fn">build_features</span>(<span class="va">raw_data</span>)
+
+<span class="com"># 2. Train & Track</span>
+<span class="kw">with</span> <span class="fn">start_run</span>():
+    <span class="va">model</span> = <span class="fn">XGBClassifier</span>(n_estimators=200, max_depth=6)
+    <span class="va">model</span>.<span class="fn">fit</span>(<span class="va">X_train</span>, <span class="va">y_train</span>)
+    <span class="fn">log_model</span>(<span class="va">model</span>, <span class="st">"churn-model"</span>)
+
+<span class="com"># 3. Deploy</span>
+<span class="fn">docker</span> <span class="kw">build</span> <span class="op">-t</span> churn-api .
+<span class="fn">kubectl</span> <span class="kw">apply</span> <span class="op">-f</span> <span class="va">k8s</span>/</code></pre>
           </div>
-        </div>
-        <div class="floating-elements" aria-hidden="true">
-          <div class="float-item" data-speed="0.5" style="--i: 0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-          <div class="float-item" data-speed="0.8" style="--i: 1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <div class="float-item" data-speed="0.3" style="--i: 2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </div>
-          <div class="float-item" data-speed="0.6" style="--i: 3">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div class="code-metrics">
+            <div class="metric">
+              <span class="metric-value" data-count="15">0</span>
+              <span class="metric-label">Modelos en producción</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value" data-count="94">0</span>
+              <span class="metric-label">Accuracy promedio</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value" data-count="45">0</span>
+              <span class="metric-label">ms latencia p99</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value" data-count="1200">0</span>
+              <span class="metric-label">req/s throughput</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section id="sobre-mi" class="section" aria-labelledby="about-title">
       <div class="container">
         <header class="section-header">
@@ -150,7 +151,6 @@
               Creo que la mejor forma de aprender es construyendo: cada proyecto es una excusa para tocar una tecnología nueva.
             </p>
             
-            <!-- Stack, Enfoque, Colaboración stacked vertically -->
             <div class="about-pillars">
               <div class="pillar">
                 <div class="pillar-icon">
@@ -181,7 +181,6 @@
               </div>
             </div>
             
-            <!-- New bottom container -->
             <div class="about-bottom">
               <h4 class="bottom-title">¿Qué sigue?</h4>
               <p class="bottom-text">
@@ -201,64 +200,11 @@
               </div>
             </div>
           </div>
-          <div class="about-visual">
-            <!-- Avatar with neural network background -->
-            <div class="avatar-scene" data-depth="0.3" style="max-width: 380px; margin: 0 auto;">
-              <!-- Neural network background canvas -->
-              <canvas id="neural-bg-about" class="neural-canvas"></canvas>
-              
-              <!-- Main avatar card -->
-              <div class="avatar-card">
-                <div class="avatar-ring-outer">
-                  <div class="avatar-ring-middle">
-                    <div class="avatar-ring-inner">
-                      <img src="icon.png" alt="Robinson Josué Sánchez Mayta" class="avatar-img" loading="eager">
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Orbital tech icons -->
-                <div class="orbital-ring" aria-hidden="true">
-                  <div class="orbit-item" data-angle="0" data-icon="python">
-                    <div class="orbit-tooltip">Python</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div class="orbit-item" data-angle="60" data-icon="pytorch">
-                    <div class="orbit-tooltip">PyTorch</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div class="orbit-item" data-angle="120" data-icon="sql">
-                    <div class="orbit-tooltip">SQL</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                  </div>
-                  <div class="orbit-item" data-angle="180" data-icon="docker">
-                    <div class="orbit-tooltip">Docker</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div class="orbit-item" data-angle="240" data-icon="git">
-                    <div class="orbit-tooltip">Git</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div class="orbit-item" data-angle="300" data-icon="linux">
-                    <div class="orbit-tooltip">Linux</div>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                </div>
-                
-                <!-- Pulse rings -->
-                <div class="pulse-rings" aria-hidden="true">
-                  <div class="pulse-ring"></div>
-                  <div class="pulse-ring"></div>
-                  <div class="pulse-ring"></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section id="experiencia" class="section" aria-labelledby="exp-title">
+    <section id="experiencia" class="section section-alt" aria-labelledby="exp-title">
       <div class="container">
         <header class="section-header">
           <h3 id="exp-title" class="section-title">Experiencia</h3>
@@ -356,14 +302,24 @@
       </div>
     </section>
 
-    <section id="proyectos" class="section section-alt" aria-labelledby="proj-title">
+    <section id="proyectos" class="section" aria-labelledby="proj-title">
       <div class="container">
         <header class="section-header">
           <h3 id="proj-title" class="section-title">Proyectos Destacados</h3>
           <p class="section-subtitle">Una selección de lo que he construido — cada uno con su reto y aprendizaje</p>
         </header>
-        <div class="projects-grid">
-          <article class="project-card">
+        
+        <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
+          <button class="filter-btn" data-filter="data-eng" aria-pressed="false">Data Engineering</button>
+          <button class="filter-btn" data-filter="mlops" aria-pressed="false">MLOps & Deploy</button>
+          <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend APIs</button>
+          <button class="filter-btn" data-filter="llm" aria-pressed="false">LLM / RAG</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid" role="list">
+          <article class="project-card" data-category="ml" role="listitem">
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #10b981"></div>
               <div class="project-overlay">
@@ -386,7 +342,7 @@
               </div>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-category="ml" role="listitem">
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #059669"></div>
               <div class="project-overlay">
@@ -409,7 +365,7 @@
               </div>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-category="mlops backend" role="listitem">
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #0d9488"></div>
               <div class="project-overlay">
@@ -432,7 +388,7 @@
               </div>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-category="llm" role="listitem">
             <div class="project-image" aria-hidden="true">
               <div class="project-gradient" style="--color: #14b8a6"></div>
               <div class="project-overlay">
@@ -455,11 +411,57 @@
               </div>
             </div>
           </article>
+          <article class="project-card" data-category="data-eng" role="listitem">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #059669"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Airflow</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+              <h4 class="project-title">Pipeline ETL Inmobiliario</h4>
+              <p class="project-desc">Pipeline de datos end-to-end para análisis inmobiliario en Lima. Extracción de múltiples fuentes, transformación con Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
+              <div class="project-meta">
+                <span class="project-metric">15+ fuentes</span>
+                <span class="project-metric">Automatizado 100%</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="backend" role="listitem">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-gradient" style="--color: #0d9488"></div>
+              <div class="project-overlay">
+                <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="project-link" aria-label="Ver en GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="tag">Laravel</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+              <h4 class="project-title">Denuncias Policiales Perú</h4>
+              <p class="project-desc">Dashboard analítico + ML sobre 369k denuncias SIDPOL-MININTER. API REST, mapa coroplético, autenticación propia, clustering K-means, forecasting SARIMA.</p>
+              <div class="project-meta">
+                <span class="project-metric">369k registros</span>
+                <span class="project-metric">Laravel 13 / PHP 8.3</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="habilidades" class="section" aria-labelledby="skills-title">
+    <section id="habilidades" class="section section-alt" aria-labelledby="skills-title">
       <div class="container">
         <header class="section-header">
           <h3 id="skills-title" class="section-title">Habilidades Técnicas</h3>
@@ -475,23 +477,23 @@
             </div>
             <div class="skill-bars">
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">PyTorch / TensorFlow</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-info"><span class="skill-name">PyTorch / TensorFlow</span><span class="skill-pct">88%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Scikit-learn / XGBoost / LightGBM</span><span class="skill-pct" data-pct="92">92%</span></div>
+                <div class="skill-info"><span class="skill-name">Scikit-learn / XGBoost / LightGBM</span><span class="skill-pct">92%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 92%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Computer Vision (OpenCV, YOLO, Segmentation)</span><span class="skill-pct" data-pct="80">80%</span></div>
+                <div class="skill-info"><span class="skill-name">Computer Vision (OpenCV, YOLO, Segmentation)</span><span class="skill-pct">80%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 80%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">NLP / LLMs / RAG (HuggingFace, LangChain)</span><span class="skill-pct" data-pct="75">75%</span></div>
+                <div class="skill-info"><span class="skill-name">NLP / LLMs / RAG (HuggingFace, LangChain)</span><span class="skill-pct">75%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 75%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">MLOps (MLflow, DVC, Evidently, Kubeflow)</span><span class="skill-pct" data-pct="70">70%</span></div>
+                <div class="skill-info"><span class="skill-name">MLOps (MLflow, DVC, Evidently, Kubeflow)</span><span class="skill-pct">70%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 70%"></div></div>
               </div>
             </div>
@@ -505,23 +507,23 @@
             </div>
             <div class="skill-bars">
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Python (Pandas, NumPy, Polars)</span><span class="skill-pct" data-pct="95">95%</span></div>
+                <div class="skill-info"><span class="skill-name">Python (Pandas, NumPy, Polars)</span><span class="skill-pct">95%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 95%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">SQL (PostgreSQL, MySQL, BigQuery)</span><span class="skill-pct" data-pct="90">90%</span></div>
+                <div class="skill-info"><span class="skill-name">SQL (PostgreSQL, MySQL, BigQuery)</span><span class="skill-pct">90%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 90%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-info"><span class="skill-name">Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</span><span class="skill-pct">88%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">ETL / Pipelines (Airflow, Prefect, dbt)</span><span class="skill-pct" data-pct="72">72%</span></div>
+                <div class="skill-info"><span class="skill-name">ETL / Pipelines (Airflow, Prefect, dbt)</span><span class="skill-pct">72%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 72%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Big Data (Spark, Delta Lake, Parquet)</span><span class="skill-pct" data-pct="65">65%</span></div>
+                <div class="skill-info"><span class="skill-name">Big Data (Spark, Delta Lake, Parquet)</span><span class="skill-pct">65%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 65%"></div></div>
               </div>
             </div>
@@ -535,23 +537,23 @@
             </div>
             <div class="skill-bars">
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">FastAPI / Flask / REST APIs</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-info"><span class="skill-name">FastAPI / Flask / REST APIs</span><span class="skill-pct">88%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Docker / Docker Compose</span><span class="skill-pct" data-pct="85">85%</span></div>
+                <div class="skill-info"><span class="skill-name">Docker / Docker Compose</span><span class="skill-pct">85%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 85%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Git / GitHub Actions / CI-CD</span><span class="skill-pct" data-pct="88">88%</span></div>
+                <div class="skill-info"><span class="skill-name">Git / GitHub Actions / CI-CD</span><span class="skill-pct">88%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Linux (Arch/Ubuntu), Bash, Vim</span><span class="skill-pct" data-pct="82">82%</span></div>
+                <div class="skill-info"><span class="skill-name">Linux (Arch/Ubuntu), Bash, Vim</span><span class="skill-pct">82%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 82%"></div></div>
               </div>
               <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Cloud (AWS/GCP basics, Terraform intro)</span><span class="skill-pct" data-pct="55">55%</span></div>
+                <div class="skill-info"><span class="skill-name">Cloud (AWS/GCP basics, Terraform intro)</span><span class="skill-pct">55%</span></div>
                 <div class="skill-track"><div class="skill-fill" style="--pct: 55%"></div></div>
               </div>
             </div>
@@ -560,7 +562,7 @@
       </div>
     </section>
 
-    <section id="contacto" class="section section-alt" aria-labelledby="contact-title">
+    <section id="contacto" class="section" aria-labelledby="contact-title">
       <div class="container">
         <header class="section-header">
           <h3 id="contact-title" class="section-title">Contacto</h3>
