@@ -108,7 +108,7 @@
         </div>
         <div class="hero-visual" aria-hidden="true">
           <figure class="code-showcase">
-            <figcaption class="visually-hidden">Stack tecnológico: Python, SQL, PyTorch, TensorFlow, Pandas, NumPy, XGBoost, Scikit-learn, Docker, Kubernetes, MLflow, DVC, FastAPI, PostgreSQL, Git, GitHub Actions</figcaption>
+            <figcaption class="visually-hidden">Terminal ejecutando comandos para mostrar stack tecnológico</figcaption>
             <div class="code-window">
               <div class="code-header">
                 <div class="code-dots" aria-hidden="true">
@@ -116,63 +116,18 @@
                   <span class="dot minimize"></span>
                   <span class="dot maximize"></span>
                 </div>
-                <span class="code-title">tech_stack.sh</span>
+                <span class="code-title">stack.sh</span>
               </div>
-              <div class="tech-carousel" id="techCarousel" role="list" aria-label="Tecnologías que domino">
-                <!-- Each tech takes full terminal - solo los que tienen icono real -->
-                <div class="tech-item" data-name="Python" role="listitem">
-                  <img src="images/icon-python.png" alt="Python" loading="eager" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Python</span>
+              <div class="terminal-body" id="terminalBody">
+                <div class="terminal-output" id="terminalOutput"></div>
+                <div class="terminal-input-line" id="terminalInputLine">
+                  <span class="prompt">robinson@data-lab:~$</span>
+                  <span class="cmd-text" id="cmdText"></span>
+                  <span class="cursor" aria-hidden="true"></span>
                 </div>
-                <div class="tech-item" data-name="SQL" role="listitem" hidden>
-                  <img src="images/icon-sql.png" alt="SQL" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">SQL</span>
-                </div>
-                <div class="tech-item" data-name="Machine Learning" role="listitem" hidden>
-                  <img src="images/icon-ml.png" alt="Machine Learning" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Machine Learning</span>
-                </div>
-                <div class="tech-item" data-name="Pandas" role="listitem" hidden>
-                  <img src="images/icon-pandas.png" alt="Pandas" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Pandas</span>
-                </div>
-                <div class="tech-item" data-name="NumPy" role="listitem" hidden>
-                  <img src="images/icon-numpy.png" alt="NumPy" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">NumPy</span>
-                </div>
-                <div class="tech-item" data-name="Docker" role="listitem" hidden>
-                  <img src="images/icon-docker.png" alt="Docker" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Docker</span>
-                </div>
-                <div class="tech-item" data-name="Terminal" role="listitem" hidden>
-                  <img src="images/icon-terminal.png" alt="Terminal" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Terminal</span>
-                </div>
-                <div class="tech-item" data-name="Data Warehouse" role="listitem" hidden>
-                  <img src="images/icon-datawarehouse.png" alt="Data Warehouse" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Data Warehouse</span>
-                </div>
-                <div class="tech-item" data-name="PHP" role="listitem" hidden>
-                  <img src="images/icon-php.png" alt="PHP" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">PHP</span>
-                </div>
-                <div class="tech-item" data-name="Git" role="listitem" hidden>
-                  <img src="images/icon-git.png" alt="Git" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Git</span>
-                </div>
-                <div class="tech-item" data-name="Linux" role="listitem" hidden>
-                  <img src="images/icon-linux.png" alt="Linux" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Linux</span>
-                </div>
-                <div class="tech-item" data-name="Neovim" role="listitem" hidden>
-                  <img src="images/icon-nvim.png" alt="Neovim" loading="lazy" width="120" height="120" class="tech-icon-img">
-                  <span class="tech-label">Neovim</span>
-                </div>
-
-                <!-- Pagination dots (16) -->
-                <div class="tech-pagination" aria-label="Navegación de tecnologías" hidden></div>
               </div>
-            </div          </figure>
+            </div>
+          </figure>
         </div>
       </div>
     </section>

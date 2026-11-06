@@ -173,96 +173,133 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
-  // Tech Carousel (inside terminal) - 16 items, 2s each
+  // Terminal Sequence Runner (inside hero terminal)
   // ========================================
-  const initTechCarousel = () => {
-    const carousel = document.getElementById('techCarousel');
-    if (!carousel) return;
+  const initTerminalSequence = () => {
+    const terminalBody = document.getElementById('terminalBody');
+    const terminalOutput = document.getElementById('terminalOutput');
+    const cmdText = document.getElementById('cmdText');
+    if (!terminalBody || !terminalOutput || !cmdText) return;
 
-    const items = carousel.querySelectorAll('.tech-item');
-    const pagination = carousel.querySelector('.tech-pagination');
-    if (items.length === 0) return;
+    // Sequence of commands to run
+    const sequence = [
+      { cmd: 'python3', icon: 'images/icon-python.png', label: 'Python', delay: 800 },
+      { cmd: 'sqlite3', icon: 'images/icon-sql.png', label: 'SQL', delay: 600 },
+      { cmd: 'mlflow', icon: 'images/icon-ml.png', label: 'Machine Learning', delay: 800 },
+      { cmd: 'pandas', icon: 'images/icon-pandas.png', label: 'Pandas', delay: 600 },
+      { cmd: 'numpy', icon: 'images/icon-numpy.png', label: 'NumPy', delay: 500 },
+      { cmd: 'docker', icon: 'images/icon-docker.png', label: 'Docker', delay: 700 },
+      { cmd: 'zsh', icon: 'images/icon-terminal.png', label: 'Terminal', delay: 500 },
+      { cmd: 'minio', icon: 'images/icon-datawarehouse.png', label: 'Data Warehouse', delay: 700 },
+      { cmd: 'php', icon: 'images/icon-php.png', label: 'PHP', delay: 500 },
+      { cmd: 'git', icon: 'images/icon-git.png', label: 'Git', delay: 500 },
+      { cmd: 'arch', icon: 'images/icon-linux.png', label: 'Linux', delay: 500 },
+      { cmd: 'nvim', icon: 'images/icon-nvim.png', label: 'Neovim', delay: 600 }
+    ];
 
-    // Generate pagination dots dynamically
-    items.forEach((_, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'tech-page' + (i === 0 ? ' active' : '');
-      btn.dataset.index = i;
-      btn.setAttribute('aria-label', `Tecnología ${i + 1} de ${items.length}`);
-      btn.setAttribute('aria-selected', i === 0);
-      pagination.appendChild(btn);
-    });
-    pagination.hidden = false;
-
-    const pages = pagination.querySelectorAll('.tech-page');
     let currentIndex = 0;
-    let carouselInterval = null;
+    let isRunning = false;
+    const typeSpeed = 45; // ms per character
+    const pauseAfterIcon = 1600; // ms to show icon before next command
+    const spinnerDelay = 400; // ms spinner shows before icon appears
 
-    const showItem = (index) => {
-      items.forEach((item, i) => {
-        item.classList.toggle('active', i === index);
-        item.hidden = i !== index;
-      });
-      pages.forEach((page, i) => {
-        page.classList.toggle('active', i === index);
-        page.setAttribute('aria-selected', i === index);
-      });
-      currentIndex = index;
+    // Create icon element
+    const createIconElement = (iconSrc, label) => {
+      const container = document.createElement('div');
+      container.className = 'terminal-icon-output';
+      container.style.opacity = '0';
+      container.style.transform = 'translateY(10px)';
+      container.innerHTML = `
+        <img src="${iconSrc}" alt="${label}" loading="lazy" width="100" height="100" class="terminal-icon-img">
+        <span class="terminal-icon-label">${label}</span>
+      `;
+      return container;
     };
 
-    const nextItem = () => {
-      const next = (currentIndex + 1) % items.length;
-      showItem(next);
+    // Type command character by character
+    const typeCommand = (cmd, callback) => {
+      let i = 0;
+      cmdText.textContent = '';
+      cmdText.style.opacity = '1';
+      
+      const type = () => {
+        if (i < cmd.length) {
+          cmdText.textContent += cmd[i];
+          i++;
+          setTimeout(type, typeSpeed);
+        } else {
+          callback();
+        }
+      };
+      type();
     };
 
-    const startCarousel = () => {
-      if (prefersReducedMotion) return;
-      carouselInterval = setInterval(nextItem, 1100); // 1.1s per tech - faster but smooth
+    // Show spinner briefly then icon
+    const showIconWithSpinner = (iconSrc, label) => {
+      // Add spinner line
+      const spinnerLine = document.createElement('div');
+      spinnerLine.className = 'terminal-spinner-line';
+      spinnerLine.innerHTML = '<span class="spinner"></span>';
+      terminalOutput.appendChild(spinnerLine);
+      
+      setTimeout(() => {
+        spinnerLine.remove();
+        
+        const iconEl = createIconElement(iconSrc, label);
+        terminalOutput.appendChild(iconEl);
+        
+        // Force reflow then animate in
+        iconEl.offsetHeight;
+        iconEl.style.transition = 'opacity 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        iconEl.style.opacity = '1';
+        iconEl.style.transform = 'translateY(0)';
+      }, spinnerDelay);
     };
 
-    const stopCarousel = () => {
-      if (carouselInterval) {
-        clearInterval(carouselInterval);
-        carouselInterval = null;
+    // Clear output and command for next iteration
+    const clearForNext = () => {
+      terminalOutput.innerHTML = '';
+      cmdText.textContent = '';
+      cmdText.style.opacity = '0';
+    };
+
+    // Run sequence
+    const runSequence = async () => {
+      if (isRunning) return;
+      isRunning = true;
+
+      while (true) {
+        for (const item of sequence) {
+          // Type command
+          await new Promise(resolve => typeCommand(item.cmd, resolve));
+          
+          // Small pause after typing
+          await new Promise(r => setTimeout(r, 200));
+          
+          // Show icon with spinner
+          showIconWithSpinner(item.icon, item.label);
+          
+          // Wait for icon display
+          await new Promise(r => setTimeout(r, pauseAfterIcon + spinnerDelay + 400));
+          
+          // Clear for next
+          clearForNext();
+          
+          // Small pause between commands
+          await new Promise(r => setTimeout(r, 300));
+        }
+        
+        // Loop back to start after full sequence
+        // Small pause before restarting
+        await new Promise(r => setTimeout(r, 800));
       }
     };
-
-    // Pagination click handlers
-    pages.forEach((page, i) => {
-      page.addEventListener('click', () => {
-        showItem(i);
-        stopCarousel();
-        startCarousel();
-      });
-      page.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          page.click();
-        }
-      });
-    });
-
-    // Pause on hover
-    carousel.addEventListener('mouseenter', () => {
-      stopCarousel();
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      startCarousel();
-    });
-
-    // Pause when tab is not visible
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stopCarousel();
-      else startCarousel();
-    });
 
     // Start when hero is visible
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          showItem(0);
-          startCarousel();
+        if (entry.isIntersecting && !isRunning) {
+          runSequence();
           heroObserver.unobserve(entry.target);
         }
       });
@@ -271,30 +308,30 @@
     const hero = document.getElementById('inicio');
     if (hero) heroObserver.observe(hero);
 
-    // Keyboard navigation for carousel
-    carousel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextItem();
-        stopCarousel();
-        startCarousel();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const prev = (currentIndex - 1 + items.length) % items.length;
-        showItem(prev);
-        stopCarousel();
-        startCarousel();
-      }
+    // Pause when tab not visible
+    document.addEventListener('visibilitychange', () => {
+      // Sequence handles its own timing, but we can pause if needed
     });
 
-    // Make carousel focusable
-    carousel.setAttribute('tabindex', '0');
-    carousel.setAttribute('role', 'region');
-    carousel.setAttribute('aria-label', 'Carrusel de tecnologías');
+    // Reduced motion - show all icons at once
+    if (prefersReducedMotion) {
+      terminalOutput.innerHTML = '';
+      sequence.forEach(item => {
+        const iconEl = createIconElement(item.icon, item.label);
+        iconEl.style.opacity = '1';
+        iconEl.style.transform = 'translateY(0)';
+        terminalOutput.appendChild(iconEl);
+      });
+      terminalOutput.style.display = 'flex';
+      terminalOutput.style.flexWrap = 'wrap';
+      terminalOutput.style.justifyContent = 'center';
+      terminalOutput.style.gap = 'var(--space-4)';
+      cmdText.style.display = 'none';
+    }
   };
 
-  // Initialize tech carousel
-  initTechCarousel();
+  // Initialize terminal sequence
+  initTerminalSequence();
 
   // ========================================
   // Project Filtering - Accessible

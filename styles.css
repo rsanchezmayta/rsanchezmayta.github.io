@@ -507,7 +507,7 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
   margin-top: var(--space-1);
 }
 
-/* Hero Visual - Code Showcase */
+/* Hero Visual - Terminal Sequence */
 .hero-visual { display: flex; justify-content: center; align-items: center; }
 .code-showcase {
   width: 100%;
@@ -544,178 +544,149 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
   color: var(--text-muted);
   font-weight: 500;
 }
-.code-content {
-  padding: var(--space-5);
-  overflow-x: auto;
+
+/* Terminal Body */
+.terminal-body {
+  background: #0d1117;
+  min-height: 280px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   line-height: 1.7;
-  color: #e6edf3;
-}
-.code-content code { display: block; white-space: pre; }
-
-/* Syntax highlighting - minimal, accessible */
-.code-content .kw { color: #ff7b72; }       /* Keywords */
-.code-content .mod { color: #d2a8ff; }      /* Modules */
-.code-content .fn { color: #d2a8ff; }       /* Functions */
-.code-content .va { color: #79c0ff; }       /* Variables */
-.code-content .st { color: #a5d6ff; }       /* Strings */
-.code-content .com { color: #8b949e; font-style: italic; } /* Comments */
-.code-content .op { color: #ffa657; }       /* Operators */
-
-/* ========================================
-   TECH CAROUSEL (inside terminal) - Fullscreen per tech
-   ======================================== */
-.tech-carousel {
-  position: relative;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  color: #8b949e;
 }
 
-.tech-item {
-  position: absolute;
-  inset: var(--space-4);
+.terminal-output {
+  flex: 1;
+  padding: var(--space-4);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.85) translateY(20px);
-  transition: opacity 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              visibility 500ms;
-  pointer-events: none;
-}
-.tech-item.active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1) translateY(0);
-  pointer-events: auto;
-  z-index: 1;
+  min-height: 180px;
 }
 
-.tech-icon-img {
+/* Terminal Icon Output */
+.terminal-icon-output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.terminal-icon-img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   filter: drop-shadow(0 0 24px var(--color-primary-glow));
   transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.tech-item.active .tech-icon-img {
-  animation: tech-pulse 4s ease-in-out infinite;
-}
-@keyframes tech-pulse {
-  0%, 100% { filter: drop-shadow(0 0 24px var(--color-primary-glow)); transform: scale(1); }
-  50% { filter: drop-shadow(0 0 40px var(--color-primary-glow-strong)); transform: scale(1.05); }
-}
-.tech-item:hover .tech-icon-img {
+.terminal-icon-output:hover .terminal-icon-img {
   transform: scale(1.12) rotate(4deg);
   filter: drop-shadow(0 0 32px var(--color-primary-glow-strong));
 }
-
-.tech-label {
-  font-size: var(--fs-lg);
-  font-weight: 600;
-  color: var(--text);
-  text-align: center;
+.terminal-icon-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: color var(--dur-fast) var(--ease-gentle);
-}
-.tech-item:hover .tech-label {
-  color: var(--color-primary);
+  font-weight: 600;
 }
 
-/* Pagination - dynamic generated */
-.tech-pagination {
-  position: absolute;
-  bottom: var(--space-3);
+/* Spinner line */
+.terminal-spinner-line {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: var(--space-1);
-  z-index: 2;
-  max-width: 80%;
-}
-.tech-page {
-  width: 6px;
-  height: 6px;
+  padding: var(--space-2);
+  color: var(--color-primary);
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--color-primary);
   border-radius: 50%;
-  background: var(--border);
-  border: none;
-  padding: 0;
-  transition: all var(--dur-fast) var(--ease-gentle);
+  animation: spin 1s linear infinite;
 }
-.tech-page:hover {
-  background: var(--color-primary);
-  transform: scale(1.3);
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Terminal Input Line */
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid rgba(13, 148, 136, 0.15);
+  background: rgba(13, 148, 136, 0.03);
 }
-.tech-page.active {
+.prompt {
+  color: var(--color-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cmd-text {
+  color: #f0f6fc;
+  font-family: var(--font-mono);
+  opacity: 1;
+  transition: opacity 200ms var(--ease-gentle);
+}
+.cursor {
+  width: 8px; height: 1.2em;
   background: var(--color-primary);
-  width: 20px;
-  border-radius: var(--radius-full);
+  animation: cursor-blink 1s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-/* Reduced motion - show all as vertical stack */
+/* Reduced motion for terminal */
 @media (prefers-reduced-motion: reduce) {
-  .tech-carousel {
-    height: auto;
-    min-height: 280px;
-    align-items: stretch;
-    gap: var(--space-3);
+  .terminal-output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
   }
-  .tech-item {
-    position: relative;
+  .terminal-icon-output {
     opacity: 1 !important;
-    visibility: visible !important;
     transform: none !important;
-    pointer-events: auto;
-    padding: var(--space-4);
-    background: rgba(13, 148, 136, 0.06);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    transition: none !important;
   }
-  .tech-item svg {
-    width: 48px;
-    height: 48px;
-    animation: none !important;
-  }
-  .tech-pagination { display: none; }
+  .cursor { animation: none; opacity: 1; }
+  .cmd-text { opacity: 1; }
 }
 
-/* Mobile adjustments */
+/* Terminal Responsive */
 @media (max-width: 768px) {
-  .tech-carousel { height: 260px; }
-  .tech-item svg { width: 70px; height: 70px; }
-  .tech-label { font-size: var(--fs-base); }
+  .code-window { max-width: 100%; }
+  .terminal-output { min-height: 160px; }
+  .terminal-icon-img { width: 80px; height: 80px; }
+  .cmd-text { font-size: var(--fs-xs); }
 }
 
 @media (max-width: 480px) {
-  .tech-carousel { height: auto; min-height: 240px; }
-  .tech-item {
-    position: relative;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    pointer-events: auto;
-    padding: var(--space-3);
-    background: rgba(13, 148, 136, 0.06);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-3);
-  }
-  .tech-item svg {
-    width: 48px;
-    height: 48px;
-    animation: none !important;
-  }
-  .tech-pagination { display: none; }
-}/* ========================================
+  .code-showcase { max-width: 100%; }
+  .code-window { border-radius: var(--radius-lg); }
+  .code-header { padding: var(--space-2) var(--space-3); }
+  .code-title { font-size: 10px; }
+  .terminal-output { min-height: 140px; padding: var(--space-3); gap: var(--space-2); }
+  .terminal-icon-img { width: 70px; height: 70px; }
+  .terminal-icon-label { font-size: 10px; }
+  .terminal-input-line { padding: var(--space-2) var(--space-3); gap: var(--space-1); }
+  .prompt { font-size: var(--fs-xs); }
+  .cmd-text { font-size: var(--fs-xs); }
+  .cursor { width: 6px; height: 1em; }
+}
+
+/* ========================================
    SECTIONS
    ======================================== */
 .section {
