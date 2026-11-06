@@ -6,9 +6,20 @@
   <meta name="description" content="Robinson Josué Sánchez Mayta - Ingeniería en Ciencia de Datos e Inteligencia Artificial | Portfolio & CV" />
   <meta name="theme-color" content="#0d9488" />
   <title>Robinson J. Sánchez Mayta | Data Science & AI Portfolio</title>
-  <link rel="icon" type="image/png" href="icon.png" />
-  <link rel="apple-touch-icon" href="icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
   <link rel="manifest" href="manifest.json" />
+  <meta property="og:title" content="Robinson J. Sánchez Mayta | Data Science & AI Portfolio" />
+  <meta property="og:description" content="Data Scientist · ML Engineer · Backend Developer. Transformo datos en decisiones inteligentes." />
+  <meta property="og:image" content="images/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rsanchezmayta.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Robinson J. Sánchez Mayta | Data Science & AI" />
+  <meta name="twitter:description" content="Data Scientist · ML Engineer · Backend Developer" />
+  <meta name="twitter:image" content="images/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -97,7 +108,7 @@
         </div>
         <div class="hero-visual" aria-hidden="true">
           <figure class="code-showcase">
-            <figcaption class="visually-hidden">Ejemplo de pipeline de ML en producción</figcaption>
+            <figcaption class="visually-hidden">Terminal ejecutando comandos para mostrar stack tecnológico</figcaption>
             <div class="code-window">
               <div class="code-header">
                 <div class="code-dots" aria-hidden="true">
@@ -105,28 +116,20 @@
                   <span class="dot minimize"></span>
                   <span class="dot maximize"></span>
                 </div>
-                <span class="code-title">pipeline.py</span>
+                <span class="code-title">stack.sh</span>
               </div>
-              <pre class="code-content"><code><span class="kw">from</span> <span class="mod">sklearn.pipeline</span> <span class="kw">import</span> <span class="fn">Pipeline</span>
-<span class="kw">from</span> <span class="mod">xgboost</span> <span class="kw">import</span> <span class="fn">XGBClassifier</span>
-<span class="kw">from</span> <span class="mod">mlflow</span> <span class="kw">import</span> <span class="fn">start_run</span>, <span class="fn">log_model</span>
-
-<span class="com"># 1. Feature Engineering</span>
-<span class="fn">features</span> = <span class="fn">build_features</span>(<span class="va">raw_data</span>)
-
-<span class="com"># 2. Train & Track</span>
-<span class="kw">with</span> <span class="fn">start_run</span>():
-    <span class="va">model</span> = <span class="fn">XGBClassifier</span>(n_estimators=200, max_depth=6)
-    <span class="va">model</span>.<span class="fn">fit</span>(<span class="va">X_train</span>, <span class="va">y_train</span>)
-    <span class="fn">log_model</span>(<span class="va">model</span>, <span class="st">"churn-model"</span>)
-
-<span class="com"># 3. Deploy</span>
-<span class="fn">docker</span> <span class="kw">build</span> <span class="op">-t</span> churn-api .
-<span class="fn">kubectl</span> <span class="kw">apply</span> <span class="op">-f</span> <span class="va">k8s</span>/</code></pre>
+              <div class="terminal-body" id="terminalBody">
+                <div class="terminal-output" id="terminalOutput"></div>
+                <div class="terminal-input-line" id="terminalInputLine">
+                  <span class="prompt">robinson@data-lab:~$</span>
+                  <span class="cmd-text" id="cmdText"></span>
+                  <span class="cursor" aria-hidden="true"></span>
+                </div>
+              </div>
             </div>
           </figure>
         </div>
-      </div>
+        <div class="hero-text">
     </section>
 
     <section id="sobre-mi" class="section" aria-labelledby="about-title">
