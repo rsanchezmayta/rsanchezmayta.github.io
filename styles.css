@@ -329,29 +329,12 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-12);
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-16);
   align-items: center;
   width: 100%;
   position: relative;
   z-index: var(--z-base);
-}
-.hero-visual {
-  order: -1;
-  max-width: 520px;
-  margin: 0 auto;
-}
-.hero-text {
-  text-align: center;
-}
-.hero-desc {
-  margin-inline: auto;
-}
-.hero-actions, .hero-socials {
-  justify-content: center;
-}
-.hero-metrics {
-  justify-content: center;
 }
 
 .hero-badge {
@@ -585,35 +568,6 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
   justify-content: center;
   gap: var(--space-3);
   min-height: 180px;
-}
-
-/* Terminal Output Lines */
-.terminal-output-line {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
-  white-space: pre;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  align-self: flex-start;
-  padding-left: var(--space-2);
-  border-left: 2px solid transparent;
-  transition: border-color 200ms var(--ease-gentle), opacity 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.terminal-output-line:hover {
-  border-left-color: var(--color-primary);
-  color: var(--text);
-}
-
-/* Output container for lines (left-aligned) */
-.terminal-output-lines {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  width: 100%;
-  max-width: 400px;
 }
 
 /* Terminal Icon Output */
@@ -1308,10 +1262,11 @@ pre, code, kbd, samp { font-family: var(--font-mono); }
 }
 
 @media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; gap: var(--space-12); text-align: center; }
   .hero-text { max-width: 600px; margin: 0 auto; }
   .hero-desc { margin-inline: auto; }
   .hero-actions, .hero-metrics { justify-content: center; }
-  .hero-visual { max-width: 500px; margin: 0 auto; }
+  .hero-visual { order: -1; max-width: 500px; margin: 0 auto; }
   .about-grid { gap: var(--space-8); }
   .skills-categories { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .contact-grid { gap: var(--space-8); }
