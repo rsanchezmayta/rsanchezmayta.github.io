@@ -97,7 +97,7 @@
         </div>
         <div class="hero-visual" aria-hidden="true">
           <figure class="code-showcase">
-            <figcaption class="visually-hidden">Ejemplo de pipeline de ML en producción</figcaption>
+            <figcaption class="visually-hidden">Stack tecnológico: Python, PyTorch, Docker, SQL, FastAPI, Kubernetes, MLflow, Git</figcaption>
             <div class="code-window">
               <div class="code-header">
                 <div class="code-dots" aria-hidden="true">
@@ -105,26 +105,98 @@
                   <span class="dot minimize"></span>
                   <span class="dot maximize"></span>
                 </div>
-                <span class="code-title">pipeline.py</span>
+                <span class="code-title">tech_stack.sh</span>
               </div>
-              <pre class="code-content"><code><span class="kw">from</span> <span class="mod">sklearn.pipeline</span> <span class="kw">import</span> <span class="fn">Pipeline</span>
-<span class="kw">from</span> <span class="mod">xgboost</span> <span class="kw">import</span> <span class="fn">XGBClassifier</span>
-<span class="kw">from</span> <span class="mod">mlflow</span> <span class="kw">import</span> <span class="fn">start_run</span>, <span class="fn">log_model</span>
+              <div class="tech-carousel" id="techCarousel" role="list" aria-label="Tecnologías que domino">
+                <!-- Set 1: Core Languages & ML -->
+                <div class="tech-set" data-set="1" role="listitem">
+                  <div class="tech-item" data-name="Python">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span class="tech-label">Python</span>
+                  </div>
+                  <div class="tech-item" data-name="SQL">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <span class="tech-label">SQL</span>
+                  </div>
+                  <div class="tech-item" data-name="PyTorch">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 22v-5l6-3 6 3v5"/></svg>
+                    <span class="tech-label">PyTorch</span>
+                  </div>
+                  <div class="tech-item" data-name="TensorFlow">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 22V7"/></svg>
+                    <span class="tech-label">TensorFlow</span>
+                  </div>
+                </div>
 
-<span class="com"># 1. Feature Engineering</span>
-<span class="fn">features</span> = <span class="fn">build_features</span>(<span class="va">raw_data</span>)
+                <!-- Set 2: Data & ML Tools -->
+                <div class="tech-set" data-set="2" role="listitem" hidden>
+                  <div class="tech-item" data-name="Pandas">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12h10M7 16h6"/></svg>
+                    <span class="tech-label">Pandas</span>
+                  </div>
+                  <div class="tech-item" data-name="NumPy">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                    <span class="tech-label">NumPy</span>
+                  </div>
+                  <div class="tech-item" data-name="XGBoost">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 22v-8"/></svg>
+                    <span class="tech-label">XGBoost</span>
+                  </div>
+                  <div class="tech-item" data-name="Scikit-learn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span class="tech-label">Scikit-learn</span>
+                  </div>
+                </div>
 
-<span class="com"># 2. Train & Track</span>
-<span class="kw">with</span> <span class="fn">start_run</span>():
-    <span class="va">model</span> = <span class="fn">XGBClassifier</span>(n_estimators=200, max_depth=6)
-    <span class="va">model</span>.<span class="fn">fit</span>(<span class="va">X_train</span>, <span class="va">y_train</span>)
-    <span class="fn">log_model</span>(<span class="va">model</span>, <span class="st">"churn-model"</span>)
+                <!-- Set 3: MLOps & Deploy -->
+                <div class="tech-set" data-set="3" role="listitem" hidden>
+                  <div class="tech-item" data-name="Docker">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><rect x="6" y="14" width="12" height="6" rx="1"/></svg>
+                    <span class="tech-label">Docker</span>
+                  </div>
+                  <div class="tech-item" data-name="Kubernetes">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    <span class="tech-label">Kubernetes</span>
+                  </div>
+                  <div class="tech-item" data-name="MLflow">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 22v-5l6-3 6 3v5"/></svg>
+                    <span class="tech-label">MLflow</span>
+                  </div>
+                  <div class="tech-item" data-name="DVC">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 14v6M9 17h6"/></svg>
+                    <span class="tech-label">DVC</span>
+                  </div>
+                </div>
 
-<span class="com"># 3. Deploy</span>
-<span class="fn">docker</span> <span class="kw">build</span> <span class="op">-t</span> churn-api .
-<span class="fn">kubectl</span> <span class="kw">apply</span> <span class="op">-f</span> <span class="va">k8s</span>/</code></pre>
-            </div>
-          </figure>
+                <!-- Set 4: Backend & Cloud -->
+                <div class="tech-set" data-set="4" role="listitem" hidden>
+                  <div class="tech-item" data-name="FastAPI">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><path d="M12 16v-8"/></svg>
+                    <span class="tech-label">FastAPI</span>
+                  </div>
+                  <div class="tech-item" data-name="PostgreSQL">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M4 6v12"/></svg>
+                    <span class="tech-label">PostgreSQL</span>
+                  </div>
+                  <div class="tech-item" data-name="Git">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span class="tech-label">Git</span>
+                  </div>
+                  <div class="tech-item" data-name="GitHub Actions">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+                    <span class="tech-label">GitHub Actions</span>
+                  </div>
+                </div>
+
+                <!-- Pagination dots -->
+                <div class="tech-pagination" aria-label="Páginas de tecnologías">
+                  <button class="tech-page active" data-page="1" aria-label="Página 1" aria-selected="true"></button>
+                  <button class="tech-page" data-page="2" aria-label="Página 2" aria-selected="false"></button>
+                  <button class="tech-page" data-page="3" aria-label="Página 3" aria-selected="false"></button>
+                  <button class="tech-page" data-page="4" aria-label="Página 4" aria-selected="false"></button>
+                </div>
+              </div>
+            </div          </figure>
         </div>
       </div>
     </section>

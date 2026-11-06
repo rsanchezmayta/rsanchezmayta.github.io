@@ -173,6 +173,120 @@
   skillFills.forEach(el => skillObserver.observe(el));
 
   // ========================================
+  // Tech Carousel (inside terminal)
+  // ========================================
+  const initTechCarousel = () => {
+    const carousel = document.getElementById('techCarousel');
+    if (!carousel) return;
+
+    const sets = carousel.querySelectorAll('.tech-set');
+    const pages = carousel.querySelectorAll('.tech-page');
+    if (sets.length === 0) return;
+
+    let currentSet = 0;
+    let carouselInterval = null;
+    let isHovered = false;
+
+    const showSet = (index) => {
+      sets.forEach((set, i) => {
+        set.classList.toggle('active', i === index);
+      });
+      pages.forEach((page, i) => {
+        page.classList.toggle('active', i === index);
+        page.setAttribute('aria-selected', i === index);
+      });
+      currentSet = index;
+    };
+
+    const nextSet = () => {
+      const next = (currentSet + 1) % sets.length;
+      showSet(next);
+    };
+
+    const startCarousel = () => {
+      if (prefersReducedMotion) return;
+      carouselInterval = setInterval(nextSet, 3000);
+    };
+
+    const stopCarousel = () => {
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+      }
+    };
+
+    // Pagination click handlers
+    pages.forEach((page, i) => {
+      page.addEventListener('click', () => {
+        showSet(i);
+        stopCarousel();
+        startCarousel(); // Restart timer
+      });
+      page.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          page.click();
+        }
+      });
+    });
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+      isHovered = true;
+      stopCarousel();
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isHovered = false;
+      startCarousel();
+    });
+
+    // Pause when tab is not visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopCarousel();
+      else startCarousel();
+    });
+
+    // Start when hero is visible
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showSet(0);
+          startCarousel();
+          heroObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
+
+    const hero = document.getElementById('inicio');
+    if (hero) heroObserver.observe(hero);
+
+    // Keyboard navigation for carousel
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextSet();
+        stopCarousel();
+        startCarousel();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prev = (currentSet - 1 + sets.length) % sets.length;
+        showSet(prev);
+        stopCarousel();
+        startCarousel();
+      }
+    });
+
+    // Make carousel focusable
+    carousel.setAttribute('tabindex', '0');
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-label', 'Carrusel de tecnologías');
+  };
+
+  // Initialize tech carousel
+  initTechCarousel();
+
+  // ========================================
   // Project Filtering - Accessible
   // ========================================
   filterBtns.forEach(btn => {
