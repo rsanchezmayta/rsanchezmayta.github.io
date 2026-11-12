@@ -100,7 +100,7 @@
             <button type="button" class="mascot-button" aria-label="Mostrar una frase de Diffty" hidden>
               <img class="hero-brand" src="images/robot-512.png" alt="" width="512" height="512" />
               <span aria-hidden="true">Diffty</span>
-              <span class="mascot-hint" aria-hidden="true">Haz clic en mí</span>
+              <span class="mascot-hint" aria-hidden="true"><span class="mascot-hint-click">Haz clic en mí</span><span class="mascot-hint-tap">Tócame</span></span>
             </button>
             <noscript><img class="hero-brand" src="images/robot-512.png" alt="Diffty" width="512" height="512" /></noscript>
             <div class="mascot-message">
@@ -108,7 +108,7 @@
               <p class="visually-hidden mascot-status" role="status"></p>
               <form class="mascot-command" hidden>
                 <label class="visually-hidden" for="diffty-command">Comando para Diffty</label>
-                <input id="diffty-command" type="text" placeholder="soy gil" autocomplete="off" required />
+                <input id="diffty-command" type="text" placeholder="soy gil" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="send" required />
                 <button type="submit">Enviar</button>
               </form>
             </div>

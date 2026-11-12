@@ -200,12 +200,12 @@ img, svg { max-width: 100%; vertical-align: middle; }
   .hero-visual {
     width: 100%;
     aspect-ratio: auto;
-    grid-template-columns: 7rem minmax(0, 1fr);
+    grid-template-columns: clamp(4.5rem, 20vw, 7rem) minmax(0, 1fr);
     gap: .5rem;
     justify-items: start;
     background: radial-gradient(circle at 3.5rem center, color-mix(in srgb, var(--accent) 28%, transparent), transparent 3.5rem);
   }
-  .mascot-message { position: static; margin: 0; }
+  .mascot-message { position: static; width: 100%; margin: 0; text-align: start; }
   .hero-actions .btn { padding-inline: .65rem; font-size: .95rem; }
   .about-pillars { grid-template-columns: minmax(0, 1fr); }
   .footer-content { flex-wrap: wrap; }
@@ -298,4 +298,22 @@ img, svg { max-width: 100%; vertical-align: middle; }
 }
 @keyframes mascot-invite {
   50% { transform: translateY(-3px); }
+}
+
+.mascot-hint-tap { display: none; }
+@media (pointer: coarse) {
+  .mascot-hint-click { display: none; }
+  .mascot-hint-tap { display: inline; }
+}
+
+@media (max-width: 760px) {
+  .mascot-command input, .mascot-command button { min-height: 44px; font-size: 1rem; }
+  .mascot-command input { flex-basis: 100%; width: 100%; }
+  .diffty-error {
+    height: 100dvh;
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
+      max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  }
+  .diffty-error[open] { place-items: safe center; }
+  .diffty-reload { width: 100%; }
 }
