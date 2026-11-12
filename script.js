@@ -17,9 +17,6 @@
   const sections = document.querySelectorAll('section[id], header[id]');
   const counters = document.querySelectorAll('[data-count]');
   const skillFills = document.querySelectorAll('.skill-fill');
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('submitBtn');
   const yearEl = document.getElementById('year');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
@@ -53,7 +50,9 @@
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      menuBtn.focus(); // Return focus to menu button
+      const target = document.getElementById(link.dataset.section);
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
     });
   });
 
@@ -87,7 +86,10 @@
       if (entry.isIntersecting) {
         const id = entry.target.id;
         navLinkElements.forEach(link => {
-          link.classList.toggle('active', link.dataset.section === id);
+          const active = link.dataset.section === id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
         });
       }
     });
@@ -172,182 +174,23 @@
 
   skillFills.forEach(el => skillObserver.observe(el));
 
-  // ========================================
-  // Project Filtering - Accessible
-  // ========================================
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      // Update active button with ARIA
-      filterBtns.forEach(b => {
-        const isActive = b === btn;
-        b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', isActive);
+  const projectStatus = document.getElementById('projectStatus');
+  filterBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      filterBtns.forEach(option => {
+        const selected = option === button;
+        option.classList.toggle('active', selected);
+        option.setAttribute('aria-pressed', selected);
       });
 
-      // Filter cards with animation
-      projectCards.forEach((card, index) => {
-        const categories = card.dataset.category.split(' ');
-        const show = filter === 'all' || categories.includes(filter);
-
-        if (show) {
-          card.classList.remove('hidden');
-          // Staggered reveal
-          if (!prefersReducedMotion) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.offsetHeight; // Force reflow
-            card.style.transition = `opacity 0.4s var(--ease-out) ${index * 30}ms, transform 0.4s var(--ease-out) ${index * 30}ms`;
-            requestAnimationFrame(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            });
-          }
-        } else {
-          card.classList.add('hidden');
-        }
+      let visible = 0;
+      projectCards.forEach(card => {
+        const matches = filter === 'all' || card.dataset.category.split(' ').includes(filter);
+        card.hidden = !matches;
+        if (matches) visible += 1;
       });
-    });
-
-    // Keyboard support
-    btn.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
-      }
+      projectStatus.textContent = visible === 1 ? '1 proyecto visible' : `${visible} proyectos visibles`;
     });
   });
-
-  // ========================================
-  // Form Validation & Submission
-  // ========================================
-  const validateField = (field) => {
-    const errorEl = field.parentElement.querySelector('.form-error');
-    if (!errorEl) return true;
-
-    let isValid = true;
-    if (field.required && !field.value.trim()) {
-      isValid = false;
-    } else if (field.type === 'email' && field.value.trim()) {
-      isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
-    } else if (field.tagName === 'SELECT' && field.required) {
-      isValid = field.value !== '';
-    }
-
-    field.setAttribute('aria-invalid', !isValid);
-    return isValid;
-  };
-
-  const showFormStatus = (message, isError = false) => {
-    formStatus.textContent = message;
-    formStatus.classList.toggle('error', isError);
-    formStatus.style.opacity = '1';
-    // Move focus to status for screen readers
-    formStatus.focus();
-  };
-
-  const clearFormStatus = () => {
-    formStatus.textContent = '';
-    formStatus.classList.remove('error');
-    formStatus.style.opacity = '0';
-  };
-
-  // Real-time validation on blur
-  contactForm.querySelectorAll('input, select, textarea').forEach(field => {
-    field.addEventListener('blur', () => validateField(field));
-    field.addEventListener('input', () => {
-      if (field.hasAttribute('aria-invalid')) validateField(field);
-    });
-  });
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    clearFormStatus();
-
-    // Validate all fields
-    const fields = contactForm.querySelectorAll('[required]');
-    let allValid = true;
-    fields.forEach(field => {
-      if (!validateField(field)) allValid = false;
-    });
-
-    if (!allValid) {
-      showFormStatus('Por favor completa todos los campos requeridos correctamente.', true);
-      const firstInvalid = contactForm.querySelector('[aria-invalid="true"]');
-      if (firstInvalid) firstInvalid.focus();
-      return;
-    }
-
-    // Submit
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-
-    try {
-      // Simulate API call - replace with real endpoint
-      await new Promise(resolve => setTimeout(resolve, 1200));
-
-      showFormStatus(`¡Gracias, ${data.name}! Tu mensaje ha sido enviado. Te responderé pronto.`);
-      contactForm.reset();
-    } catch (err) {
-      showFormStatus('Hubo un error al enviar. Intenta de nuevo o escríbeme directo a mi email.', true);
-    } finally {
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-    }
-  });
-
-  // ========================================
-  // Smooth Scroll for Anchor Links
-  // ========================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const offset = 72; // navbar height
-        const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPos, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-        // Focus target for accessibility
-        setTimeout(() => target.focus({ preventScroll: true }), prefersReducedMotion ? 0 : 500);
-      }
-    });
-  });
-
-  // ========================================
-  // Keyboard Navigation for Project Cards
-  // ========================================
-  projectCards.forEach(card => {
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const link = card.querySelector('.project-link');
-        if (link) {
-          e.preventDefault();
-          link.click();
-        }
-      }
-    });
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'article');
-  });
-
-  // ========================================
-  // Initialize Reveal for Sections
-  // ========================================
-  // Add reveal classes to main sections
-  document.querySelectorAll('section, header.hero').forEach((el, i) => {
-    if (!el.classList.contains('reveal')) {
-      el.classList.add('reveal');
-      el.style.transitionDelay = `${Math.min(i * 60, 300)}ms`;
-      revealObserver.observe(el);
-    }
-  });
-
-  console.log('%c🚀 Robinson J. Sánchez Mayta — Portfolio loaded', 'color: #0d9488; font-size: 1.2rem; font-weight: 600;');
-  console.log('%c💚 Built with Minimalism & Swiss Style principles', 'color: #14b8a6; font-size: 0.9rem;');
 })();
