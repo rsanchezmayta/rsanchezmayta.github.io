@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Robinson Josué Sánchez Mayta - Ingeniería en Ciencia de Datos e Inteligencia Artificial | Portfolio & CV" />
-  <meta name="theme-color" content="#0d9488" />
+  <meta name="theme-color" content="#0a0a0a" />
   <title>Robinson J. Sánchez Mayta | Data Science & AI Portfolio</title>
   <link rel="icon" type="image/png" href="images/brand-rs.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -23,14 +23,14 @@
         <img class="logo-mark" src="images/brand-rs.png" alt="" width="40" height="40" />
         <span class="logo-text">RJS<span class="logo-accent">.</span></span>
       </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
+      <button hidden class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-line" aria-hidden="true"></span>
         <span class="menu-line" aria-hidden="true"></span>
         <span class="menu-line" aria-hidden="true"></span>
       </button>
       <nav id="navLinks" class="nav-links" role="navigation" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a></li>
+          <li><a href="#inicio" class="nav-link" data-section="inicio" aria-current="location">Inicio</a></li>
           <li><a href="#proyectos" class="nav-link" data-section="proyectos">Proyectos</a></li>
           <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre mí</a></li>
           <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a></li>
@@ -45,21 +45,15 @@
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <div class="container hero-content">
         <div class="hero-text">
-          <p class="hero-badge" aria-hidden="true">
+          <p class="hero-badge">
             <span class="badge-dot" aria-hidden="true"></span>
-            Ingeniería en Ciencia de Datos e IA
+            Lima, Perú
           </p>
           <h1 id="hero-title" class="hero-name">
             Robinson J.
             <span class="hero-surname">Sánchez Mayta</span>
           </h1>
-          <h2 class="hero-role">
-            <span class="role-text">Data Scientist</span>
-            <span class="role-separator" aria-hidden="true">·</span>
-            <span class="role-text">ML Engineer</span>
-            <span class="role-separator" aria-hidden="true">·</span>
-            <span class="role-text">Backend Developer</span>
-          </h2>
+          <p class="hero-role">Estudiante de Ciencia de Datos e IA en SENATI</p>
           <p class="hero-desc">
             Desarrollo modelos de aprendizaje automático, automatizo flujos de datos y construyo APIs para llevar los análisis a aplicaciones.
           </p>
@@ -73,24 +67,7 @@
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
-          <div class="hero-metrics" role="list" aria-label="Métricas destacadas">
-            <div class="metric" role="listitem">
-              <span class="metric-value" data-count="15">0</span>
-              <span class="metric-label">Modelos en producción</span>
-            </div>
-            <div class="metric" role="listitem">
-              <span class="metric-value" data-count="94">0</span>
-              <span class="metric-label">% Accuracy promedio</span>
-            </div>
-            <div class="metric" role="listitem">
-              <span class="metric-value" data-count="45">0</span>
-              <span class="metric-label">ms latencia p99</span>
-            </div>
-            <div class="metric" role="listitem">
-              <span class="metric-value" data-count="1200">0</span>
-              <span class="metric-label">req/s throughput</span>
-            </div>
-          </div>
+          <a class="hero-github" href="https://github.com/rsanchezmayta">GitHub <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <img class="hero-brand" src="images/brand-rs.png" alt="" width="512" height="512" />
@@ -101,13 +78,13 @@
     <section id="proyectos" class="section" aria-labelledby="proj-title">
       <div class="container">
         <header class="section-header">
-          <h3 id="proj-title" class="section-title">Proyectos Destacados</h3>
+          <h2 id="proj-title" class="section-title">Proyectos seleccionados</h2>
           <p class="section-subtitle">Trabajos de ciencia de datos, aprendizaje automático y desarrollo backend.</p>
         </header>
 
         <p id="projectStatus" class="visually-hidden" role="status"></p>
-        <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
-          <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
+        <div hidden class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">Todos</button>
           <button class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
           <button class="filter-btn" data-filter="data-eng" aria-pressed="false">Data Engineering</button>
           <button class="filter-btn" data-filter="mlops" aria-pressed="false">MLOps & Deploy</button>
@@ -123,13 +100,20 @@
                 <span class="tag">PHP</span>
                 <span class="tag">MySQL</span>
               </div>
-              <h4 class="project-title">Denuncias policiales en Perú</h4>
+              <h3 class="project-title">Denuncias policiales en Perú</h3>
               <p class="project-desc">Tablero para explorar 369 mil denuncias del SIDPOL–MININTER mediante un mapa y una API REST. El proyecto usa K-means para agrupar registros y SARIMA para pronosticar tendencias.</p>
               <div class="project-meta">
-                <span class="project-metric">369k registros</span>
                 <span class="project-metric">Laravel 13 / PHP 8.3</span>
               </div>
               <a class="btn btn-secondary project-repo" href="https://github.com/rsanchezmayta/denuncias-policiales-peru">Ver repositorio en GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="project-snapshot">
+              <span class="snapshot-label">Datos analizados · SIDPOL</span>
+              <strong>369 mil</strong>
+              <span>denuncias policiales</span>
+              <div class="snapshot-flow" aria-label="Flujo del proyecto">
+                <span>Datos</span><span aria-hidden="true">→</span><span>Análisis</span><span aria-hidden="true">→</span><span>Tablero</span>
+              </div>
             </div>
           </article>
           <article class="project-card" data-category="ml" role="listitem">
@@ -139,7 +123,7 @@
                 <span class="tag">CNN</span>
                 <span class="tag">Computer Vision</span>
               </div>
-              <h4 class="project-title">Clasificación de Imágenes Médicas</h4>
+              <h3 class="project-title">Clasificación de Imágenes Médicas</h3>
               <p class="project-desc">CNN para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
               <div class="project-meta">
                 <span class="project-metric">Accuracy: 94.2%</span>
@@ -154,7 +138,7 @@
                 <span class="tag">Feature Engineering</span>
                 <span class="tag">MLOps</span>
               </div>
-              <h4 class="project-title">Predicción de Churn Bancario</h4>
+              <h3 class="project-title">Predicción de Churn Bancario</h3>
               <p class="project-desc">Gradient boosting para predecir abandono de clientes. Feature engineering extensivo, SMOTE, pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
               <div class="project-meta">
                 <span class="project-metric">ROC-AUC: 0.91</span>
@@ -169,7 +153,7 @@
                 <span class="tag">PostgreSQL</span>
                 <span class="tag">Docker</span>
               </div>
-              <h4 class="project-title">API de Predicción en Tiempo Real</h4>
+              <h3 class="project-title">API de Predicción en Tiempo Real</h3>
               <p class="project-desc">Servicio RESTful para servir modelos ML. Batch & online inference, Redis caching, rate limiting, health checks, logging estructurado, deploy en Kubernetes.</p>
               <div class="project-meta">
                 <span class="project-metric">Latencia p99: <45ms</span>
@@ -184,7 +168,7 @@
                 <span class="tag">RAG</span>
                 <span class="tag">LangChain</span>
               </div>
-              <h4 class="project-title">Asistente RAG Documental</h4>
+              <h3 class="project-title">Asistente RAG Documental</h3>
               <p class="project-desc">QA sobre documentos privados con RAG. Embeddings sentence-transformers, Chroma vector store, reranking, evaluación con RAGAS.</p>
               <div class="project-meta">
                 <span class="project-metric">Faithfulness: 0.89</span>
@@ -199,7 +183,7 @@
                 <span class="tag">Airflow</span>
                 <span class="tag">PostgreSQL</span>
               </div>
-              <h4 class="project-title">Pipeline ETL Inmobiliario</h4>
+              <h3 class="project-title">Pipeline ETL Inmobiliario</h3>
               <p class="project-desc">Pipeline end-to-end para análisis inmobiliario en Lima. Extracción multi-fuente, transformación Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
               <div class="project-meta">
                 <span class="project-metric">15+ fuentes</span>
@@ -214,8 +198,8 @@
     <section id="sobre-mi" class="section" aria-labelledby="about-title">
       <div class="container">
         <header class="section-header">
-          <h3 id="about-title" class="section-title">Sobre mí</h3>
-          <p class="section-subtitle">Curiosidad, disciplina y ganas de aprender cada día</p>
+          <h2 id="about-title" class="section-title">Sobre mí</h2>
+          <p class="section-subtitle">Formación y próximos pasos</p>
         </header>
         <div class="about-grid">
           <div class="about-text">
@@ -264,22 +248,12 @@
             </div>
 
             <div class="about-bottom">
-              <h4 class="bottom-title">¿Qué sigue?</h4>
+              <h3 class="bottom-title">¿Qué sigue?</h3>
               <p class="bottom-text">
                 Construyendo proyectos con <strong>LLMs y RAG</strong>, explorando <strong>MLOps avanzado</strong>
                 y <strong>arquitectura de sistemas distribuidos</strong>.
-                Busco oportunidades en un equipo que valore la excelencia técnica.
+                Me interesa aplicar lo que aprendo en una práctica preprofesional.
               </p>
-              <div class="bottom-links">
-                <a href="#proyectos" class="btn btn-primary btn-sm">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                  Ver proyectos
-                </a>
-                <a href="#contacto" class="btn btn-secondary btn-sm">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  Contactar
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -289,93 +263,66 @@
     <section id="experiencia" class="section section-alt" aria-labelledby="exp-title">
       <div class="container">
         <header class="section-header">
-          <h3 id="exp-title" class="section-title">Experiencia</h3>
+          <h2 id="exp-title" class="section-title">Experiencia</h2>
           <p class="section-subtitle">Mi recorrido aprendiendo, construyendo y resolviendo problemas reales</p>
         </header>
         <div class="timeline">
           <article class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true">
-              <span class="marker-dot"></span>
-              <span class="marker-ring"></span>
-            </div>
             <div class="timeline-card">
-              <header class="card-header">
-                <time class="timeline-date" datetime="2024">2024 — Actualidad</time>
+              <time class="timeline-date" datetime="2024">2024 — Actualidad</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Proyectos de Data Science & IA</h3>
+                <p class="card-company">Desarrollo independiente / Académico</p>
+                <p class="card-desc">
+                  Diseño y desarrollo de pipelines completos de ML: ingesta, limpieza, feature engineering,
+                  experimentación (XGBoost, Redes Neuronales, Transformers), despliegue con Docker y monitoreo.
+                  Reproducibilidad con MLflow y versionado con DVC.
+                </p>
                 <div class="card-tags">
                   <span class="tag">Python</span>
                   <span class="tag">PyTorch</span>
                   <span class="tag">MLOps</span>
                   <span class="tag">Docker</span>
                 </div>
-              </header>
-              <h4 class="card-title">Proyectos de Data Science & IA</h4>
-              <p class="card-company">Desarrollo independiente / Académico</p>
-              <p class="card-desc">
-                Diseño y desarrollo de pipelines completos de ML: ingesta, limpieza, feature engineering,
-                experimentación (XGBoost, Redes Neuronales, Transformers), despliegue con Docker y monitoreo.
-                Reproducibilidad con MLflow y versionado con DVC.
-              </p>
-              <ul class="card-highlights">
-                <li>🏆 Top 10% en competición Kaggle (Tabular)</li>
-                <li>📊 15+ modelos en producción experimental</li>
-                <li>⚡ Pipeline automatizado: data → model → deploy</li>
-              </ul>
+              </div>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true">
-              <span class="marker-dot"></span>
-              <span class="marker-ring"></span>
-            </div>
             <div class="timeline-card">
-              <header class="card-header">
-                <time class="timeline-date" datetime="2023-2024">2023 — 2024</time>
+              <time class="timeline-date" datetime="2023">2023 — 2024</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Análisis de Datos & Business Intelligence</h3>
+                <p class="card-company">Proyectos académicos / Freelance</p>
+                <p class="card-desc">
+                  EDA profundo, dashboards interactivos, automatización de reportes, consultas SQL complejas.
+                  Limpieza y transformación de datasets ruidosos (missing data, outliers, inconsistencias).
+                </p>
                 <div class="card-tags">
                   <span class="tag">SQL</span>
                   <span class="tag">Pandas</span>
                   <span class="tag">Power BI</span>
                   <span class="tag">EDA</span>
                 </div>
-              </header>
-              <h4 class="card-title">Análisis de Datos & Business Intelligence</h4>
-              <p class="card-company">Proyectos académicos / Freelance</p>
-              <p class="card-desc">
-                EDA profundo, dashboards interactivos, automatización de reportes, consultas SQL complejas.
-                Limpieza y transformación de datasets ruidosos (missing data, outliers, inconsistencias).
-              </p>
-              <ul class="card-highlights">
-                <li>📈 8+ dashboards ejecutivos entregados</li>
-                <li>🔍 Detección de anomalías en ventas (ahorro ~15%)</li>
-                <li>⚙️ ETLs automatizados con Python + Airflow</li>
-              </ul>
+              </div>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true">
-              <span class="marker-dot"></span>
-              <span class="marker-ring"></span>
-            </div>
             <div class="timeline-card">
-              <header class="card-header">
-                <time class="timeline-date" datetime="2022-2023">2022 — 2023</time>
+              <time class="timeline-date" datetime="2022">2022 — 2023</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Desarrollo Backend & APIs</h3>
+                <p class="card-company">Proyectos personales / Prácticas</p>
+                <p class="card-desc">
+                  APIs RESTful con FastAPI, diseño de BD relacionales, auth JWT, testing (pytest),
+                  contenerización y despliegue. Clean Architecture, SOLID, type hints, docs OpenAPI.
+                </p>
                 <div class="card-tags">
                   <span class="tag">Python</span>
                   <span class="tag">FastAPI</span>
                   <span class="tag">PostgreSQL</span>
                   <span class="tag">Testing</span>
                 </div>
-              </header>
-              <h4 class="card-title">Desarrollo Backend & APIs</h4>
-              <p class="card-company">Proyectos personales / Prácticas</p>
-              <p class="card-desc">
-                APIs RESTful con FastAPI, diseño de BD relacionales, auth JWT, testing (pytest),
-                contenerización y despliegue. Clean Architecture, SOLID, type hints, docs OpenAPI.
-              </p>
-              <ul class="card-highlights">
-                <li>🚀 3 APIs deployadas (Railway, Render, VPS)</li>
-                <li>✅ Cobertura de tests > 85%</li>
-                <li>📚 Docs automáticas con Swagger/Redoc</li>
-              </ul>
+              </div>
             </div>
           </article>
         </div>
@@ -385,7 +332,7 @@
     <section id="habilidades" class="section section-alt" aria-labelledby="skills-title">
       <div class="container">
         <header class="section-header">
-          <h3 id="skills-title" class="section-title">Habilidades Técnicas</h3>
+          <h2 id="skills-title" class="section-title">Herramientas y tecnologías</h2>
           <p class="section-subtitle">Herramientas que domino y uso día a día para resolver problemas de datos</p>
         </header>
         <div class="skills-categories">
@@ -394,90 +341,45 @@
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </span>
-              <h4>Machine Learning & IA</h4>
+              <h3>Machine Learning & IA</h3>
             </header>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">PyTorch / TensorFlow</span><span class="skill-pct">88%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Scikit-learn / XGBoost / LightGBM</span><span class="skill-pct">92%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 92%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Computer Vision (OpenCV, YOLO, Segmentation)</span><span class="skill-pct">80%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 80%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">NLP / LLMs / RAG (HuggingFace, LangChain)</span><span class="skill-pct">75%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 75%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">MLOps (MLflow, DVC, Evidently, Kubeflow)</span><span class="skill-pct">70%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 70%"></div></div>
-              </div>
-            </div>
+            <ul class="skill-list">
+              <li>PyTorch / TensorFlow</li>
+              <li>Scikit-learn / XGBoost / LightGBM</li>
+              <li>Computer Vision (OpenCV, YOLO, Segmentation)</li>
+              <li>NLP / LLMs / RAG (HuggingFace, LangChain)</li>
+              <li>MLOps (MLflow, DVC, Evidently, Kubeflow)</li>
+            </ul>
           </article>
           <article class="skill-category">
             <header class="category-header">
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
               </span>
-              <h4>Data Engineering & Analysis</h4>
+              <h3>Data Engineering & Analysis</h3>
             </header>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Python (Pandas, NumPy, Polars)</span><span class="skill-pct">95%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 95%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">SQL (PostgreSQL, MySQL, BigQuery)</span><span class="skill-pct">90%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 90%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</span><span class="skill-pct">88%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">ETL / Pipelines (Airflow, Prefect, dbt)</span><span class="skill-pct">72%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 72%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Big Data (Spark, Delta Lake, Parquet)</span><span class="skill-pct">65%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 65%"></div></div>
-              </div>
-            </div>
+            <ul class="skill-list">
+              <li>Python (Pandas, NumPy, Polars)</li>
+              <li>SQL (PostgreSQL, MySQL, BigQuery)</li>
+              <li>Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</li>
+              <li>ETL / Pipelines (Airflow, Prefect, dbt)</li>
+              <li>Big Data (Spark, Delta Lake, Parquet)</li>
+            </ul>
           </article>
           <article class="skill-category">
             <header class="category-header">
               <span class="category-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
               </span>
-              <h4>Backend & DevOps</h4>
+              <h3>Backend & DevOps</h3>
             </header>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">FastAPI / Flask / REST APIs</span><span class="skill-pct">88%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Docker / Docker Compose</span><span class="skill-pct">85%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Git / GitHub Actions / CI-CD</span><span class="skill-pct">88%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 88%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Linux (Arch/Ubuntu), Bash, Vim</span><span class="skill-pct">82%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 82%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Cloud (AWS/GCP basics, Terraform intro)</span><span class="skill-pct">55%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="--pct: 55%"></div></div>
-              </div>
-            </div>
+            <ul class="skill-list">
+              <li>FastAPI / Flask / REST APIs</li>
+              <li>Docker / Docker Compose</li>
+              <li>Git / GitHub Actions / CI-CD</li>
+              <li>Linux (Arch/Ubuntu), Bash, Vim</li>
+              <li>Cloud (AWS/GCP basics, Terraform intro)</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -486,8 +388,8 @@
     <section id="contacto" class="section" aria-labelledby="contact-title">
       <div class="container">
         <header class="section-header">
-          <h3 id="contact-title" class="section-title">Contacto</h3>
-          <p class="section-subtitle">¿Tienes un proyecto en mente o solo quieres charlar? Escríbeme</p>
+          <h2 id="contact-title" class="section-title">Contacto</h2>
+          <p class="section-subtitle">Para prácticas preprofesionales y colaboraciones en proyectos de datos.</p>
         </header>
         <div class="contact-grid">
           <div class="contact-info">
@@ -496,9 +398,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
               </div>
               <div class="contact-details">
-                <h4>Email</h4>
+                <h3>Email</h3>
                 <a href="mailto:robinsonjsm281006@gmail.com">robinsonjsm281006@gmail.com</a>
-                <span class="contact-hint">Respondo en < 24h</span>
               </div>
             </article>
             <article class="contact-card">
@@ -506,7 +407,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div class="contact-details">
-                <h4>Teléfono</h4>
+                <h3>Teléfono</h3>
                 <a href="tel:+51900535071">+51 900 535 071</a>
                 <span class="contact-hint">Lunes a Viernes, 9am-6pm (GMT-5)</span>
               </div>
@@ -516,7 +417,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </div>
               <div class="contact-details">
-                <h4>Ubicación</h4>
+                <h3>Ubicación</h3>
                 <span>Ate, Lima, Perú</span>
                 <span class="contact-hint">Disponible para remoto / híbrido</span>
               </div>
@@ -531,7 +432,7 @@
             </nav>
           </div>
           <div class="contact-form contact-cta">
-            <h4>Escríbeme por correo</h4>
+            <h3>Escríbeme por correo</h3>
             <p>Cuéntame qué estás construyendo y cómo podemos colaborar.</p>
             <a class="btn btn-primary" href="mailto:robinsonjsm281006@gmail.com">Redactar correo</a>
           </div>
@@ -543,7 +444,7 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
-        <p class="copyright">© <span id="year"></span> Robinson J. Sánchez Mayta. Hecho con <span class="heart" aria-hidden="true">♥</span> y curiosidad.</p>
+        <p class="copyright">© <span id="year"></span> Robinson J. Sánchez Mayta.</p>
         <nav class="footer-nav" aria-label="Enlaces del pie de página">
           <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener">LinkedIn</a>
