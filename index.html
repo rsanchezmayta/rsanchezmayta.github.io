@@ -12,6 +12,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <script>
+    try {
+      const preferences = JSON.parse(localStorage.getItem('portfolio-appearance'));
+      if (['light', 'dark'].includes(preferences?.theme)) document.documentElement.dataset.theme = preferences.theme;
+      if (['mint', 'blue', 'lavender'].includes(preferences?.accent)) document.documentElement.dataset.accent = preferences.accent;
+    } catch {
+      // The default appearance is available when storage is disabled.
+    }
+  </script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -38,6 +47,22 @@
           <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
         </ul>
       </nav>
+      <details class="appearance" hidden>
+        <summary>Apariencia</summary>
+        <div class="appearance-panel">
+          <label for="theme">Fondo</label>
+          <select id="theme">
+            <option value="dark">Oscuro</option>
+            <option value="light">Claro</option>
+          </select>
+          <label for="accent">Acento</label>
+          <select id="accent">
+            <option value="mint">Menta</option>
+            <option value="blue">Azul</option>
+            <option value="lavender">Lavanda</option>
+          </select>
+        </div>
+      </details>
     </div>
   </header>
 
@@ -70,7 +95,9 @@
           <a class="hero-github" href="https://github.com/rsanchezmayta">GitHub <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-bar"><span class="terminal-lights"></span><span>~/portafolio</span></div>
           <img class="hero-brand" src="images/brand-rs.png" alt="" width="512" height="512" />
+          <div class="terminal-prompt"><span>$</span> python -m portfolio</div>
         </div>
       </div>
     </section>

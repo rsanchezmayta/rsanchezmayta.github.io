@@ -57,5 +57,36 @@
     status.textContent = visible === 1 ? '1 proyecto visible' : `${visible} proyectos visibles`;
   }));
 
+  const root = document.documentElement;
+  const appearance = document.querySelector('.appearance');
+  const theme = document.querySelector('#theme');
+  const accent = document.querySelector('#accent');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+
+  function applyAppearance() {
+    root.dataset.theme = theme.value;
+    root.dataset.accent = accent.value;
+    themeColor.content = getComputedStyle(root).getPropertyValue('--surface').trim();
+  }
+
+  theme.value = root.dataset.theme || 'dark';
+  accent.value = root.dataset.accent || 'mint';
+  applyAppearance();
+  appearance.hidden = false;
+  appearance.addEventListener('change', () => {
+    applyAppearance();
+    try {
+      localStorage.setItem('portfolio-appearance', JSON.stringify({ theme: theme.value, accent: accent.value }));
+    } catch {
+      // Appearance still works without persistent storage.
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !appearance.open || !appearance.contains(document.activeElement)) return;
+    appearance.open = false;
+    appearance.querySelector('summary').focus();
+  });
+
   document.querySelector('#year').textContent = new Date().getFullYear();
 })();
