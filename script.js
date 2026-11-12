@@ -154,7 +154,7 @@
     'Basta.',
     'Basta.',
     'Cánsate, pes.',
-    'Ya te kgaste… 🤫'
+    'Ya te kgaste…'
   ];
   let line = 0;
 
