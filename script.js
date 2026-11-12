@@ -156,6 +156,7 @@
   mascot.hidden = false;
   mascot.addEventListener('click', () => {
     if (!command.hidden || line >= dialogue.length) return;
+    if (line === 0) mascot.classList.add('has-spoken');
     if (line === 0 && !returning) {
       try {
         localStorage.setItem(visitedKey, 'true');
