@@ -89,7 +89,15 @@
   });
 
   const mascot = document.querySelector('.mascot-button');
-  const mascotMessage = document.querySelector('.mascot-message');
+  const mascotMessage = document.querySelector('.mascot-line');
+  const command = document.querySelector('.mascot-command');
+  const commandInput = document.querySelector('#diffty-command');
+  const errorScreen = document.querySelector('.diffty-error');
+  const greeting = returning => returning ? [
+    '¿Qué haces aquí si ya te boté? ¡Cara enojao! 😕',
+    'Oe, es🐟ial, ya leíste lo que tenía que decir.',
+    'Pero ya, si no entendiste, teclea: soy gil.'
+  ] : ['¡Hola, amigo!'];
   const visitedKey = 'diffty-visited';
   let returning = false;
   try {
@@ -98,8 +106,9 @@
     // The dialogue still works when storage is unavailable.
   }
 
+  const intro = greeting(returning);
   const dialogue = [
-    returning ? '¿Qué haces aquí si ya te boté? ¡Cara enojao! 😕' : '¡Hola, amigo!',
+    ...intro,
     'Soy Diffty, un chatbot en construcción.',
     'Mi dueño, Robin, es un tigre que está en cambios.',
     'Por eso, si él cambia, yo también.',
@@ -122,7 +131,7 @@
 
   mascot.hidden = false;
   mascot.addEventListener('click', () => {
-    if (line >= dialogue.length) return;
+    if (!command.hidden || line >= dialogue.length) return;
     if (line === 0 && !returning) {
       try {
         localStorage.setItem(visitedKey, 'true');
@@ -133,8 +142,28 @@
     // Replace the text node so the repeated “Basta” also updates the live region.
     mascotMessage.replaceChildren(document.createTextNode(dialogue[line]));
     line += 1;
-    if (line === dialogue.length) mascot.setAttribute('aria-disabled', 'true');
+    if (returning && line === intro.length) {
+      command.hidden = false;
+      commandInput.focus();
+    }
+    if (line === dialogue.length) errorScreen.showModal();
   });
+
+  command.addEventListener('submit', event => {
+    event.preventDefault();
+    if (commandInput.value.trim().toLowerCase() !== 'soy gil') {
+      mascotMessage.textContent = 'Oe, teclea: soy gil.';
+      commandInput.select();
+      return;
+    }
+    command.hidden = true;
+    command.reset();
+    mascot.focus();
+    mascot.click();
+  });
+
+  errorScreen.addEventListener('cancel', event => event.preventDefault());
+  errorScreen.querySelector('.diffty-reload').addEventListener('click', () => location.reload());
 
   document.querySelector('#year').textContent = new Date().getFullYear();
 })();

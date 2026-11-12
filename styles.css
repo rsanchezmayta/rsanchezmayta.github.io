@@ -108,8 +108,6 @@ img, svg { max-width: 100%; vertical-align: middle; }
   text-align: center;
   overflow-wrap: anywhere;
 }
-.mascot-message:empty { padding: 0; border: 0; }
-.mascot-button[aria-disabled="true"] { cursor: default; }
 .terminal-bar {
   display: flex;
   gap: .85rem;
@@ -247,3 +245,33 @@ img, svg { max-width: 100%; vertical-align: middle; }
   .logo-mark { width: 40px; height: 40px; }
   .appearance summary { font-size: .75rem; }
 }
+
+.mascot-message:has(.mascot-line:empty) { padding: 0; border: 0; }
+.mascot-command { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
+.mascot-command input, .mascot-command button {
+  min-width: 0;
+  padding: .45rem;
+  border: 1px solid var(--line);
+  border-radius: .35rem;
+  background: var(--surface);
+  color: var(--text);
+  font: .85rem var(--mono);
+}
+.mascot-command input { flex: 1 1 5rem; }
+.diffty-error {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1.5rem;
+  border: 0;
+  background: var(--surface);
+  color: var(--text);
+}
+.diffty-error[open] { display: grid; place-items: center; }
+.diffty-error-content { display: grid; gap: .85rem; width: min(100%, 36rem); }
+.diffty-error-content > p:first-child { color: var(--accent); font-family: var(--mono); }
+.diffty-reload { justify-self: start; }
