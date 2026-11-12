@@ -1,4 +1,5 @@
 (() => {
+  const english = document.documentElement.lang === 'en';
   const menu = document.querySelector('#menuBtn');
   const nav = document.querySelector('#navLinks');
   const navLinks = [...nav.querySelectorAll('.nav-link')];
@@ -7,7 +8,8 @@
   function setMenu(open) {
     nav.classList.toggle('open', open);
     menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    const labels = english ? ['Open navigation menu', 'Close navigation menu'] : ['Abrir menú de navegación', 'Cerrar menú de navegación'];
+    menu.setAttribute('aria-label', labels[Number(open)]);
   }
 
   menu.hidden = false;
@@ -54,7 +56,8 @@
       card.hidden = category !== 'all' && !card.dataset.category.split(' ').includes(category);
       if (!card.hidden) visible += 1;
     });
-    status.textContent = visible === 1 ? '1 proyecto visible' : `${visible} proyectos visibles`;
+    const label = english ? (visible === 1 ? 'project visible' : 'projects visible') : (visible === 1 ? 'proyecto visible' : 'proyectos visibles');
+    status.textContent = `${visible} ${label}`;
   }));
 
   const root = document.documentElement;

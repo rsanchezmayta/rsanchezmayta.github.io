@@ -47,22 +47,28 @@
           <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
         </ul>
       </nav>
-      <details class="appearance" hidden>
-        <summary>Apariencia</summary>
-        <div class="appearance-panel">
-          <label for="theme">Fondo</label>
-          <select id="theme">
-            <option value="dark">Oscuro</option>
-            <option value="light">Claro</option>
-          </select>
-          <label for="accent">Acento</label>
-          <select id="accent">
-            <option value="mint">Menta</option>
-            <option value="blue">Azul</option>
-            <option value="lavender">Lavanda</option>
-          </select>
-        </div>
-      </details>
+      <div class="nav-preferences">
+        <details class="appearance" hidden>
+          <summary>Apariencia</summary>
+          <div class="appearance-panel">
+            <label for="theme">Fondo</label>
+            <select id="theme">
+              <option value="dark">Oscuro</option>
+              <option value="light">Claro</option>
+            </select>
+            <label for="accent">Acento</label>
+            <select id="accent">
+              <option value="mint">Menta</option>
+              <option value="blue">Azul</option>
+              <option value="lavender">Lavanda</option>
+            </select>
+          </div>
+        </details>
+        <nav class="language-switch" aria-label="Idioma">
+          <a href="index.html" lang="es" hreflang="es" aria-current="page">ES</a>
+          <a href="en.html" lang="en" hreflang="en">EN</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -198,7 +204,7 @@
                 <span class="tag">Docker</span>
               </div>
               <div class="project-meta">
-                <span class="project-metric">Latencia p99: <45ms</span>
+                <span class="project-metric">Latencia p99: &lt;45ms</span>
                 <span class="project-metric">Throughput: 1.2k req/s</span>
               </div>
             </div>

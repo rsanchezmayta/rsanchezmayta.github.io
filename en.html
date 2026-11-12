@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Robinson Josuee Sanchez Mayta - Data Science and Artificial Intelligence Engineering | Portfolio & CV" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Robinson Josuee Sanchez Mayta | Data Science & AI Portfolio</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/wolf-32.png" />
+  <link rel="apple-touch-icon" href="images/wolf-180.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    try {
+      const preferences = JSON.parse(localStorage.getItem('portfolio-appearance'));
+      if (['light', 'dark'].includes(preferences?.theme)) document.documentElement.dataset.theme = preferences.theme;
+      if (['mint', 'blue', 'lavender'].includes(preferences?.accent)) document.documentElement.dataset.accent = preferences.accent;
+    } catch {
+      // The default appearance is available when storage is disabled.
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container nav-content">
+      <a href="#inicio" class="logo" aria-label="Home - Robinson Josuee Sanchez Mayta">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">rsanchezmayta</span>
+      </a>
+      <button hidden class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-line" aria-hidden="true"></span>
+        <span class="menu-line" aria-hidden="true"></span>
+        <span class="menu-line" aria-hidden="true"></span>
+      </button>
+      <nav id="navLinks" class="nav-links" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link" data-section="inicio" aria-current="location">Home</a></li>
+          <li><a href="#proyectos" class="nav-link" data-section="proyectos">Projects</a></li>
+          <li><a href="#sobre-mi" class="nav-link" data-section="sobre-mi">About</a></li>
+          <li><a href="#experiencia" class="nav-link" data-section="experiencia">Experience</a></li>
+          <li><a href="#habilidades" class="nav-link" data-section="habilidades">Skills</a></li>
+          <li><a href="#contacto" class="nav-link" data-section="contacto">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-preferences">
+        <details class="appearance" hidden>
+          <summary>Appearance</summary>
+          <div class="appearance-panel">
+            <label for="theme">Theme</label>
+            <select id="theme">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+            <label for="accent">Accent</label>
+            <select id="accent">
+              <option value="mint">Mint</option>
+              <option value="blue">Blue</option>
+              <option value="lavender">Lavender</option>
+            </select>
+          </div>
+        </details>
+        <nav class="language-switch" aria-label="Language">
+          <a href="index.html" lang="es" hreflang="es">ES</a>
+          <a href="en.html" lang="en" hreflang="en" aria-current="page">EN</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-window">
+        <div class="terminal-bar" aria-hidden="true"><span class="terminal-lights"></span><span>~/portafolio</span></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Lima, Peru
+            </p>
+            <h1 id="hero-title" class="hero-name">
+              Robinson Josuee
+              <span class="hero-surname">Sanchez Mayta</span>
+            </h1>
+            <p class="hero-role">Data Science and AI student at SENATI</p>
+            <p class="hero-desc">
+              I build machine learning models, automate data workflows, and develop APIs that bring analysis into applications.
+            </p>
+            <div class="hero-actions">
+              <a href="#proyectos" class="btn btn-primary">
+                <span>View projects</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </a>
+              <a href="#contacto" class="btn btn-secondary">
+                <span>Get in touch</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+            <a class="hero-github" href="https://github.com/rsanchezmayta">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-visual">
+            <button type="button" class="mascot-button" aria-label="Show a line from Diffty" hidden>
+              <img class="hero-brand" src="images/robot-512.png" alt="" width="512" height="512" />
+              <span aria-hidden="true">Diffty</span>
+              <span class="mascot-hint" aria-hidden="true"><span class="mascot-hint-click">Click me</span><span class="mascot-hint-tap">Tap me</span></span>
+            </button>
+            <noscript><img class="hero-brand" src="images/robot-512.png" alt="Diffty" width="512" height="512" /></noscript>
+            <div class="mascot-message">
+              <p lang="es" class="mascot-line" aria-hidden="true"></p>
+              <p lang="es" class="visually-hidden mascot-status" role="status"></p>
+              <form class="mascot-command" hidden>
+                <label class="visually-hidden" for="diffty-command">Command for Diffty</label>
+                <input id="diffty-command" type="text" placeholder="soy gil" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="send" required />
+                <button type="submit">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section" aria-labelledby="proj-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="proj-title" class="section-title">Selected projects</h2>
+          <p class="section-subtitle">Work in data science, machine learning, and backend development.</p>
+        </header>
+
+        <p id="projectStatus" class="visually-hidden" role="status"></p>
+        <div hidden class="project-filters" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
+          <button class="filter-btn" data-filter="data-eng" aria-pressed="false">Data Engineering</button>
+          <button class="filter-btn" data-filter="mlops" aria-pressed="false">MLOps & Deployment</button>
+          <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend APIs</button>
+          <button class="filter-btn" data-filter="llm" aria-pressed="false">LLM / RAG</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid" role="list">
+          <article class="project-card project-featured" data-category="backend ml" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Police reports in Peru</h3>
+              <p class="project-desc">A dashboard for exploring 369,000 SIDPOL–MININTER police reports through a map and REST API. It uses K-means to group records and SARIMA to forecast trends.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">Laravel 13 / PHP 8.3</span>
+              </div>
+              <a class="btn btn-secondary project-repo" href="https://github.com/rsanchezmayta/denuncias-policiales-peru">View repository on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="project-snapshot">
+              <span class="snapshot-label">Data analyzed · SIDPOL</span>
+              <strong>369,000</strong>
+              <span>police reports</span>
+              <div class="snapshot-flow" aria-label="Project workflow">
+                <span>Data</span><span aria-hidden="true">→</span><span>Analysis</span><span aria-hidden="true">→</span><span>Dashboard</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="ml" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Medical image classification</h3>
+              <p class="project-desc">A CNN for early detection of conditions in X-rays, using ResNet50 transfer learning, data augmentation, and Grad-CAM for explainability.</p>
+              <div class="project-tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">CNN</span>
+                <span class="tag">Computer Vision</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">Accuracy: 94.2%</span>
+                <span class="project-metric">F1-score: 0.93</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="ml" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Bank customer churn prediction</h3>
+              <p class="project-desc">Gradient boosting for customer churn prediction, with feature engineering, SMOTE, CI/CD in GitHub Actions, and monitoring with Evidently AI.</p>
+              <div class="project-tags">
+                <span class="tag">XGBoost</span>
+                <span class="tag">Feature Engineering</span>
+                <span class="tag">MLOps</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">ROC-AUC: 0.91</span>
+                <span class="project-metric">Recall: 0.87</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="mlops backend" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Real-time prediction API</h3>
+              <p class="project-desc">A REST API for serving ML models, with batch and online inference, Redis caching, rate limiting, health checks, structured logging, and Kubernetes deployment.</p>
+              <div class="project-tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">p99 latency: &lt;45ms</span>
+                <span class="project-metric">Throughput: 1.2k req/s</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="llm" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Document RAG assistant</h3>
+              <p class="project-desc">Question answering over private documents using RAG, Sentence Transformers embeddings, Chroma, reranking, and RAGAS evaluation.</p>
+              <div class="project-tags">
+                <span class="tag">LLM</span>
+                <span class="tag">RAG</span>
+                <span class="tag">LangChain</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">Faithfulness: 0.89</span>
+                <span class="project-metric">Answer Relevancy: 0.92</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="data-eng" role="listitem">
+            <div class="project-content">
+              <h3 class="project-title">Real estate ETL pipeline</h3>
+              <p class="project-desc">An end-to-end pipeline for real estate analysis in Lima. It extracts data from multiple sources, transforms it with Pandas and Polars, and loads it into a data warehouse using Airflow.</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Airflow</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-metric">15+ sources</span>
+                <span class="project-metric">Fully automated</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="about-title" class="section-title">About</h2>
+          <p class="section-subtitle">Education and next steps</p>
+        </header>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm <strong>Robinson Josuee Sanchez Mayta</strong>, and I study <strong>Data Science and Artificial Intelligence Engineering</strong> at SENATI (fifth semester). I enjoy finding patterns in data and using them to build practical predictive models.
+            </p>
+            <p>
+              My approach combines <strong>analytical rigor</strong> with <strong>technical creativity</strong>, from exploratory data analysis and feature engineering to deploying models with Docker and Kubernetes. I enjoy both detailed <em>feature engineering</em> and designing scalable data pipelines.
+            </p>
+            <p>
+              I'm currently deepening my knowledge of <strong>Deep Learning</strong>, <strong>MLOps</strong> and <strong>LLMs/RAG</strong>. I'm looking for an internship in data science, ML, data engineering, or backend development.
+            </p>
+
+            <div class="about-pillars">
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="pillar-content">
+                  <strong>Core stack</strong>
+                  <span>Python · SQL · PyTorch · TensorFlow · Pandas · Scikit-learn · XGBoost · Docker</span>
+                </div>
+              </article>
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="pillar-content">
+                  <strong>Approach</strong>
+                  <span>Data-centric · Reproducible · Scalable · Ethical · Clean code · Testing</span>
+                </div>
+              </article>
+              <article class="pillar">
+                <div class="pillar-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="pillar-content">
+                  <strong>Collaboration</strong>
+                  <span>Git · Docker · CI/CD · Code Review · Agile/Scrum · Pair Programming · Mentoring</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="about-bottom">
+              <h3 class="bottom-title">What's next?</h3>
+              <p class="bottom-text">
+                Building projects with <strong>LLMs and RAG</strong>, exploring <strong>advanced MLOps</strong>
+                and <strong>distributed systems architecture</strong>. I'd like to apply what I learn in an internship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section section-alt" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="exp-title" class="section-title">Experience</h2>
+          <p class="section-subtitle">My experience learning, building, and solving practical problems</p>
+        </header>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <time class="timeline-date" datetime="2024">2024 — Present</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Data science and AI projects</h3>
+                <p class="card-company">Independent and academic work</p>
+                <p class="card-desc">
+                  Designed and built end-to-end ML pipelines for ingestion, cleaning, feature engineering, experimentation with XGBoost, neural networks and transformers, Docker deployment, and monitoring. Used MLflow for reproducibility and DVC for versioning.
+                </p>
+                <div class="card-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">MLOps</span>
+                  <span class="tag">Docker</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <time class="timeline-date" datetime="2023">2023 — 2024</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Data analysis and business intelligence</h3>
+                <p class="card-company">Academic and freelance projects</p>
+                <p class="card-desc">
+                  Exploratory analysis, interactive dashboards, reporting automation, and complex SQL queries. Cleaned and transformed noisy datasets with missing values, outliers, and inconsistencies.
+                </p>
+                <div class="card-tags">
+                  <span class="tag">SQL</span>
+                  <span class="tag">Pandas</span>
+                  <span class="tag">Power BI</span>
+                  <span class="tag">EDA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <time class="timeline-date" datetime="2022">2022 — 2023</time>
+              <div class="timeline-body">
+                <h3 class="card-title">Backend and API development</h3>
+                <p class="card-company">Personal projects and internships</p>
+                <p class="card-desc">
+                  REST APIs with FastAPI, relational database design, JWT authentication, pytest, containerization, and deployment. Clean Architecture, SOLID, type hints, and OpenAPI documentation.
+                </p>
+                <div class="card-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Testing</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section section-alt" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="skills-title" class="section-title">Tools and technologies</h2>
+          <p class="section-subtitle">Tools I use day to day to solve data problems</p>
+        </header>
+        <div class="skills-categories">
+          <article class="skill-category">
+            <header class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
+              <h3>Machine Learning & AI</h3>
+            </header>
+            <ul class="skill-list">
+              <li>PyTorch / TensorFlow</li>
+              <li>Scikit-learn / XGBoost / LightGBM</li>
+              <li>Computer Vision (OpenCV, YOLO, Segmentation)</li>
+              <li>NLP / LLMs / RAG (HuggingFace, LangChain)</li>
+              <li>MLOps (MLflow, DVC, Evidently, Kubeflow)</li>
+            </ul>
+          </article>
+          <article class="skill-category">
+            <header class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+              </span>
+              <h3>Data Engineering & Analysis</h3>
+            </header>
+            <ul class="skill-list">
+              <li>Python (Pandas, NumPy, Polars)</li>
+              <li>SQL (PostgreSQL, MySQL, BigQuery)</li>
+              <li>Data Viz (Matplotlib, Seaborn, Plotly, Power BI)</li>
+              <li>ETL / Pipelines (Airflow, Prefect, dbt)</li>
+              <li>Big Data (Spark, Delta Lake, Parquet)</li>
+            </ul>
+          </article>
+          <article class="skill-category">
+            <header class="category-header">
+              <span class="category-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </span>
+              <h3>Backend & DevOps</h3>
+            </header>
+            <ul class="skill-list">
+              <li>FastAPI / Flask / REST APIs</li>
+              <li>Docker / Docker Compose</li>
+              <li>Git / GitHub Actions / CI-CD</li>
+              <li>Linux (Arch/Ubuntu), Bash, Vim</li>
+              <li>Cloud (AWS/GCP basics, Terraform intro)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="contact-title" class="section-title">Contact</h2>
+          <p class="section-subtitle">For internships and collaborations on data projects.</p>
+        </header>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <article class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <a href="mailto:robinsonjsm281006@gmail.com">robinsonjsm281006@gmail.com</a>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <a href="tel:+51900535071">+51 900 535 071</a>
+                <span class="contact-hint">Monday to Friday, 9 am–6 pm (GMT-5)</span>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <span>Ate, Lima, Peru</span>
+                <span class="contact-hint">Available for remote or hybrid work</span>
+              </div>
+            </article>
+            <nav class="contact-socials" aria-label="Professional profiles">
+              <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c1-1.3 2-1.6 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v6.6H9.1V9h3.4v1.6h.1c.5-1 1.7-2 3.5-2 3.7 0 4.4 2.4 4.4 5.6v6.9zM5.1 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.9 20.5H3.3V9h3.6v11.5z"/></svg>
+              </a>
+            </nav>
+          </div>
+          <div class="contact-form contact-cta">
+            <h3>Email me</h3>
+            <p>Tell me what you're building and how we could work together.</p>
+            <a class="btn btn-primary" href="mailto:robinsonjsm281006@gmail.com">Write an email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">© <span id="year"></span> Robinson Josuee Sanchez Mayta.</p>
+        <nav class="footer-nav" aria-label="Footer links">
+          <a href="https://github.com/rsanchezmayta" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/rsanchezmayta/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:robinsonjsm281006@gmail.com">Email</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="diffty-error" aria-labelledby="diffty-error-title">
+    <div class="diffty-error-content">
+      <p>~/portafolio · Diffty</p>
+      <h2 id="diffty-error-title">Diffty's error</h2>
+      <p lang="es" class="diffty-final-line" aria-hidden="true"></p>
+      <p class="visually-hidden" lang="es">Ya te kgaste…</p>
+      <p>That's the end of the script. Reload the page to return to the portfolio.</p>
+      <button type="button" class="btn btn-primary diffty-reload">Reload page</button>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>

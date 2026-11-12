@@ -317,3 +317,32 @@ img, svg { max-width: 100%; vertical-align: middle; }
   .diffty-error[open] { place-items: safe center; }
   .diffty-reload { width: 100%; }
 }
+
+.language-switch {
+  display: flex;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  font: .8rem var(--mono);
+}
+.language-switch a {
+  display: grid;
+  min-height: 44px;
+  min-width: 33px;
+  place-items: center;
+  color: var(--muted);
+  text-decoration: none;
+}
+.language-switch a[aria-current], .language-switch a:hover { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .nav-content { column-gap: .4rem; }
+  .logo { gap: .3rem; font-size: .85rem; }
+  .logo-mark { width: 32px; height: 32px; }
+  .appearance summary { padding-inline: .4rem; font-size: .72rem; }
+}
+
+.nav-preferences { display: flex; align-items: center; gap: .4rem; }
+@media (max-width: 760px) {
+  .nav-preferences { margin-left: auto; }
+}
