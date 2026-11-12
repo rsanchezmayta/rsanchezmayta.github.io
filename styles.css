@@ -48,8 +48,13 @@ img, svg { max-width: 100%; vertical-align: middle; }
 .navbar { position: sticky; top: 0; z-index: 3; background: var(--surface); border-bottom: 1px solid var(--line); }
 .nav-content, .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: .8rem; }
 .logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; font: 700 1.2rem var(--mono); }
-.logo-mark { width: 54px; height: 54px; }
-:root[data-theme="light"] .logo-mark { filter: brightness(.45); }
+.logo-mark {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background: var(--accent);
+  mask: url("images/wolf-192.png") center / contain no-repeat;
+}
 .nav-list { display: flex; flex-wrap: wrap; gap: .15rem; list-style: none; padding: 0; margin: 0; }
 .nav-link { display: block; padding: .55rem .7rem; color: var(--muted); text-decoration: none; border-radius: .5rem; font-size: .9rem; }
 .nav-link[aria-current], .nav-link:hover { color: var(--accent); background: var(--panel); }
