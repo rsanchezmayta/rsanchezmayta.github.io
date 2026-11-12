@@ -201,7 +201,7 @@ img, svg { max-width: 100%; vertical-align: middle; }
 
 .appearance[open] { z-index: 1; }
 
-@media (max-width: 380px) {
+@media (max-width: 440px) {
   .logo { gap: .35rem; font-size: .85rem; }
   .logo-mark { width: 28px; height: 28px; }
   .appearance summary { font-size: .75rem; }
