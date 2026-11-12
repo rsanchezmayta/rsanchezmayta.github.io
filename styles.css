@@ -109,6 +109,7 @@ img, svg { max-width: 100%; vertical-align: middle; }
   overflow-wrap: anywhere;
 }
 .mascot-message:empty { padding: 0; border: 0; }
+.mascot-button[aria-disabled="true"] { cursor: default; }
 .terminal-bar {
   display: flex;
   gap: .85rem;
@@ -198,8 +199,15 @@ img, svg { max-width: 100%; vertical-align: middle; }
   .js .nav-links.open { position: absolute; top: 100%; left: 0; background: var(--surface); padding: .75rem 1rem; border-bottom: 1px solid var(--line); }
   .js .nav-list { flex-direction: column; }
   .hero-content, .project-featured, .timeline-card, .contact-grid { grid-template-columns: minmax(0, 1fr); }
-  .hero-visual { width: 7rem; aspect-ratio: auto; }
-  .mascot-message { inset: auto auto 0 calc(100% + .4rem); max-width: none; width: min(9rem, calc(100vw - 11rem)); }
+  .hero-visual {
+    width: 100%;
+    aspect-ratio: auto;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: .5rem;
+    justify-items: start;
+    background: radial-gradient(circle at 3.5rem center, color-mix(in srgb, var(--accent) 28%, transparent), transparent 3.5rem);
+  }
+  .mascot-message { position: static; margin: 0; }
   .hero-actions .btn { padding-inline: .65rem; font-size: .95rem; }
   .about-pillars { grid-template-columns: minmax(0, 1fr); }
   .footer-content { flex-wrap: wrap; }

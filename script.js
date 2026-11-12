@@ -90,24 +90,50 @@
 
   const mascot = document.querySelector('.mascot-button');
   const mascotMessage = document.querySelector('.mascot-message');
-  const phrases = [
-    'Eres un talento',
-    'Me dejas bien',
-    'Tranquilo si',
-    'Si mano? ya mano.',
-    'Necistas un cambiar',
-    'Mi mejor elemento',
-    'Casi, Casi',
-    'Derrepente eres...'
+  const visitedKey = 'diffty-visited';
+  let returning = false;
+  try {
+    returning = localStorage.getItem(visitedKey) === 'true';
+  } catch {
+    // The dialogue still works when storage is unavailable.
+  }
+
+  const dialogue = [
+    returning ? '¿Qué haces aquí si ya te boté? ¡Cara enojao! 😕' : '¡Hola, amigo!',
+    'Soy Diffty, un chatbot en construcción.',
+    'Mi dueño, Robin, es un tigre que está en cambios.',
+    'Por eso, si él cambia, yo también.',
+    'En fin, esta es una página para que conozcas algo de este gomol, pes.',
+    'Que diga, de “Robin”.',
+    'Así que tú tranquilo, revisa nomás.',
+    'Eso sí, no seas tan 🐸, tampoco 🐟.',
+    'Pero con confianza.',
+    'Cualquier duda, pregúntale a la IA, p, BAB🐻.',
+    'Ya, como solo es un guion…',
+    'Me despido. Ya no des más clic.',
+    'Oe, te dije que ya no, AN🦖.',
+    '¿Tú no entiendes, no?',
+    'Basta.',
+    'Basta.',
+    'Cánsate, pes.',
+    'Ya te kgaste…'
   ];
-  let previous = -1;
+  let line = 0;
 
   mascot.hidden = false;
   mascot.addEventListener('click', () => {
-    const choices = previous === -1 ? phrases.length : phrases.length - 1;
-    const choice = Math.floor(Math.random() * choices);
-    previous = previous !== -1 && choice >= previous ? choice + 1 : choice;
-    mascotMessage.textContent = phrases[previous];
+    if (line >= dialogue.length) return;
+    if (line === 0 && !returning) {
+      try {
+        localStorage.setItem(visitedKey, 'true');
+      } catch {
+        // The greeting can repeat on a later visit without storage.
+      }
+    }
+    // Replace the text node so the repeated “Basta” also updates the live region.
+    mascotMessage.replaceChildren(document.createTextNode(dialogue[line]));
+    line += 1;
+    if (line === dialogue.length) mascot.setAttribute('aria-disabled', 'true');
   });
 
   document.querySelector('#year').textContent = new Date().getFullYear();
