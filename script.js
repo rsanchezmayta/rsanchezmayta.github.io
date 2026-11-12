@@ -90,6 +90,30 @@
 
   const mascot = document.querySelector('.mascot-button');
   const mascotMessage = document.querySelector('.mascot-line');
+  const mascotStatus = document.querySelector('.mascot-status');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('es') : null;
+  let typingTimer;
+
+  function showMascotLine(text, output = mascotMessage) {
+    clearTimeout(typingTimer);
+    mascotStatus.replaceChildren(document.createTextNode(text));
+    if (reducedMotion.matches) {
+      output.textContent = text;
+      return;
+    }
+
+    const characters = segmenter ? Array.from(segmenter.segment(text), part => part.segment) : Array.from(text);
+    let index = 0;
+    output.textContent = '';
+    function typeNext() {
+      output.textContent += characters[index];
+      index += 1;
+      if (index < characters.length) typingTimer = setTimeout(typeNext, 23);
+    }
+    typeNext();
+  }
+
   const command = document.querySelector('.mascot-command');
   const commandInput = document.querySelector('#diffty-command');
   const errorScreen = document.querySelector('.diffty-error');
@@ -139,20 +163,24 @@
         // The greeting can repeat on a later visit without storage.
       }
     }
-    // Replace the text node so the repeated “Basta” also updates the live region.
-    mascotMessage.replaceChildren(document.createTextNode(dialogue[line]));
+    const text = dialogue[line];
     line += 1;
+    if (line === dialogue.length) {
+      errorScreen.showModal();
+      showMascotLine(text, errorScreen.querySelector('.diffty-final-line'));
+      return;
+    }
+    showMascotLine(text);
     if (returning && line === intro.length) {
       command.hidden = false;
       commandInput.focus();
     }
-    if (line === dialogue.length) errorScreen.showModal();
   });
 
   command.addEventListener('submit', event => {
     event.preventDefault();
     if (commandInput.value.trim().toLowerCase() !== 'soy gil') {
-      mascotMessage.textContent = 'Oe, teclea: soy gil.';
+      showMascotLine('Oe, teclea: soy gil.');
       commandInput.select();
       return;
     }

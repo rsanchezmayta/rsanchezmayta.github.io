@@ -103,7 +103,8 @@
             </button>
             <noscript><img class="hero-brand" src="images/robot-512.png" alt="Diffty" width="512" height="512" /></noscript>
             <div class="mascot-message">
-              <p class="mascot-line" role="status"></p>
+              <p class="mascot-line" aria-hidden="true"></p>
+              <p class="visually-hidden mascot-status" role="status"></p>
               <form class="mascot-command" hidden>
                 <label class="visually-hidden" for="diffty-command">Comando para Diffty</label>
                 <input id="diffty-command" type="text" placeholder="soy gil" autocomplete="off" required />
@@ -499,7 +500,8 @@
     <div class="diffty-error-content">
       <p>~/portafolio · Diffty</p>
       <h2 id="diffty-error-title">Error de Diffty</h2>
-      <p>Ya te kgaste…</p>
+      <p class="diffty-final-line" aria-hidden="true"></p>
+      <p class="visually-hidden">Ya te kgaste…</p>
       <p>Se acabó el guion, pes. Recarga la página para volver al portafolio.</p>
       <button type="button" class="btn btn-primary diffty-reload">Recargar página</button>
     </div>
