@@ -88,5 +88,27 @@
     appearance.querySelector('summary').focus();
   });
 
+  const mascot = document.querySelector('.mascot-button');
+  const mascotMessage = document.querySelector('.mascot-message');
+  const phrases = [
+    'Eres un talento',
+    'Me dejas bien',
+    'Tranquilo si',
+    'Si mano? ya mano.',
+    'Necistas un cambiar',
+    'Mi mejor elemento',
+    'Casi, Casi',
+    'Derrepente eres...'
+  ];
+  let previous = -1;
+
+  mascot.hidden = false;
+  mascot.addEventListener('click', () => {
+    const choices = previous === -1 ? phrases.length : phrases.length - 1;
+    const choice = Math.floor(Math.random() * choices);
+    previous = previous !== -1 && choice >= previous ? choice + 1 : choice;
+    mascotMessage.textContent = phrases[previous];
+  });
+
   document.querySelector('#year').textContent = new Date().getFullYear();
 })();

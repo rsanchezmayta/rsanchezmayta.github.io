@@ -78,11 +78,37 @@ img, svg { max-width: 100%; vertical-align: middle; }
 .hero-visual {
   display: grid;
   place-items: center;
+  position: relative;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, #d1e5d8 78%, var(--accent)), transparent 69%);
 }
 .hero-brand { width: 85%; height: auto; }
+.mascot-button {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  padding: 0 0 .5rem;
+  border: 0;
+  border-radius: 1rem;
+  background: none;
+  font: .85rem var(--mono);
+  color: var(--accent);
+}
+.mascot-message {
+  position: absolute;
+  inset: auto 0 100%;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: .55rem .85rem;
+  border: 1px solid var(--accent);
+  border-radius: .65rem;
+  background: var(--panel);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.mascot-message:empty { padding: 0; border: 0; }
 .terminal-bar {
   display: flex;
   gap: .85rem;
@@ -172,7 +198,8 @@ img, svg { max-width: 100%; vertical-align: middle; }
   .js .nav-links.open { position: absolute; top: 100%; left: 0; background: var(--surface); padding: .75rem 1rem; border-bottom: 1px solid var(--line); }
   .js .nav-list { flex-direction: column; }
   .hero-content, .project-featured, .timeline-card, .contact-grid { grid-template-columns: minmax(0, 1fr); }
-  .hero-visual { display: none; }
+  .hero-visual { width: 7rem; aspect-ratio: auto; }
+  .mascot-message { inset: auto auto 0 calc(100% + .4rem); max-width: none; width: min(9rem, calc(100vw - 11rem)); }
   .hero-actions .btn { padding-inline: .65rem; font-size: .95rem; }
   .about-pillars { grid-template-columns: minmax(0, 1fr); }
   .footer-content { flex-wrap: wrap; }
