@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <script>
     try {
       const preferences = JSON.parse(localStorage.getItem('portfolio-appearance'));
@@ -68,36 +68,37 @@
 
   <main id="main-content">
     <section id="inicio" class="hero" aria-labelledby="hero-title">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <p class="hero-badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Lima, Perú
-          </p>
-          <h1 id="hero-title" class="hero-name">
-            Robinson J.
-            <span class="hero-surname">Sánchez Mayta</span>
-          </h1>
-          <p class="hero-role">Estudiante de Ciencia de Datos e IA en SENATI</p>
-          <p class="hero-desc">
-            Desarrollo modelos de aprendizaje automático, automatizo flujos de datos y construyo APIs para llevar los análisis a aplicaciones.
-          </p>
-          <div class="hero-actions">
-            <a href="#proyectos" class="btn btn-primary">
-              <span>Ver proyectos</span>
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </a>
-            <a href="#contacto" class="btn btn-secondary">
-              <span>Contactar</span>
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
+      <div class="container hero-window">
+        <div class="terminal-bar" aria-hidden="true"><span class="terminal-lights"></span><span>~/portafolio</span></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Lima, Perú
+            </p>
+            <h1 id="hero-title" class="hero-name">
+              Robinson J.
+              <span class="hero-surname">Sánchez Mayta</span>
+            </h1>
+            <p class="hero-role">Estudiante de Ciencia de Datos e IA en SENATI</p>
+            <p class="hero-desc">
+              Desarrollo modelos de aprendizaje automático, automatizo flujos de datos y construyo APIs para llevar los análisis a aplicaciones.
+            </p>
+            <div class="hero-actions">
+              <a href="#proyectos" class="btn btn-primary">
+                <span>Ver proyectos</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </a>
+              <a href="#contacto" class="btn btn-secondary">
+                <span>Contactar</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+            <a class="hero-github" href="https://github.com/rsanchezmayta">GitHub <span aria-hidden="true">↗</span></a>
           </div>
-          <a class="hero-github" href="https://github.com/rsanchezmayta">GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="terminal-bar"><span class="terminal-lights"></span><span>~/portafolio</span></div>
-          <img class="hero-brand" src="images/brand-rs.png" alt="" width="512" height="512" />
-          <div class="terminal-prompt"><span>$</span> python -m portfolio</div>
+          <div class="hero-visual" aria-hidden="true">
+            <img class="hero-brand" src="images/brand-rs.png" alt="" width="512" height="512" />
+          </div>
         </div>
       </div>
     </section>
@@ -122,13 +123,13 @@
         <div class="projects-grid" id="projectsGrid" role="list">
           <article class="project-card project-featured" data-category="backend ml" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">Denuncias policiales en Perú</h3>
+              <p class="project-desc">Tablero para explorar 369 mil denuncias del SIDPOL–MININTER mediante un mapa y una API REST. El proyecto usa K-means para agrupar registros y SARIMA para pronosticar tendencias.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span>
                 <span class="tag">PHP</span>
                 <span class="tag">MySQL</span>
               </div>
-              <h3 class="project-title">Denuncias policiales en Perú</h3>
-              <p class="project-desc">Tablero para explorar 369 mil denuncias del SIDPOL–MININTER mediante un mapa y una API REST. El proyecto usa K-means para agrupar registros y SARIMA para pronosticar tendencias.</p>
               <div class="project-meta">
                 <span class="project-metric">Laravel 13 / PHP 8.3</span>
               </div>
@@ -145,13 +146,13 @@
           </article>
           <article class="project-card" data-category="ml" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">Clasificación de Imágenes Médicas</h3>
+              <p class="project-desc">CNN para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
               <div class="project-tags">
                 <span class="tag">PyTorch</span>
                 <span class="tag">CNN</span>
                 <span class="tag">Computer Vision</span>
               </div>
-              <h3 class="project-title">Clasificación de Imágenes Médicas</h3>
-              <p class="project-desc">CNN para detección temprana de patologías en radiografías. Transfer learning con ResNet50, data augmentation avanzada, Grad-CAM para explicabilidad.</p>
               <div class="project-meta">
                 <span class="project-metric">Accuracy: 94.2%</span>
                 <span class="project-metric">F1-score: 0.93</span>
@@ -160,13 +161,13 @@
           </article>
           <article class="project-card" data-category="ml" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">Predicción de Churn Bancario</h3>
+              <p class="project-desc">Gradient boosting para predecir abandono de clientes. Feature engineering extensivo, SMOTE, pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
               <div class="project-tags">
                 <span class="tag">XGBoost</span>
                 <span class="tag">Feature Engineering</span>
                 <span class="tag">MLOps</span>
               </div>
-              <h3 class="project-title">Predicción de Churn Bancario</h3>
-              <p class="project-desc">Gradient boosting para predecir abandono de clientes. Feature engineering extensivo, SMOTE, pipeline CI/CD con GitHub Actions, monitoring con Evidently AI.</p>
               <div class="project-meta">
                 <span class="project-metric">ROC-AUC: 0.91</span>
                 <span class="project-metric">Recall: 0.87</span>
@@ -175,13 +176,13 @@
           </article>
           <article class="project-card" data-category="mlops backend" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">API de Predicción en Tiempo Real</h3>
+              <p class="project-desc">Servicio RESTful para servir modelos ML. Batch & online inference, Redis caching, rate limiting, health checks, logging estructurado, deploy en Kubernetes.</p>
               <div class="project-tags">
                 <span class="tag">FastAPI</span>
                 <span class="tag">PostgreSQL</span>
                 <span class="tag">Docker</span>
               </div>
-              <h3 class="project-title">API de Predicción en Tiempo Real</h3>
-              <p class="project-desc">Servicio RESTful para servir modelos ML. Batch & online inference, Redis caching, rate limiting, health checks, logging estructurado, deploy en Kubernetes.</p>
               <div class="project-meta">
                 <span class="project-metric">Latencia p99: <45ms</span>
                 <span class="project-metric">Throughput: 1.2k req/s</span>
@@ -190,13 +191,13 @@
           </article>
           <article class="project-card" data-category="llm" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">Asistente RAG Documental</h3>
+              <p class="project-desc">QA sobre documentos privados con RAG. Embeddings sentence-transformers, Chroma vector store, reranking, evaluación con RAGAS.</p>
               <div class="project-tags">
                 <span class="tag">LLM</span>
                 <span class="tag">RAG</span>
                 <span class="tag">LangChain</span>
               </div>
-              <h3 class="project-title">Asistente RAG Documental</h3>
-              <p class="project-desc">QA sobre documentos privados con RAG. Embeddings sentence-transformers, Chroma vector store, reranking, evaluación con RAGAS.</p>
               <div class="project-meta">
                 <span class="project-metric">Faithfulness: 0.89</span>
                 <span class="project-metric">Answer Relevancy: 0.92</span>
@@ -205,13 +206,13 @@
           </article>
           <article class="project-card" data-category="data-eng" role="listitem">
             <div class="project-content">
+              <h3 class="project-title">Pipeline ETL Inmobiliario</h3>
+              <p class="project-desc">Pipeline end-to-end para análisis inmobiliario en Lima. Extracción multi-fuente, transformación Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
               <div class="project-tags">
                 <span class="tag">Python</span>
                 <span class="tag">Airflow</span>
                 <span class="tag">PostgreSQL</span>
               </div>
-              <h3 class="project-title">Pipeline ETL Inmobiliario</h3>
-              <p class="project-desc">Pipeline end-to-end para análisis inmobiliario en Lima. Extracción multi-fuente, transformación Pandas/Polars, carga a Data Warehouse, orchestration con Airflow.</p>
               <div class="project-meta">
                 <span class="project-metric">15+ fuentes</span>
                 <span class="project-metric">Automatizado 100%</span>
