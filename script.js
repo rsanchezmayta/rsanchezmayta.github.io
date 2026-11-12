@@ -98,21 +98,23 @@
   const segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('es') : null;
   let typingTimer;
 
-  function showMascotLine(text, output = mascotMessage) {
+  function showMascotLine(text, onComplete) {
     clearTimeout(typingTimer);
     mascotStatus.replaceChildren(document.createTextNode(text));
     if (reducedMotion.matches) {
-      output.textContent = text;
+      mascotMessage.textContent = text;
+      onComplete?.();
       return;
     }
 
     const characters = segmenter ? Array.from(segmenter.segment(text), part => part.segment) : Array.from(text);
     let index = 0;
-    output.textContent = '';
+    mascotMessage.textContent = '';
     function typeNext() {
-      output.textContent += characters[index];
+      mascotMessage.textContent += characters[index];
       index += 1;
       if (index < characters.length) typingTimer = setTimeout(typeNext, 23);
+      else onComplete?.();
     }
     typeNext();
   }
@@ -152,7 +154,7 @@
     'Basta.',
     'Basta.',
     'Cánsate, pes.',
-    'Ya te kgaste…'
+    'Ya te kgaste… 🤫'
   ];
   let line = 0;
 
@@ -170,8 +172,8 @@
     const text = dialogue[line];
     line += 1;
     if (line === dialogue.length) {
-      errorScreen.showModal();
-      showMascotLine(text, errorScreen.querySelector('.diffty-final-line'));
+      mascotMessage.parentElement.classList.add('mascot-finale');
+      showMascotLine(text, () => setTimeout(() => errorScreen.showModal(), 2000));
       return;
     }
     showMascotLine(text);
